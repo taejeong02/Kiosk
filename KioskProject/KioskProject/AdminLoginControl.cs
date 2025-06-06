@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace KioskProject
+{
+    internal class AdminLoginControl
+    {
+        public bool admin_Login(string ID, string PW) // 로그인 함수
+        {            
+            adminDB db = new adminDB(); // db클래스 객체 생성
+            bool id_status = db.FindAdminById(ID); // db클래스의 FindAdminById함수 호출 => id 존재 여부 확인 있으면 id_status=true
+            bool pw_status; // 비밀번호 상태여부를 저장할 bool형 변수
+
+            if (id_status == true) // adminLogin 함수를 호출하면 위 id_status부분 FindAdminById 함수가 실행됨.
+                // 해당 함수의 결과 분기는 id 존재 여부, id가 존재하면 (id_status=true)
+            {
+                pw_status = db.validateAdminAccount(ID, PW); // db에 저장된 id와 pw가 일치하는지 검사하는 함수 => 마찬가지로
+                // 일치하면 true, 아니면 false
+                if (pw_status == false) 
+                { 
+                    return false; // adminLogin함수의 반환값이 false => 로그인UI에서 보면 if else 문 있는데 else문으로 넘어가서 로그인 실패
+                }
+                else 
+                { 
+                    MessageBox.Show("성공"); // id, pw가 일치하는 경우
+                    return pw_status; // pw_status의 값이 true이므로 true를 반환하기때문에 로그인ui로 true가 넘어가서 로그인 성공
+                }
+            }
+            else  // id pw 둘다 일치 하지 않는 경우에 이 분기로 넘어오게됨
+            {
+                MessageBox.Show("아이디가 존재하지 않습니다.");
+                return false; 
+            }
+        }
+    }
+}
