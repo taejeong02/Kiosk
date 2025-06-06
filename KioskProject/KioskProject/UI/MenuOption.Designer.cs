@@ -49,26 +49,22 @@
             // 
             // btnmius
             // 
-            this.btnmius.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnmius.Location = new System.Drawing.Point(462, 514);
             this.btnmius.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnmius.Name = "btnmius";
             this.btnmius.Size = new System.Drawing.Size(46, 39);
             this.btnmius.TabIndex = 26;
             this.btnmius.Text = "-";
-            this.btnmius.UseVisualStyleBackColor = true;
             this.btnmius.Click += new System.EventHandler(this.btnmius_Click);
             // 
             // btnplus
             // 
-            this.btnplus.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold);
             this.btnplus.Location = new System.Drawing.Point(364, 514);
             this.btnplus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnplus.Name = "btnplus";
             this.btnplus.Size = new System.Drawing.Size(46, 39);
             this.btnplus.TabIndex = 25;
             this.btnplus.Text = "+";
-            this.btnplus.UseVisualStyleBackColor = true;
             this.btnplus.Click += new System.EventHandler(this.btnplus_Click);
             // 
             // lblQuantity
@@ -115,7 +111,6 @@
             this.btnFour.Size = new System.Drawing.Size(88, 74);
             this.btnFour.TabIndex = 19;
             this.btnFour.Text = "엄청매운맛";
-            this.btnFour.UseVisualStyleBackColor = true;
             this.btnFour.Click += new System.EventHandler(this.btnfour_Click);
             // 
             // btnThree
@@ -126,7 +121,6 @@
             this.btnThree.Size = new System.Drawing.Size(88, 74);
             this.btnThree.TabIndex = 18;
             this.btnThree.Text = "매운맛";
-            this.btnThree.UseVisualStyleBackColor = true;
             this.btnThree.Click += new System.EventHandler(this.btnthree_Click);
             // 
             // btnTwo
@@ -137,7 +131,6 @@
             this.btnTwo.Size = new System.Drawing.Size(88, 74);
             this.btnTwo.TabIndex = 17;
             this.btnTwo.Text = "보통맛";
-            this.btnTwo.UseVisualStyleBackColor = true;
             this.btnTwo.Click += new System.EventHandler(this.btntwo_Click);
             // 
             // btnOne
@@ -148,7 +141,6 @@
             this.btnOne.Size = new System.Drawing.Size(88, 74);
             this.btnOne.TabIndex = 16;
             this.btnOne.Text = "순한맛";
-            this.btnOne.UseVisualStyleBackColor = true;
             this.btnOne.Click += new System.EventHandler(this.btnone_Click);
             // 
             // label4
@@ -186,7 +178,6 @@
             this.btnLaze.Size = new System.Drawing.Size(122, 112);
             this.btnLaze.TabIndex = 12;
             this.btnLaze.Text = "button3";
-            this.btnLaze.UseVisualStyleBackColor = true;
             this.btnLaze.Click += new System.EventHandler(this.btnLaze_Click_1);
             // 
             // btnMiddle
@@ -197,7 +188,6 @@
             this.btnMiddle.Size = new System.Drawing.Size(122, 112);
             this.btnMiddle.TabIndex = 11;
             this.btnMiddle.Text = "button2";
-            this.btnMiddle.UseVisualStyleBackColor = true;
             this.btnMiddle.Click += new System.EventHandler(this.btnMiddle_Click_1);
             // 
             // btnAddCart
@@ -208,13 +198,12 @@
             this.btnAddCart.Size = new System.Drawing.Size(449, 62);
             this.btnAddCart.TabIndex = 10;
             this.btnAddCart.Text = "장바구니 추가";
-            this.btnAddCart.UseVisualStyleBackColor = true;
             this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
             // 
             // lblMenuName
             // 
             this.lblMenuName.AutoSize = true;
-            this.lblMenuName.Location = new System.Drawing.Point(35, 28);
+            this.lblMenuName.Location = new System.Drawing.Point(23, 30);
             this.lblMenuName.Name = "lblMenuName";
             this.lblMenuName.Size = new System.Drawing.Size(65, 19);
             this.lblMenuName.TabIndex = 27;

@@ -26,11 +26,5 @@ namespace KioskProject
             adminRegist.admin_account_SaverDB(ID, PW); // adminregistControl의 amdin_account_saveDB함수의 인자에
                                                        // 위의 string변수 2개를 인자로 넘김
         }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            AdminRegistControl test123 = new AdminRegistControl(); // 고유키 테스트 => 추후 삭제예정임 신경안써도됌
-            metroLabel4.Text = test123.admin_key_generation();
-        }
     }
 }

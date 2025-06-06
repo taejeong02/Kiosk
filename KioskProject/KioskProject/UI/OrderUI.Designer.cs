@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnDrink = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnDrink = new MetroFramework.Controls.MetroButton();
+            this.btnBack = new MetroFramework.Controls.MetroButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.count = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNoodles = new System.Windows.Forms.Button();
-            this.btnRice = new System.Windows.Forms.Button();
-            this.btnSide = new System.Windows.Forms.Button();
-            this.btnAlcohol = new System.Windows.Forms.Button();
-            this.btnsuggestion = new System.Windows.Forms.Button();
-            this.btnSetmenu = new System.Windows.Forms.Button();
+            this.label1 = new MetroFramework.Controls.MetroLabel();
+            this.count = new MetroFramework.Controls.MetroLabel();
+            this.button1 = new MetroFramework.Controls.MetroButton();
+            this.btnNoodles = new MetroFramework.Controls.MetroButton();
+            this.btnRice = new MetroFramework.Controls.MetroButton();
+            this.btnSide = new MetroFramework.Controls.MetroButton();
+            this.btnAlcohol = new MetroFramework.Controls.MetroButton();
+            this.btnsuggestion = new MetroFramework.Controls.MetroButton();
+            this.btnSetmenu = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -190,7 +190,6 @@
             this.Controls.Add(this.btnNoodles);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "OrderUI";
-            this.Text = "OrderUI";
             this.Load += new System.EventHandler(this.OrderUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,18 +199,18 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btnDrink;
-        private System.Windows.Forms.Button btnBack;
+        private MetroFramework.Controls.MetroButton btnDrink;
+        private MetroFramework.Controls.MetroButton btnBack;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label count;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnNoodles;
-        private System.Windows.Forms.Button btnRice;
-        private System.Windows.Forms.Button btnSide;
-        private System.Windows.Forms.Button btnAlcohol;
-        private System.Windows.Forms.Button btnsuggestion;
-        private System.Windows.Forms.Button btnSetmenu;
+        private MetroFramework.Controls.MetroLabel label1;
+        private MetroFramework.Controls.MetroLabel count;
+        private MetroFramework.Controls.MetroButton button1;
+        private MetroFramework.Controls.MetroButton btnNoodles;
+        private MetroFramework.Controls.MetroButton btnRice;
+        private MetroFramework.Controls.MetroButton btnSide;
+        private MetroFramework.Controls.MetroButton btnAlcohol;
+        private MetroFramework.Controls.MetroButton btnsuggestion;
+        private MetroFramework.Controls.MetroButton btnSetmenu;
     }
 }
 
