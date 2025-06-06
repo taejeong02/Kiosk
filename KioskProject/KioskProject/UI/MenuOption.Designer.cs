@@ -30,21 +30,21 @@
         {
             this.btnmius = new System.Windows.Forms.Button();
             this.btnplus = new System.Windows.Forms.Button();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblQuantity = new MetroFramework.Controls.MetroLabel();
+            this.lblPrice = new MetroFramework.Controls.MetroLabel();
+            this.label7 = new MetroFramework.Controls.MetroLabel();
+            this.label5 = new MetroFramework.Controls.MetroLabel();
             this.btnFour = new System.Windows.Forms.Button();
             this.btnThree = new System.Windows.Forms.Button();
             this.btnTwo = new System.Windows.Forms.Button();
             this.btnOne = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new MetroFramework.Controls.MetroLabel();
+            this.label3 = new MetroFramework.Controls.MetroLabel();
+            this.label2 = new MetroFramework.Controls.MetroLabel();
             this.btnLaze = new System.Windows.Forms.Button();
             this.btnMiddle = new System.Windows.Forms.Button();
             this.btnAddCart = new System.Windows.Forms.Button();
-            this.lblMenuName = new System.Windows.Forms.Label();
+            this.lblMenuName = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // btnmius
@@ -221,10 +221,10 @@
             // lblMenuName
             // 
             this.lblMenuName.AutoSize = true;
-            this.lblMenuName.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblMenuName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblMenuName.Location = new System.Drawing.Point(35, 28);
             this.lblMenuName.Name = "lblMenuName";
-            this.lblMenuName.Size = new System.Drawing.Size(114, 32);
+            this.lblMenuName.Size = new System.Drawing.Size(99, 33);
             this.lblMenuName.TabIndex = 27;
             this.lblMenuName.Text = "음식이름";
             // 
@@ -251,7 +251,6 @@
             this.Controls.Add(this.btnMiddle);
             this.Controls.Add(this.btnAddCart);
             this.Name = "MenuOption";
-            this.Text = "MenuOption";
             this.Load += new System.EventHandler(this.MenuOption_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -262,20 +261,20 @@
 
         private System.Windows.Forms.Button btnmius;
         private System.Windows.Forms.Button btnplus;
-        private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
+        private MetroFramework.Controls.MetroLabel lblQuantity;
+        private MetroFramework.Controls.MetroLabel lblPrice;
+        private MetroFramework.Controls.MetroLabel label7;
+        private MetroFramework.Controls.MetroLabel label5;
         private System.Windows.Forms.Button btnFour;
         private System.Windows.Forms.Button btnThree;
         private System.Windows.Forms.Button btnTwo;
         private System.Windows.Forms.Button btnOne;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private MetroFramework.Controls.MetroLabel label4;
+        private MetroFramework.Controls.MetroLabel label3;
+        private MetroFramework.Controls.MetroLabel label2;
         private System.Windows.Forms.Button btnLaze;
         private System.Windows.Forms.Button btnMiddle;
         public System.Windows.Forms.Button btnAddCart;
-        private System.Windows.Forms.Label lblMenuName;
+        private MetroFramework.Controls.MetroLabel lblMenuName;
     }
 }

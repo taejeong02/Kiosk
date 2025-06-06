@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class MenuOption : Form
+    public partial class MenuOption : MetroFramework.Forms.MetroForm
     {
         private MenuItem selectedItem;
         private MenuOptionData selectedOption = new MenuOptionData();
