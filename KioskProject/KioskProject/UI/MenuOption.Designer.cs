@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnmius = new System.Windows.Forms.Button();
-            this.btnplus = new System.Windows.Forms.Button();
+            this.btnmius = new MetroFramework.Controls.MetroButton();
+            this.btnplus = new MetroFramework.Controls.MetroButton();
             this.lblQuantity = new MetroFramework.Controls.MetroLabel();
             this.lblPrice = new MetroFramework.Controls.MetroLabel();
             this.label7 = new MetroFramework.Controls.MetroLabel();
             this.label5 = new MetroFramework.Controls.MetroLabel();
-            this.btnFour = new System.Windows.Forms.Button();
-            this.btnThree = new System.Windows.Forms.Button();
-            this.btnTwo = new System.Windows.Forms.Button();
-            this.btnOne = new System.Windows.Forms.Button();
+            this.btnFour = new MetroFramework.Controls.MetroButton();
+            this.btnThree = new MetroFramework.Controls.MetroButton();
+            this.btnTwo = new MetroFramework.Controls.MetroButton();
+            this.btnOne = new MetroFramework.Controls.MetroButton();
             this.label4 = new MetroFramework.Controls.MetroLabel();
             this.label3 = new MetroFramework.Controls.MetroLabel();
             this.label2 = new MetroFramework.Controls.MetroLabel();
-            this.btnLaze = new System.Windows.Forms.Button();
-            this.btnMiddle = new System.Windows.Forms.Button();
-            this.btnAddCart = new System.Windows.Forms.Button();
+            this.btnLaze = new MetroFramework.Controls.MetroButton();
+            this.btnMiddle = new MetroFramework.Controls.MetroButton();
+            this.btnAddCart = new MetroFramework.Controls.MetroButton();
             this.lblMenuName = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
@@ -74,40 +74,36 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblQuantity.Location = new System.Drawing.Point(424, 526);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(20, 19);
+            this.lblQuantity.Size = new System.Drawing.Size(16, 19);
             this.lblQuantity.TabIndex = 24;
             this.lblQuantity.Text = "0";
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblPrice.Location = new System.Drawing.Point(416, 599);
+            this.lblPrice.Location = new System.Drawing.Point(424, 599);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(22, 22);
+            this.lblPrice.Size = new System.Drawing.Size(16, 19);
             this.lblPrice.TabIndex = 22;
             this.lblPrice.Text = "0";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(71, 599);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 22);
+            this.label7.Size = new System.Drawing.Size(65, 19);
             this.label7.TabIndex = 21;
             this.label7.Text = "주문금액";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(70, 522);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 22);
+            this.label5.Size = new System.Drawing.Size(37, 19);
             this.label5.TabIndex = 20;
             this.label5.Text = "수량";
             // 
@@ -158,30 +154,27 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(50, 314);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 22);
+            this.label4.Size = new System.Drawing.Size(37, 19);
             this.label4.TabIndex = 15;
             this.label4.Text = "맵기";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(365, 219);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 19);
+            this.label3.Size = new System.Drawing.Size(51, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "곱빼기";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(152, 219);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 19);
+            this.label2.Size = new System.Drawing.Size(37, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "기본";
             // 
@@ -221,10 +214,9 @@
             // lblMenuName
             // 
             this.lblMenuName.AutoSize = true;
-            this.lblMenuName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblMenuName.Location = new System.Drawing.Point(35, 28);
             this.lblMenuName.Name = "lblMenuName";
-            this.lblMenuName.Size = new System.Drawing.Size(99, 33);
+            this.lblMenuName.Size = new System.Drawing.Size(65, 19);
             this.lblMenuName.TabIndex = 27;
             this.lblMenuName.Text = "음식이름";
             // 
@@ -259,22 +251,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnmius;
-        private System.Windows.Forms.Button btnplus;
+        private MetroFramework.Controls.MetroButton btnmius;
+        private MetroFramework.Controls.MetroButton btnplus;
         private MetroFramework.Controls.MetroLabel lblQuantity;
         private MetroFramework.Controls.MetroLabel lblPrice;
         private MetroFramework.Controls.MetroLabel label7;
         private MetroFramework.Controls.MetroLabel label5;
-        private System.Windows.Forms.Button btnFour;
-        private System.Windows.Forms.Button btnThree;
-        private System.Windows.Forms.Button btnTwo;
-        private System.Windows.Forms.Button btnOne;
+        private MetroFramework.Controls.MetroButton btnFour;
+        private MetroFramework.Controls.MetroButton btnThree;
+        private MetroFramework.Controls.MetroButton btnTwo;
+        private MetroFramework.Controls.MetroButton btnOne;
         private MetroFramework.Controls.MetroLabel label4;
         private MetroFramework.Controls.MetroLabel label3;
         private MetroFramework.Controls.MetroLabel label2;
-        private System.Windows.Forms.Button btnLaze;
-        private System.Windows.Forms.Button btnMiddle;
-        public System.Windows.Forms.Button btnAddCart;
+        private MetroFramework.Controls.MetroButton btnLaze;
+        private MetroFramework.Controls.MetroButton btnMiddle;
+        public MetroFramework.Controls.MetroButton btnAddCart;
         private MetroFramework.Controls.MetroLabel lblMenuName;
     }
 }
