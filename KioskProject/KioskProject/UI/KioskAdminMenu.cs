@@ -24,7 +24,7 @@ namespace KioskProject
 
         private List<FoodItem> foodItems = new List<FoodItem>();
 
-        private string connectionString = "server=localhost;database=MenuDB;uid=appuser;pwd=KioskProjectghguddeumk2";
+        private string connectionString = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234";
 
 
         public KioskAdminMenu()
