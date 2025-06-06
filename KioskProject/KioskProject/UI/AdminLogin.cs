@@ -25,7 +25,12 @@ namespace KioskProject
             AdminLoginControl loginControl = new AdminLoginControl(); // logincontrol 객체 생성
             bool result = loginControl.admin_Login(ID, PW); // 로그인 함수에 인자(위의 string 변수)를 넣어 호출, 이후 반환값을 result에 저장
 
-            if (result == true) { MessageBox.Show("로그인 성공"); } // 반환받은 result가 true
+            if (result == true) 
+            { 
+                MessageBox.Show("로그인 성공");
+                KioskAdminMenu adminMenu = new KioskAdminMenu();
+                adminMenu.Show();
+            } // 반환받은 result가 true
             // admin_Login 함수에 대한 자세한 설명은 adminlogincontrol에 상기
             else { MessageBox.Show("로그인 실패"); }
         }

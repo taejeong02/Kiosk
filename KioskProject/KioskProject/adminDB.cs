@@ -9,7 +9,7 @@ namespace KioskProject
 {
     internal class adminDB
     {
-        private string connectionString = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234"; // 로컬 호스트 데이터베이스 연결
+        private string connectionString = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234";
 
         //string insertQuery = "INSERT INTO admin(admin_id, admin_pw, admin_uniquenum) VALUES('testID', 'testPW', '12345')";
 

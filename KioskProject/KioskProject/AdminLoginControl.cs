@@ -27,7 +27,6 @@ namespace KioskProject
                 }
                 else 
                 { 
-                    MessageBox.Show("성공"); // id, pw가 일치하는 경우
                     return pw_status; // pw_status의 값이 true이므로 true를 반환하기때문에 로그인ui로 true가 넘어가서 로그인 성공
                 }
             }
