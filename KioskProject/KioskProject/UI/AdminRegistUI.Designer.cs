@@ -34,8 +34,6 @@
             this.registerPW_txtbox = new MetroFramework.Controls.MetroTextBox();
             this.register_btn = new MetroFramework.Controls.MetroButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -88,31 +86,11 @@
             this.metroLabel3.TabIndex = 5;
             this.metroLabel3.Text = "관리자 회원가입";
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(53, 152);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 6;
-            this.metroButton1.Text = "metroButton1";
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(144, 152);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel4.TabIndex = 7;
-            this.metroLabel4.Text = "metroLabel4";
-            // 
             // AdminRegistUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 200);
-            this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.register_btn);
             this.Controls.Add(this.registerPW_txtbox);
@@ -133,7 +111,5 @@
         private MetroFramework.Controls.MetroTextBox registerPW_txtbox;
         private MetroFramework.Controls.MetroButton register_btn;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroButton metroButton1;
-        public MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }
