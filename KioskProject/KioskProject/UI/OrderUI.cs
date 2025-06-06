@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Google.Protobuf.WellKnownTypes;
-using MetroFramework.Forms;
 
 namespace KioskProject
 {
-    public partial class OrderUI : MetroForm
+    public partial class OrderUI : Form
     {
         Form previousForm; // 이전 폼을 저장할 변수 => Select_LanguageUI에서 매장을 선택하면 해당 폼이 출력되며
                            // Select_LanguageUI가 종료되는 것이 아니라 Hide 숨겨짐. 이후 OrderUI의 뒤로가기 버튼을 누르면
