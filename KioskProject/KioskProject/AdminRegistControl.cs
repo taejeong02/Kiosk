@@ -24,7 +24,6 @@ namespace KioskProject
                 db.saveAdminAccount(id,pw,adminkey); // db클래스의 saveAdminAccount함수의 인자에 id, pw, 고유키 넘겨서 저장
                 MessageBox.Show("관리자 등록이 완료되었습니다.");
                 AdminRegistUI test = new AdminRegistUI(); // adminRegistUI 객체 생성 (레이블에 고유키 생성하는거 확인하려고 넣은 테스트 구문)
-                test.metroLabel4.Text = adminkey; // 고유키 출력 테스트
             }
         }
 
