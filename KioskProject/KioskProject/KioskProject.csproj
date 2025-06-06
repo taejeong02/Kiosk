@@ -110,6 +110,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adminDB.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="UI\Payment UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Payment UI.Designer.cs">
+      <DependentUpon>Payment UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdminCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AdminCheck.Designer.cs">
+      <DependentUpon>AdminCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +184,9 @@
     <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\AdminCheck.resx">
+      <DependentUpon>AdminCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OrderUI.resx">
       <DependentUpon>OrderUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Payment UI.resx">
+      <DependentUpon>Payment UI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Select_Language.resx">
       <DependentUpon>Select_Language.cs</DependentUpon>
