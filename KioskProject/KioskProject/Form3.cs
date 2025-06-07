@@ -8,38 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace save_Point_UI
+namespace KioskProject
 {
     public partial class Form3 : Form
     {
-        private int _savePoint;
-        private int _updatedPoint;
-        private int _paymentAmount;
-        private int _usePoint;
-        
-        public Form3(int savePoint, int paymentAmount, int usePoint)
+        public Form3()
         {
             InitializeComponent();
-            _savePoint = savePoint;
-            _paymentAmount = paymentAmount;
-            _usePoint = usePoint;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            _updatedPoint = Form2.AddPoint(_savePoint);
-            Form2.UpdatePoint(_updatedPoint);
-            MessageBox.Show(
-                $"결제금액 {_paymentAmount:N0}원이 결제 되었습니다.\n" +
-                $"사용한 포인트 {_usePoint:N0}P\n" +
-                $"포인트 {_savePoint:N0}P가 적립되었습니다.\n" +
-                $"현재 잔여 포인트: {_updatedPoint:N0}P",
-                "결제 및 포인트 적립 완료",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-            this.Close();
         }
     }
 }
