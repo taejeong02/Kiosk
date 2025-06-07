@@ -135,7 +135,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controll\CartControll.cs" />
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
     <Compile Include="Form1.cs">
@@ -156,12 +155,6 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PointUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\PointUI.Designer.cs">
-      <DependentUpon>PointUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,7 +169,6 @@
     <Compile Include="UI\AdminRegistUI.Designer.cs">
       <DependentUpon>AdminRegistUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="entity\CartItem.cs" />
     <Compile Include="controll\category.cs" />
     <Compile Include="UI\CartUI.cs">
       <SubType>Form</SubType>

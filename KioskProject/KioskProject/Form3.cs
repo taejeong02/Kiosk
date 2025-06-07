@@ -21,7 +21,7 @@ namespace KioskProject
         {
             InitializeComponent();
             _savePoint = savePoint;
-            _paymentAmount = paymentAmount;
+            _paymentAmount = paymentAmount - usePoint;
             _usePoint = usePoint;
         }
 

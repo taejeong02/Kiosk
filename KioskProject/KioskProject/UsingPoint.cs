@@ -17,7 +17,7 @@ namespace KioskProject
         private static string _phoneNumber;
         public static class DBConfig
         {
-            public static readonly string ConnStr = "Server=localhost;Database=kiosk;Uid=root;Pwd=123456;";
+            public static readonly string ConnStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234;";
         }
         public static void SetPhoneNumber(string phone)
         {
