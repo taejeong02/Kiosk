@@ -16,7 +16,7 @@ namespace KioskProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CartUI());
+            Application.Run(new Select_Language());
         }
     }
 }
