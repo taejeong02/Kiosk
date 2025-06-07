@@ -135,8 +135,7 @@ namespace KioskProject
                     MessageBox.Show("모든 결제가 완료되었습니다!", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // 👉 새로운 폼 띄우기 (예: ReceiptUI)
-                    PointUI receipt = new PointUI(); // ← 포인트 폼
-                    receipt.Show();
+                    
 
                     this.Close(); // PaymentUI 닫기
                 }
