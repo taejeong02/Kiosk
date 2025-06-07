@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.카테고리 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,35 +40,35 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Num,
-            this.Name,
-            this.Price,
-            this.카테고리});
+            this.productNum,
+            this.productName,
+            this.productPrice,
+            this.productCategory});
             this.dataGridView1.Location = new System.Drawing.Point(11, 108);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(453, 373);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Num
+            // productNum
             // 
-            this.Num.HeaderText = "상품 번호";
-            this.Num.Name = "Num";
+            this.productNum.HeaderText = "상품 번호";
+            this.productNum.Name = "productNum";
             // 
-            // Name
+            // productName
             // 
-            this.Name.HeaderText = "상품명";
-            this.Name.Name = "Name";
+            this.productName.HeaderText = "상품명";
+            this.productName.Name = "productName";
             // 
-            // Price
+            // productPrice
             // 
-            this.Price.HeaderText = "상품 가격";
-            this.Price.Name = "Price";
+            this.productPrice.HeaderText = "상품 가격";
+            this.productPrice.Name = "productPrice";
             // 
-            // 카테고리
+            // productCategory
             // 
-            this.카테고리.HeaderText = "카테고리";
-            this.카테고리.Name = "카테고리";
+            this.productCategory.HeaderText = "카테고리";
+            this.productCategory.Name = "productCategory";
             // 
             // CartUI
             // 
@@ -85,9 +85,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 카테고리;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productCategory;
     }
 }
