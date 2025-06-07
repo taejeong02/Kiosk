@@ -19,10 +19,10 @@ namespace KioskProject
                            // Select_LanguageUI가 종료되는 것이 아니라 Hide 숨겨짐. 이후 OrderUI의 뒤로가기 버튼을 누르면
                            // Select_LanguageUI를 다시 표시하기 위한 작업
         private Dictionary<string, int> orderList = new Dictionary<string, int>();
-        public OrderUI(Form prevForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
+        public OrderUI(Form prevForm)  
         {
             InitializeComponent();
-            this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
+            this.previousForm = prevForm;
         }
 
         private void OrderUI_Load(object sender, EventArgs e)
