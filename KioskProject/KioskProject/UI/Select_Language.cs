@@ -15,10 +15,17 @@ namespace KioskProject
         public Select_Language()
         {
             InitializeComponent(); // 이하 이미지 버튼
-            this.Korean.BackgroundImage = Image.FromFile("KoreanFlag.png");
-            this.China.BackgroundImage = Image.FromFile("ChinaFlag.jpg");
-            this.English.BackgroundImage = Image.FromFile("AmericaFlag.jpg");
-            this.Japan.BackgroundImage = Image.FromFile("JapanFlag.jpg");
+            try
+            {
+                this.Korean.BackgroundImage = Image.FromFile("KoreanFlag.png");
+                this.China.BackgroundImage = Image.FromFile("ChinaFlag.jpg");
+                this.English.BackgroundImage = Image.FromFile("AmericaFlag.jpg");
+                this.Japan.BackgroundImage = Image.FromFile("JapanFlag.jpg");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("이미지 로딩 오류: " + ex.Message);
+            }
         }
 
         int clickcount = 0; // 관리자창은 일반인이 접근하지 못하게끔 숨겨둬야함
