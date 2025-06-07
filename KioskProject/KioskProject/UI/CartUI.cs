@@ -126,6 +126,23 @@ namespace KioskProject.UI
             previousForm.Show();                // 폼 다시 보여줌
             this.Close();
         }
+
+        private void cardbtn_Click(object sender, EventArgs e)
+        {
+            int totalPrice = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["Price"].Value != null)
+                {
+                    totalPrice += Convert.ToInt32(row.Cells["Price"].Value);
+                }
+            }
+
+            PaymentUI paymentForm = new PaymentUI(totalPrice, this);
+            paymentForm.Show();
+            this.Hide(); // CartUI는 숨기기만
+        }
     }
 
 }

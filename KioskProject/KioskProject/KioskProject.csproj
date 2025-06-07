@@ -137,6 +137,12 @@
   <ItemGroup>
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
+    <Compile Include="UI\PointUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PointUI.Designer.cs">
+      <DependentUpon>PointUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>

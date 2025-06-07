@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using KioskProject.UI;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,28 +16,28 @@ namespace KioskProject
 {
     public partial class PaymentUI : Form
     {
-        private Payment payment = new Payment();
-        private int totalAmount = 5000; //임의 금액으로 5000 값으로 함
+        private bool[] isPaid; // 인원 수만큼 상태 저장
+        private int totalAmount = 0;
         private int numberOfPeople = 1;
-        
 
-        public PaymentUI()
+        private CartUI previousCartForm;
+
+        public PaymentUI(int totalAmount, CartUI cartForm)
         {
-            {
-                InitializeComponent();
+            InitializeComponent();
+            this.totalAmount = totalAmount;
+            this.previousCartForm = cartForm;
 
-                this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click); // 인원수 증가 버튼 클릭 이벤트 연결 추가
-                this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click); // 인원수 감소 버튼 클릭 이벤트 연결 추가
-            }
-
+            this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click);
+            this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            PerPersonAmount.Text = $"{totalAmount}원"; // 임의 금액으로 5000원으로 표시
+            PerPersonAmount.Text = $"{totalAmount}원"; // 총 금액 그대로 표시
             labelCount.Text = $"{numberOfPeople}명";
+            UpdatePersonPanels();
 
-            UpdatePersonPanels(); // 처음 로드 시 패널 생성
         }
 
         private void Minus_btn_Click(object sender, EventArgs e) // 총인원수 감소 버튼
@@ -58,14 +59,14 @@ namespace KioskProject
 
         private void CancelPaying_btn_Click(object sender, EventArgs e) // 결제 취소 버튼
         {
-            payment.CancelPayment(1);
             MessageBox.Show("결제가 취소되었습니다.");
 
         }
 
         private void ChangePaymentMethod_btn_Click(object sender, EventArgs e) //결제 수단 변경 
         {
-
+            this.Close();                 // PaymentUI 닫고
+            previousCartForm.Show();     // CartUI 다시 보여줌 (숨겨진 상태에서 복귀)
         }
 
         private Panel CreatePersonPanel(int index, int amount)
@@ -106,7 +107,30 @@ namespace KioskProject
             // 버튼 클릭 이벤트 연결
             btnPay.Click += (sender, e) =>
             {
-                MessageBox.Show($"{index}번 인원이 {amount}원 결제 합니다.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (isPaid[index - 1]) // 이미 결제함
+                {
+                    MessageBox.Show($"{index}번 손님은 이미 결제하셨습니다.", "중복 결제", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                isPaid[index - 1] = true;
+                btnPay.Enabled = false;
+                btnPay.BackColor = Color.Gray;
+                btnPay.Text = "완료";
+
+                MessageBox.Show($"{index}번 손님 결제 완료!", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // 모두 결제 완료됐는지 확인
+                if (isPaid.All(x => x))
+                {
+                    MessageBox.Show("모든 결제가 완료되었습니다!", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 👉 새로운 폼 띄우기 (예: ReceiptUI)
+                    PointUI receipt = new PointUI(); // ← 포인트 폼
+                    receipt.Show();
+
+                    this.Close(); // PaymentUI 닫기
+                }
             };
 
             panel.Controls.Add(lblIndex);
@@ -119,14 +143,16 @@ namespace KioskProject
         // 패널 전체 업데이트
         private void UpdatePersonPanels()
         {
-            flowLayoutPanel1.Controls.Clear(); // 기존 패널 제거 
-            int.TryParse(Regex.Replace(PerPersonAmount.Text, @"\D", ""), out int perAmount);
+            isPaid = new bool[numberOfPeople];
+            flowLayoutPanel1.Controls.Clear();
+
+            int perAmount = (numberOfPeople == 0) ? 0 : totalAmount / numberOfPeople;
+            PerPersonAmount.Text = $"{perAmount}원";
 
             for (int i = 1; i <= numberOfPeople; i++)
             {
                 Panel panel = CreatePersonPanel(i, perAmount);
                 flowLayoutPanel1.Controls.Add(panel);
-
             }
         }
     }

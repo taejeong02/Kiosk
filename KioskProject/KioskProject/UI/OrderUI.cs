@@ -80,7 +80,6 @@ namespace KioskProject
                             if (str.StartsWith(searchKey))
                             {
                                 foundIdx = i;
-                                // 수량 추출: "이름--수량개 : "
                                 int startIdx = str.IndexOf("--") + 2;
                                 int endIdx = str.IndexOf("개");
                                 if (startIdx >= 2 && endIdx > startIdx)
@@ -93,25 +92,42 @@ namespace KioskProject
 
                         if (foundIdx != -1)
                         {
-                            // 기존 항목 업데이트
                             currentQty++;
                             int totalPrice = item.Price * currentQty;
                             listBox1.Items[foundIdx] = $"{item.Name}--{currentQty}개 : {totalPrice}원";
+
+                            // 기존 CartItem 찾아서 수량/가격 갱신
+                            var cartItem = CartData.Items.FirstOrDefault(x =>
+                                x.Name == item.Name && !x.IsUpsize && string.IsNullOrEmpty(x.Spiciness));
+                            if (cartItem != null)
+                            {
+                                cartItem.Quantity = currentQty;
+                                cartItem.TotalPrice = totalPrice;
+                            }
                         }
                         else
                         {
-                            // 신규 추가
                             int totalPrice = item.Price;
                             listBox1.Items.Add($"{item.Name}--1개 : {totalPrice}원");
+
+                            // CartData에도 새로 추가
+                            CartData.Items.Add(new CartItem
+                            {
+                                Name = item.Name,
+                                IsUpsize = false,
+                                Spiciness = "",
+                                Quantity = 1,
+                                TotalPrice = totalPrice
+                            });
                         }
 
-                        // count 갱신
                         if (int.TryParse(count.Text, out int countValue))
                         {
                             countValue++;
                             count.Text = countValue.ToString();
                         }
                     }
+
                 };
             }
         }

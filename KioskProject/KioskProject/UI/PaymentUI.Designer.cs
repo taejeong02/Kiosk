@@ -34,7 +34,6 @@ namespace KioskProject
             this.PerPersonAmount = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CancelPaying_btn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.Plus_btn = new System.Windows.Forms.Button();
@@ -46,7 +45,7 @@ namespace KioskProject
             // 
             this.ChangePaymentMethod_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangePaymentMethod_btn.Font = new System.Drawing.Font("맑은 고딕", 14F);
-            this.ChangePaymentMethod_btn.Location = new System.Drawing.Point(299, 804);
+            this.ChangePaymentMethod_btn.Location = new System.Drawing.Point(12, 804);
             this.ChangePaymentMethod_btn.Name = "ChangePaymentMethod_btn";
             this.ChangePaymentMethod_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ChangePaymentMethod_btn.Size = new System.Drawing.Size(145, 42);
@@ -79,25 +78,14 @@ namespace KioskProject
             // 
             this.CancelPaying_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelPaying_btn.Font = new System.Drawing.Font("맑은 고딕", 14F);
-            this.CancelPaying_btn.Location = new System.Drawing.Point(450, 804);
+            this.CancelPaying_btn.Location = new System.Drawing.Point(427, 804);
             this.CancelPaying_btn.Name = "CancelPaying_btn";
             this.CancelPaying_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CancelPaying_btn.Size = new System.Drawing.Size(112, 42);
+            this.CancelPaying_btn.Size = new System.Drawing.Size(145, 42);
             this.CancelPaying_btn.TabIndex = 36;
             this.CancelPaying_btn.Text = "결제 취소";
             this.CancelPaying_btn.UseVisualStyleBackColor = true;
             this.CancelPaying_btn.Click += new System.EventHandler(this.CancelPaying_btn_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 14F);
-            this.button3.Location = new System.Drawing.Point(15, 804);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 42);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "포인트 조회 및 사용";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -153,7 +141,7 @@ namespace KioskProject
             this.label1.TabIndex = 30;
             this.label1.Text = "총 인원 수 :";
             // 
-            // Form2
+            // PaymentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +151,6 @@ namespace KioskProject
             this.Controls.Add(this.PerPersonAmount);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.CancelPaying_btn);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.Plus_btn);
@@ -171,7 +158,7 @@ namespace KioskProject
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form2";
+            this.Name = "PaymentUI";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
@@ -184,7 +171,6 @@ namespace KioskProject
         private System.Windows.Forms.Label PerPersonAmount;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button CancelPaying_btn;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.Button Plus_btn;

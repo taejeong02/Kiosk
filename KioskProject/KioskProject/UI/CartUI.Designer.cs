@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotal = new System.Windows.Forms.Label();
             this.cart = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.cashbtn = new System.Windows.Forms.Button();
             this.cardbtn = new System.Windows.Forms.Button();
-            this.productNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plusbtn = new System.Windows.Forms.Button();
             this.Miusbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,6 +58,26 @@
             this.dataGridView1.Size = new System.Drawing.Size(549, 495);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // productNum
+            // 
+            this.productNum.HeaderText = "상품 번호";
+            this.productNum.Name = "productNum";
+            // 
+            // productName
+            // 
+            this.productName.HeaderText = "상품명";
+            this.productName.Name = "productName";
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "상품 수량";
+            this.Qty.Name = "Qty";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "상품 가격";
+            this.Price.Name = "Price";
             // 
             // lbltotal
             // 
@@ -106,26 +126,7 @@
             this.cardbtn.TabIndex = 2;
             this.cardbtn.Text = "카드결제";
             this.cardbtn.UseVisualStyleBackColor = true;
-            // 
-            // productNum
-            // 
-            this.productNum.HeaderText = "상품 번호";
-            this.productNum.Name = "productNum";
-            // 
-            // productName
-            // 
-            this.productName.HeaderText = "상품명";
-            this.productName.Name = "productName";
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "상품 수량";
-            this.Qty.Name = "Qty";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "상품 가격";
-            this.Price.Name = "Price";
+            this.cardbtn.Click += new System.EventHandler(this.cardbtn_Click);
             // 
             // Plusbtn
             // 
