@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.back_btn = new MetroFramework.Controls.MetroButton();
             this.cash_btn = new MetroFramework.Controls.MetroButton();
             this.card_btn = new MetroFramework.Controls.MetroButton();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.Cart_lbl = new System.Windows.Forms.Label();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +56,26 @@
             this.dataGridView1.Size = new System.Drawing.Size(538, 502);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "번호";
+            this.Num.Name = "Num";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "상품명";
+            this.Name.Name = "Name";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "수량";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "가격";
+            this.Price.Name = "Price";
             // 
             // back_btn
             // 
@@ -86,7 +106,7 @@
             this.lblTotalPrice.AllowDrop = true;
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(119, 621);
+            this.lblTotalPrice.Location = new System.Drawing.Point(142, 622);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(132, 23);
             this.lblTotalPrice.TabIndex = 7;
@@ -101,26 +121,6 @@
             this.Cart_lbl.Size = new System.Drawing.Size(114, 32);
             this.Cart_lbl.TabIndex = 9;
             this.Cart_lbl.Text = "장바구니";
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "번호";
-            this.Num.Name = "Num";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "상품명";
-            this.Name.Name = "Name";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "수량";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "가격";
-            this.Price.Name = "Price";
             // 
             // CartUI
             // 
