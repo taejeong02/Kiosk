@@ -62,7 +62,7 @@ namespace KioskProject
             this.PerPersonAmount.Font = new System.Drawing.Font("맑은 고딕", 14F);
             this.PerPersonAmount.Location = new System.Drawing.Point(486, 21);
             this.PerPersonAmount.Name = "PerPersonAmount";
-            this.PerPersonAmount.Size = new System.Drawing.Size(63, 25);
+            this.PerPersonAmount.Size = new System.Drawing.Size(93, 38);
             this.PerPersonAmount.TabIndex = 39;
             this.PerPersonAmount.Text = "label6";
             // 
@@ -95,7 +95,7 @@ namespace KioskProject
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 14F);
             this.label3.Location = new System.Drawing.Point(326, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 25);
+            this.label3.Size = new System.Drawing.Size(226, 38);
             this.label3.TabIndex = 34;
             this.label3.Text = "1인당 결제금액 :";
             // 
@@ -106,7 +106,7 @@ namespace KioskProject
             this.labelCount.Font = new System.Drawing.Font("맑은 고딕", 14F);
             this.labelCount.Location = new System.Drawing.Point(201, 21);
             this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(41, 25);
+            this.labelCount.Size = new System.Drawing.Size(60, 38);
             this.labelCount.TabIndex = 33;
             this.labelCount.Text = "1명";
             this.labelCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -138,13 +138,13 @@ namespace KioskProject
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 14F);
             this.label1.Location = new System.Drawing.Point(23, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.Size = new System.Drawing.Size(165, 38);
             this.label1.TabIndex = 30;
             this.label1.Text = "총 인원 수 :";
             // 
             // PaymentUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 861);
             this.Controls.Add(this.ChangePaymentMethod_btn);

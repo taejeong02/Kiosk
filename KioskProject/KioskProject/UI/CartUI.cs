@@ -12,6 +12,7 @@ namespace KioskProject
 {
     public partial class CartUI : MetroFramework.Forms.MetroForm
     {
+        public static int _total;
         private OrderUI previousForm;
         public CartUI(OrderUI prevForm, List<CartItem> items)
         {
@@ -72,6 +73,7 @@ namespace KioskProject
                     total += Convert.ToInt32(row.Cells["Price"].Value);
                 }
             }
+            _total = total;
             lbltotal.Text = $"총 결제 금액 : {total:N0}원";
         }
 

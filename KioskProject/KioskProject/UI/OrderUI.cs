@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Google.Protobuf.WellKnownTypes;
-using KioskProject.UI;
+using KioskProject;
 
 namespace KioskProject
 {
