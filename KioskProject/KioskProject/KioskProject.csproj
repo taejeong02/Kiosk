@@ -152,12 +152,6 @@
       <DependentUpon>AdminRegistUI.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\CartItem.cs" />
-    <Compile Include="UI\CartUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\CartUI.Designer.cs">
-      <DependentUpon>CartUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="controll\category.cs" />
     <Compile Include="UI\KioskAdminMenu.cs">
       <SubType>Form</SubType>
@@ -209,9 +203,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AdminRegistUI.resx">
       <DependentUpon>AdminRegistUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\CartUI.resx">
-      <DependentUpon>CartUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\KioskAdminMenu.resx">
       <DependentUpon>KioskAdminMenu.cs</DependentUpon>
