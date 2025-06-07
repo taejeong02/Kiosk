@@ -16,5 +16,17 @@ namespace KioskProject
         {
             InitializeComponent();
         }
+
+        private void CartUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+        
+
     }
 }
