@@ -137,12 +137,6 @@
   <ItemGroup>
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
-    <Compile Include="UI\Payment UI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Payment UI.Designer.cs">
-      <DependentUpon>Payment UI.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +180,12 @@
     <Compile Include="UI\OrderUI.Designer.cs">
       <DependentUpon>OrderUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PaymentUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PaymentUI.Designer.cs">
+      <DependentUpon>PaymentUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Select_Language.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,8 +222,8 @@
     <EmbeddedResource Include="UI\OrderUI.resx">
       <DependentUpon>OrderUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Payment UI.resx">
-      <DependentUpon>Payment UI.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PaymentUI.resx">
+      <DependentUpon>PaymentUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Select_Language.resx">
       <DependentUpon>Select_Language.cs</DependentUpon>
