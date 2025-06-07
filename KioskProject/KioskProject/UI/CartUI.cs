@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class CartUI : Form
+    public partial class CartUI : MetroFramework.Forms.MetroForm
     {
         public CartUI()
         {

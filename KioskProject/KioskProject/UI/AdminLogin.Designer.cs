@@ -90,7 +90,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(23, 41);
+            this.metroLabel1.Location = new System.Drawing.Point(23, 28);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(97, 19);
             this.metroLabel1.TabIndex = 6;
@@ -108,6 +108,8 @@
             this.Controls.Add(this.adminPw_lbl);
             this.Controls.Add(this.adminId_txtBox);
             this.Controls.Add(this.adminId_lbl);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AdminLogin";
             this.Load += new System.EventHandler(this.AdminLogin_Load);
             this.ResumeLayout(false);
