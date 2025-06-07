@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KioskProject.UI
+namespace KioskProject
 {
     public partial class CartUI : MetroFramework.Forms.MetroForm
     {

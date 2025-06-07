@@ -1,4 +1,4 @@
-﻿namespace KioskProject.UI
+﻿namespace KioskProject
 {
     partial class CartUI
     {
