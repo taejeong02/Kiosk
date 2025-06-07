@@ -57,7 +57,7 @@
             this.btnDrink.Size = new System.Drawing.Size(80, 60);
             this.btnDrink.TabIndex = 4;
             this.btnDrink.Text = "주류";
-            this.btnDrink.UseVisualStyleBackColor = true;
+            //this.btnDrink.UseVisualStyleBackColor = true;
             this.btnDrink.Click += new System.EventHandler(this.btnDrink_Click);
             // 
             // btnBack
@@ -67,7 +67,7 @@
             this.btnBack.Size = new System.Drawing.Size(141, 44);
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "뒤로가기";
-            this.btnBack.UseVisualStyleBackColor = true;
+            //this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // listBox1
@@ -83,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            //this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(380, 577);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 24);
@@ -93,7 +93,7 @@
             // count
             // 
             this.count.AutoSize = true;
-            this.count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            //this.count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.count.Location = new System.Drawing.Point(488, 577);
             this.count.Name = "count";
             this.count.Size = new System.Drawing.Size(62, 24);
@@ -107,7 +107,7 @@
             this.button1.Size = new System.Drawing.Size(140, 140);
             this.button1.TabIndex = 13;
             this.button1.Text = "장바구니";
-            this.button1.UseVisualStyleBackColor = true;
+            //this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnNoodles
@@ -117,7 +117,7 @@
             this.btnNoodles.Size = new System.Drawing.Size(80, 60);
             this.btnNoodles.TabIndex = 1;
             this.btnNoodles.Text = "면류";
-            this.btnNoodles.UseVisualStyleBackColor = true;
+            //this.btnNoodles.UseVisualStyleBackColor = true;
             this.btnNoodles.Click += new System.EventHandler(this.btnNoodles_Click);
             // 
             // btnRice
@@ -127,7 +127,7 @@
             this.btnRice.Size = new System.Drawing.Size(80, 60);
             this.btnRice.TabIndex = 2;
             this.btnRice.Text = "밥류";
-            this.btnRice.UseVisualStyleBackColor = true;
+            //this.btnRice.UseVisualStyleBackColor = true;
             this.btnRice.Click += new System.EventHandler(this.btnRice_Click);
             // 
             // btnSide
@@ -137,7 +137,7 @@
             this.btnSide.Size = new System.Drawing.Size(80, 60);
             this.btnSide.TabIndex = 3;
             this.btnSide.Text = "사이드메뉴";
-            this.btnSide.UseVisualStyleBackColor = true;
+            //this.btnSide.UseVisualStyleBackColor = true;
             this.btnSide.Click += new System.EventHandler(this.btnSide_Click);
             // 
             // btnAlcohol
@@ -147,7 +147,7 @@
             this.btnAlcohol.Size = new System.Drawing.Size(80, 60);
             this.btnAlcohol.TabIndex = 5;
             this.btnAlcohol.Text = "음료류";
-            this.btnAlcohol.UseVisualStyleBackColor = true;
+            //this.btnAlcohol.UseVisualStyleBackColor = true;
             this.btnAlcohol.Click += new System.EventHandler(this.btnAlcohol_Click);
             // 
             // btnsuggestion
@@ -157,18 +157,18 @@
             this.btnsuggestion.Size = new System.Drawing.Size(80, 60);
             this.btnsuggestion.TabIndex = 8;
             this.btnsuggestion.Text = "추천메뉴";
-            this.btnsuggestion.UseVisualStyleBackColor = true;
+            //this.btnsuggestion.UseVisualStyleBackColor = true;
             this.btnsuggestion.Click += new System.EventHandler(this.btnsuggestion_Click);
             // 
             // btnSetmenu
             // 
-            this.btnSetmenu.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            //this.btnSetmenu.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSetmenu.Location = new System.Drawing.Point(363, 116);
             this.btnSetmenu.Name = "btnSetmenu";
             this.btnSetmenu.Size = new System.Drawing.Size(80, 60);
             this.btnSetmenu.TabIndex = 9;
             this.btnSetmenu.Text = "세트메뉴";
-            this.btnSetmenu.UseVisualStyleBackColor = true;
+            //this.btnSetmenu.UseVisualStyleBackColor = true;
             this.btnSetmenu.Click += new System.EventHandler(this.btnSetmenu_Click);
             // 
             // OrderUI
