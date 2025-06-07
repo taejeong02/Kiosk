@@ -69,6 +69,7 @@ namespace KioskProject
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Silver;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 59);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(560, 724);
@@ -135,7 +136,7 @@ namespace KioskProject
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 14F);
-            this.label1.Location = new System.Drawing.Point(32, 21);
+            this.label1.Location = new System.Drawing.Point(23, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 30;
@@ -145,7 +146,6 @@ namespace KioskProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(584, 861);
             this.Controls.Add(this.ChangePaymentMethod_btn);
             this.Controls.Add(this.PerPersonAmount);

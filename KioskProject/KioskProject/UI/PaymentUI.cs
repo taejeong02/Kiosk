@@ -11,10 +11,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using MetroFramework.Forms;
+
 
 namespace KioskProject
 {
-    public partial class PaymentUI : Form
+    public partial class PaymentUI : MetroFramework.Forms.MetroForm
     {
         private bool[] isPaid; // 인원 수만큼 상태 저장
         private int totalAmount = 0;
@@ -25,6 +27,7 @@ namespace KioskProject
         public PaymentUI(int totalAmount, CartUI cartForm)
         {
             InitializeComponent();
+
             this.totalAmount = totalAmount;
             this.previousCartForm = cartForm;
 
@@ -75,7 +78,7 @@ namespace KioskProject
             {
                 Size = new Size(120, 100),
                 BackColor = Color.White,
-                BorderStyle = BorderStyle.FixedSingle,
+
                 Margin = new Padding(10)
             };
 
@@ -101,8 +104,11 @@ namespace KioskProject
                 Enabled = true,
                 Size = new Size(80, 25),
                 Location = new Point(20, 60),
-                BackColor = Color.LightBlue
+                BackColor = Color.LightBlue,
+                FlatStyle = FlatStyle.Flat
             };
+            btnPay.FlatAppearance.BorderSize = 1; // ← 테두리 두께 설정
+            btnPay.FlatAppearance.BorderColor = Color.Black; // ← 테두리 색 설정
 
             // 버튼 클릭 이벤트 연결
             btnPay.Click += (sender, e) =>
