@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KioskProject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace KioskProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Select_Language());
+            Application.Run(new PaymentUI());
         }
     }
 }

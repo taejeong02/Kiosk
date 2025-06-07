@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Payment_UI
+namespace KioskProject
 {
     partial class PaymentUI
     {

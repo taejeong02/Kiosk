@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Google.Protobuf.WellKnownTypes;
+using KioskProject.UI;
 
 namespace KioskProject
 {
@@ -195,8 +196,29 @@ namespace KioskProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            CartUI cartForm = new CartUI(this, CartData.Items);
+            cartForm.Show();
+            this.Hide();
 
+        }
+        public void RestoreCartFromData() //복원함수
+        {
+            listBox1.Items.Clear();
+            count.Text = "0";
+
+            int totalCount = 0;
+
+            foreach (var item in CartData.Items)
+            {
+                string upsizeText = item.IsUpsize ? "곱빼기-" : "";
+                string key = $"{item.Name}-{upsizeText}{item.Spiciness}-{item.Quantity}개";
+                int totalPrice = item.TotalPrice;
+
+                listBox1.Items.Add($"{key} : {totalPrice}원");
+                totalCount += item.Quantity;
+            }
+
+            count.Text = totalCount.ToString();
         }
     }
 }

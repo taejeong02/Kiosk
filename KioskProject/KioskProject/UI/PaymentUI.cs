@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace Payment_UI
+namespace KioskProject
 {
     public partial class PaymentUI : Form
     {
