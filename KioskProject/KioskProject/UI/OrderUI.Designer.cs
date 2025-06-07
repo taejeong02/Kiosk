@@ -28,168 +28,96 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnDrink = new MetroFramework.Controls.MetroButton();
-            this.btnBack = new MetroFramework.Controls.MetroButton();
+            this.flowLayoutPanel２ = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel１ = new System.Windows.Forms.FlowLayoutPanel();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new MetroFramework.Controls.MetroLabel();
-            this.count = new MetroFramework.Controls.MetroLabel();
-            this.button1 = new MetroFramework.Controls.MetroButton();
-            this.btnNoodles = new MetroFramework.Controls.MetroButton();
-            this.btnRice = new MetroFramework.Controls.MetroButton();
-            this.btnSide = new MetroFramework.Controls.MetroButton();
-            this.btnAlcohol = new MetroFramework.Controls.MetroButton();
-            this.btnsuggestion = new MetroFramework.Controls.MetroButton();
-            this.btnSetmenu = new MetroFramework.Controls.MetroButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.count = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel２
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(34, 193);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 349);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel２.Location = new System.Drawing.Point(31, 24);
+            this.flowLayoutPanel２.Name = "flowLayoutPanel２";
+            this.flowLayoutPanel２.Size = new System.Drawing.Size(722, 255);
+            this.flowLayoutPanel２.TabIndex = 0;
+            this.flowLayoutPanel２.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCategory);
             // 
-            // btnDrink
+            // flowLayoutPanel１
             // 
-            this.btnDrink.Location = new System.Drawing.Point(427, 39);
-            this.btnDrink.Name = "btnDrink";
-            this.btnDrink.Size = new System.Drawing.Size(80, 60);
-            this.btnDrink.TabIndex = 4;
-            this.btnDrink.Text = "주류";
-            //this.btnDrink.UseVisualStyleBackColor = true;
-            this.btnDrink.Click += new System.EventHandler(this.btnDrink_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(400, 640);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(141, 44);
-            this.btnBack.TabIndex = 7;
-            this.btnBack.Text = "뒤로가기";
-            //this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.flowLayoutPanel１.Location = new System.Drawing.Point(29, 275);
+            this.flowLayoutPanel１.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel１.Name = "flowLayoutPanel１";
+            this.flowLayoutPanel１.Size = new System.Drawing.Size(724, 524);
+            this.flowLayoutPanel１.TabIndex = 1;
+            this.flowLayoutPanel１.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(34, 567);
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(31, 831);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(331, 268);
-            this.listBox1.TabIndex = 10;
+            this.listBox1.Size = new System.Drawing.Size(488, 382);
+            this.listBox1.TabIndex = 2;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            //this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(380, 577);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(534, 851);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 24);
-            this.label1.TabIndex = 11;
+            this.label1.Size = new System.Drawing.Size(153, 30);
+            this.label1.TabIndex = 3;
             this.label1.Text = "선택한 상품 : ";
             // 
             // count
             // 
             this.count.AutoSize = true;
-            //this.count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.count.Location = new System.Drawing.Point(488, 577);
+            this.count.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.count.Location = new System.Drawing.Point(677, 851);
             this.count.Name = "count";
-            this.count.Size = new System.Drawing.Size(62, 24);
-            this.count.TabIndex = 12;
+            this.count.Size = new System.Drawing.Size(72, 30);
+            this.count.TabIndex = 4;
             this.count.Text = "count";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(400, 699);
+            this.button1.Location = new System.Drawing.Point(541, 905);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 140);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "장바구니";
-            //this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Size = new System.Drawing.Size(201, 72);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "뒤로가기";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnNoodles
+            // button2
             // 
-            this.btnNoodles.Location = new System.Drawing.Point(66, 39);
-            this.btnNoodles.Name = "btnNoodles";
-            this.btnNoodles.Size = new System.Drawing.Size(80, 60);
-            this.btnNoodles.TabIndex = 1;
-            this.btnNoodles.Text = "면류";
-            //this.btnNoodles.UseVisualStyleBackColor = true;
-            this.btnNoodles.Click += new System.EventHandler(this.btnNoodles_Click);
-            // 
-            // btnRice
-            // 
-            this.btnRice.Location = new System.Drawing.Point(184, 39);
-            this.btnRice.Name = "btnRice";
-            this.btnRice.Size = new System.Drawing.Size(80, 60);
-            this.btnRice.TabIndex = 2;
-            this.btnRice.Text = "밥류";
-            //this.btnRice.UseVisualStyleBackColor = true;
-            this.btnRice.Click += new System.EventHandler(this.btnRice_Click);
-            // 
-            // btnSide
-            // 
-            this.btnSide.Location = new System.Drawing.Point(310, 39);
-            this.btnSide.Name = "btnSide";
-            this.btnSide.Size = new System.Drawing.Size(80, 60);
-            this.btnSide.TabIndex = 3;
-            this.btnSide.Text = "사이드메뉴";
-            //this.btnSide.UseVisualStyleBackColor = true;
-            this.btnSide.Click += new System.EventHandler(this.btnSide_Click);
-            // 
-            // btnAlcohol
-            // 
-            this.btnAlcohol.Location = new System.Drawing.Point(131, 116);
-            this.btnAlcohol.Name = "btnAlcohol";
-            this.btnAlcohol.Size = new System.Drawing.Size(80, 60);
-            this.btnAlcohol.TabIndex = 5;
-            this.btnAlcohol.Text = "음료류";
-            //this.btnAlcohol.UseVisualStyleBackColor = true;
-            this.btnAlcohol.Click += new System.EventHandler(this.btnAlcohol_Click);
-            // 
-            // btnsuggestion
-            // 
-            this.btnsuggestion.Location = new System.Drawing.Point(253, 116);
-            this.btnsuggestion.Name = "btnsuggestion";
-            this.btnsuggestion.Size = new System.Drawing.Size(80, 60);
-            this.btnsuggestion.TabIndex = 8;
-            this.btnsuggestion.Text = "추천메뉴";
-            //this.btnsuggestion.UseVisualStyleBackColor = true;
-            this.btnsuggestion.Click += new System.EventHandler(this.btnsuggestion_Click);
-            // 
-            // btnSetmenu
-            // 
-            //this.btnSetmenu.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSetmenu.Location = new System.Drawing.Point(363, 116);
-            this.btnSetmenu.Name = "btnSetmenu";
-            this.btnSetmenu.Size = new System.Drawing.Size(80, 60);
-            this.btnSetmenu.TabIndex = 9;
-            this.btnSetmenu.Text = "세트메뉴";
-            //this.btnSetmenu.UseVisualStyleBackColor = true;
-            this.btnSetmenu.Click += new System.EventHandler(this.btnSetmenu_Click);
+            this.button2.Location = new System.Drawing.Point(541, 1004);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 209);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "장바구니";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // OrderUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 861);
+            this.ClientSize = new System.Drawing.Size(778, 1244);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.count);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.btnSetmenu);
-            this.Controls.Add(this.btnsuggestion);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnAlcohol);
-            this.Controls.Add(this.btnDrink);
-            this.Controls.Add(this.btnSide);
-            this.Controls.Add(this.btnRice);
-            this.Controls.Add(this.btnNoodles);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel１);
+            this.Controls.Add(this.flowLayoutPanel２);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderUI";
+            this.Padding = new System.Windows.Forms.Padding(29, 90, 29, 30);
             this.Load += new System.EventHandler(this.OrderUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,19 +126,13 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private MetroFramework.Controls.MetroButton btnDrink;
-        private MetroFramework.Controls.MetroButton btnBack;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel２;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel１;
         private System.Windows.Forms.ListBox listBox1;
-        private MetroFramework.Controls.MetroLabel label1;
-        private MetroFramework.Controls.MetroLabel count;
-        private MetroFramework.Controls.MetroButton button1;
-        private MetroFramework.Controls.MetroButton btnNoodles;
-        private MetroFramework.Controls.MetroButton btnRice;
-        private MetroFramework.Controls.MetroButton btnSide;
-        private MetroFramework.Controls.MetroButton btnAlcohol;
-        private MetroFramework.Controls.MetroButton btnsuggestion;
-        private MetroFramework.Controls.MetroButton btnSetmenu;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label count;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

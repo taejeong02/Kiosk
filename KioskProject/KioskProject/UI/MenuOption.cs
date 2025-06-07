@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KioskProject;
 
 namespace KioskProject
 {
-    public partial class MenuOption : MetroFramework.Forms.MetroForm
+    public partial class MenuOption : Form
     {
-        private MenuItem selectedItem;
+        private MyMenuItem selectedItem;
         private MenuOptionData selectedOption = new MenuOptionData();
         public MenuOptionData SelectedOption => selectedOption;
-        public MenuOption(MenuItem item)
+        public MenuOption(MyMenuItem item)
         {
             InitializeComponent();
             selectedItem = item;
@@ -110,7 +111,29 @@ namespace KioskProject
 
         private void MenuOption_Load(object sender, EventArgs e)
         {
+            lblMenuName.Text = selectedItem.Name;
+            UpdatePrice();
+            UpdateQuantity();
 
+            // 옵션 UI 보이기 여부
+            pnlSizeOption.Visible = selectedItem.IsSizeOptionEnabled;
+            pnlSpicyOption.Visible = selectedItem.IsSpicyOptionEnabled;
+
+            int y = lblMenuName.Bottom + 10;
+
+            if (pnlSizeOption.Visible)
+            {
+                pnlSizeOption.Location = new Point(pnlSizeOption.Location.X, y);
+                y = pnlSizeOption.Bottom + 10;
+            }
+
+            if (pnlSpicyOption.Visible)
+            {
+                pnlSpicyOption.Location = new Point(pnlSpicyOption.Location.X, y);
+                y = pnlSpicyOption.Bottom + 10;
+            }
+
+            pnlBottomArea.Location = new Point(pnlBottomArea.Location.X, y);
         }
 
         private void btnLaze_Click_1(object sender, EventArgs e)
@@ -127,6 +150,21 @@ namespace KioskProject
             btnMiddle.BackColor = Color.LightBlue;
             btnLaze.BackColor = SystemColors.Control;
             UpdatePrice();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlSpicyOption_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -177,14 +177,14 @@
     <Compile Include="UI\CartUI.Designer.cs">
       <DependentUpon>CartUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="LangINFO.cs" />
+    <Compile Include="entity\MenuItem.cs" />
     <Compile Include="UI\KioskAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\KioskAdminMenu.Designer.cs">
       <DependentUpon>KioskAdminMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="LangINFO.cs" />
-    <Compile Include="entity\MenuItem.cs" />
     <Compile Include="UI\MenuOption.cs">
       <SubType>Form</SubType>
     </Compile>
