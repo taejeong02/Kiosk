@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel２ = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel１ = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.count = new System.Windows.Forms.Label();
@@ -37,22 +37,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel２
+            // flowLayoutPanel2
             // 
-            this.flowLayoutPanel２.Location = new System.Drawing.Point(31, 24);
-            this.flowLayoutPanel２.Name = "flowLayoutPanel２";
-            this.flowLayoutPanel２.Size = new System.Drawing.Size(722, 255);
-            this.flowLayoutPanel２.TabIndex = 0;
-            this.flowLayoutPanel２.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCategory);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(31, 24);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(722, 255);
+            this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCategory);
             // 
-            // flowLayoutPanel１
+            // flowLayoutPanel1
             // 
-            this.flowLayoutPanel１.Location = new System.Drawing.Point(29, 275);
-            this.flowLayoutPanel１.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel１.Name = "flowLayoutPanel１";
-            this.flowLayoutPanel１.Size = new System.Drawing.Size(724, 524);
-            this.flowLayoutPanel１.TabIndex = 1;
-            this.flowLayoutPanel１.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.flowLayoutPanel1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 299);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(724, 500);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // listBox1
             // 
@@ -113,8 +114,8 @@
             this.Controls.Add(this.count);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.flowLayoutPanel１);
-            this.Controls.Add(this.flowLayoutPanel２);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderUI";
             this.Padding = new System.Windows.Forms.Padding(29, 90, 29, 30);
@@ -126,8 +127,8 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel２;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel１;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label count;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
+using KioskProject.UI;
 
 namespace KioskProject
 {
@@ -71,7 +72,7 @@ namespace KioskProject
         //현재 페이지 카테고리 버튼 생성
         private void ShowCategoryPage()
         {
-            flowLayoutPanel１.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
 
             int start = currentPage * itemsPerPage;
             int end = Math.Min(start + itemsPerPage, allCategories.Count);
@@ -93,7 +94,7 @@ namespace KioskProject
                     LoadMenuByCategory(selectedCategory);
                 };
 
-                flowLayoutPanel１.Controls.Add(btn);
+                flowLayoutPanel1.Controls.Add(btn);
             }
 
             // 다음/이전 버튼 붙이기
@@ -109,7 +110,7 @@ namespace KioskProject
                     currentPage--;
                     ShowCategoryPage();
                 };
-                flowLayoutPanel１.Controls.Add(prevBtn);
+                flowLayoutPanel1.Controls.Add(prevBtn);
             }
 
             if (end < allCategories.Count)
@@ -124,14 +125,14 @@ namespace KioskProject
                     currentPage++;
                     ShowCategoryPage();
                 };
-                flowLayoutPanel１.Controls.Add(nextBtn);
+                flowLayoutPanel1.Controls.Add(nextBtn);
             }
         }
 
         //특정 카테고리에 해당하는 메뉴 db에 불러오기
         private void LoadMenuByCategory(string category)
         {
-            flowLayoutPanel２.Controls.Clear();
+            flowLayoutPanel2.Controls.Clear();
 
             string connStr = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
 
@@ -224,7 +225,7 @@ namespace KioskProject
                             panel.Controls.Add(nameLabel);   // 이름
 
 
-                            flowLayoutPanel２.Controls.Add(panel);
+                            flowLayoutPanel2.Controls.Add(panel);
                         }
                     }
                 }
@@ -277,6 +278,10 @@ namespace KioskProject
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void RestoreCartFromData()
         {
 
         }
