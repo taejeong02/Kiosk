@@ -79,7 +79,6 @@ namespace KioskProject
         {
             previousForm.RestoreCartFromData(); // ← 리스트 복원
             previousForm.Show();                // 폼 다시 보여줌
-            this.Close();
         }
 
         private void cardbtn_Click(object sender, EventArgs e)
@@ -93,6 +92,11 @@ namespace KioskProject
         public List<string> GetCartItems()
         {
             return cartControl.GetCartItems(dataGridView1);
+        }
+
+        private void cashbtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("현금 결제는 카운터에서 진행해주세요!","현금 결제",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 
