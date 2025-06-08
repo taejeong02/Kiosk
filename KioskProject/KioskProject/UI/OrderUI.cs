@@ -243,6 +243,7 @@ namespace KioskProject
             }
 
             CartUI cartForm = new CartUI(this, cartLines);
+            cartForm.FormClosed += (s, args) => Application.Exit();
             cartForm.Show();           // ← 이거 추가해야 폼 뜸
             this.Hide();               // ← 숨기고 싶으면 이 줄도 추가
         }

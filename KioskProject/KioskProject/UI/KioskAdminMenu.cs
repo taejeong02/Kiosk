@@ -285,6 +285,7 @@ namespace KioskProject
             }
             //초기화면 로딩
             Select_Language main = new Select_Language();
+            main.FormClosed += (s, args) => Application.Exit();
             //현재 폼 종료
             this.Hide();
             //폼 보여주기
