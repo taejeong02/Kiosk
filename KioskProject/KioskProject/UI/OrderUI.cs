@@ -30,25 +30,7 @@ namespace KioskProject
         //DB에서 카테고리 목록 불러오기
         private List<string> LoadCategoriesFromDB()
         {
-            List<string> categories = new List<string>();
-            string connStr = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
-
-
-
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                string query = "SELECT DISTINCT ProductCategory FROM menu";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        categories.Add(reader["ProductCategory"].ToString());
-                    }
-                }
-            }
-            return categories;
+            return Category.GetAllCategoryNames();
         }
 
         private List<string> allCategories = new List<string>();

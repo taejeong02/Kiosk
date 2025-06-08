@@ -44,5 +44,26 @@ namespace KioskProject
 
             return items;
         }
+        public static List<string> GetAllCategories()
+        {
+            List<string> categories = new List<string>();
+            string connStr = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
+
+            using (var conn = new MySqlConnection(connStr))
+            {
+                conn.Open();
+                string query = "SELECT DISTINCT ProductCategory FROM menu";
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        categories.Add(reader["ProductCategory"].ToString());
+                    }
+                }
+            }
+
+            return categories;
+        }
     }
 }

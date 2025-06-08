@@ -11,5 +11,9 @@ namespace KioskProject
         {
             return MenuItem.GetMenuItemsFromDB(this.CategoryName);
         }
+        public static List<string> GetAllCategoryNames()
+        {
+            return MenuItem.GetAllCategories();
+        }
     }
 }
