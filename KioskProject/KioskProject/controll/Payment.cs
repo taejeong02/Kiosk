@@ -1,60 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-public class Payment
+namespace KioskProject
 {
-    private int totalAmount;
-    private int numberOfPeople;
-
-    public Payment()
+    public class Payment
     {
-        totalAmount = 0;
-        numberOfPeople = 0;
-    }
+        private int totalAmount;
+        private int numberOfPeople;
 
-    // 총 금액 반환
-    public int GetTotalAmount()
-    {
-        return totalAmount;
-    }
+        public Payment()
+        {
+            totalAmount = 0;
+            numberOfPeople = 0;
+        }
 
-    // 인원 수 반환
-    public int GetNumberOfPeople()
-    {
-        return numberOfPeople;
-    }
+        public int GetTotalAmount() => totalAmount;
+        public int GetNumberOfPeople() => numberOfPeople;
 
-    // 결제 정보 저장
-    public void SavePaymentInfo()
-    {
-        // 결제 정보 저장 로직
-        Console.WriteLine("결제 정보가 저장되었습니다.");
-    }
+        public void CancelPayment(int orderId)
+        {
+            Console.WriteLine($"주문 번호 {orderId}의 결제가 취소되었습니다.");
+        }
 
-    // 결제 취소
-    public void CancelPayment(int orderId)
-    {
-        //결제 취소 로직
-        Console.WriteLine($"주문 번호 {orderId}의 결제가 취소되었습니다.");
-    }
+        public void RefundPayment(int orderId)
+        {
+            Console.WriteLine($"주문 번호 {orderId}에 대해 환불이 처리되었습니다.");
+        }
 
-    // 환불 처리
-    public void RefundPayment(int orderId)
-    {
-        //결제 환불 처리 로직
-        Console.WriteLine($"주문 번호 {orderId}에 대해 환불이 처리되었습니다.");
-    }
+        public bool Pay(int amount)
+        {
+            totalAmount += amount;
+            numberOfPeople++;
+            Console.WriteLine($"{amount}원이 결제 되었습니다.");
+            return true;
+        }
 
-    // 결제 실행
-    public bool Pay(int amount)
-    {
-        // 결제 로직
-        totalAmount += amount;
-        numberOfPeople++;
-        Console.WriteLine($"{amount}원이 결제 되었습니다.");
-        return true;
+        // ✅ 새로운 메서드: 결제 완료 시 주문 저장
+        public bool SaveOrder(string orderData)
+        {
+            OrderInfo order = new OrderInfo
+            {
+                OrderDate = DateTime.Now,
+                TotalAmount = totalAmount,
+                OrderData = orderData
+            };
+
+            return order.SaveToDatabase();
+        }
     }
 }

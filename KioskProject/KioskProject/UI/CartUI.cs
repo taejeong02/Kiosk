@@ -142,6 +142,22 @@ namespace KioskProject
             paymentForm.Show();
             this.Hide(); // CartUI는 숨기기만
         }
+        public List<string> GetCartItems()
+        {
+            List<string> items = new List<string>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string menu = row.Cells["ItemName"].Value.ToString();
+                    string qty = row.Cells["Qty"].Value.ToString();
+                    string price = row.Cells["Price"].Value.ToString();
+
+                    items.Add($"{menu} - {qty}개 : {price}원");
+                }
+            }
+            return items.Distinct().ToList(); // 중복제거
+        }
     }
 
 }
