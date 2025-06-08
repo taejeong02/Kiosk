@@ -246,7 +246,7 @@
             // 
             this.pnlSizeOption.Controls.Add(this.panel2);
             this.pnlSizeOption.Location = new System.Drawing.Point(2, 2);
-            this.pnlSizeOption.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSizeOption.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSizeOption.Name = "pnlSizeOption";
             this.pnlSizeOption.Size = new System.Drawing.Size(491, 231);
             this.pnlSizeOption.TabIndex = 28;
@@ -258,7 +258,7 @@
             this.panel2.Controls.Add(this.btnLaze);
             this.panel2.Controls.Add(this.btnMiddle);
             this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(467, 218);
             this.panel2.TabIndex = 32;
@@ -269,7 +269,7 @@
             this.pnlSpicyOption.Controls.Add(this.panel1);
             this.pnlSpicyOption.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlSpicyOption.Location = new System.Drawing.Point(2, 237);
-            this.pnlSpicyOption.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSpicyOption.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSpicyOption.Name = "pnlSpicyOption";
             this.pnlSpicyOption.Size = new System.Drawing.Size(498, 159);
             this.pnlSpicyOption.TabIndex = 29;
@@ -284,7 +284,7 @@
             this.panel1.Controls.Add(this.btnThree);
             this.panel1.Controls.Add(this.btnFour);
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(494, 155);
             this.panel1.TabIndex = 32;
@@ -294,7 +294,7 @@
             // 
             this.pnlBottomArea.Controls.Add(this.panel3);
             this.pnlBottomArea.Location = new System.Drawing.Point(2, 400);
-            this.pnlBottomArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlBottomArea.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBottomArea.Name = "pnlBottomArea";
             this.pnlBottomArea.Size = new System.Drawing.Size(496, 304);
             this.pnlBottomArea.TabIndex = 30;
@@ -309,7 +309,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.btnAddCart);
             this.panel3.Location = new System.Drawing.Point(2, 2);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(489, 282);
             this.panel3.TabIndex = 33;
@@ -320,7 +320,7 @@
             this.flowLayoutPanel1.Controls.Add(this.pnlSpicyOption);
             this.flowLayoutPanel1.Controls.Add(this.pnlBottomArea);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(55, 49);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(518, 752);
             this.flowLayoutPanel1.TabIndex = 31;
@@ -334,6 +334,7 @@
             this.Controls.Add(this.lblMenuName);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "MenuOption";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuOption";
             this.Load += new System.EventHandler(this.MenuOption_Load);
             this.pnlSizeOption.ResumeLayout(false);
