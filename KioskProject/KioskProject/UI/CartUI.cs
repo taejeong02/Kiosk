@@ -139,6 +139,7 @@ namespace KioskProject
             }
 
             PaymentUI paymentForm = new PaymentUI(totalPrice, this);
+            paymentForm.FormClosed += (s, args) => Application.Exit();
             paymentForm.Show();
             this.Hide(); // CartUI는 숨기기만
         }
