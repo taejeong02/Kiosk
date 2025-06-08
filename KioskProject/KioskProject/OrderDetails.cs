@@ -31,7 +31,6 @@ namespace KioskProject
             foreach (var item in orderItems.Distinct())
                 listBox1.Items.Add(item);
 
-<<<<<<< HEAD
             price_lbl.Text = $"총 결제한 금액: {totalAmount:N0}원";
 
             // 주문을 먼저 저장하고 orderId 확보
@@ -69,9 +68,7 @@ namespace KioskProject
             }
             ReceiptControl.ShowReceipt(orderId);
             this.Close();
-=======
-            price_lbl.Text = $"총 금액: {totalAmount:N0}원 \n총 결제한 금액: {totalAmount:N0}원";
->>>>>>> 6bffc4c699e04b9e719381d3a26b5b80f4951950
+
         }
     }
 }
