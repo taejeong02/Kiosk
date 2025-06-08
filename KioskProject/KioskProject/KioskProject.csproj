@@ -137,6 +137,7 @@
   <ItemGroup>
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
+    <Compile Include="entity\UserDB.cs" />
     <Compile Include="OrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,7 +220,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="entity\UsingPoint.cs" />
+    <Compile Include="controll\UsingPoint.cs" />
     <Compile Include="UI\TotalSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
