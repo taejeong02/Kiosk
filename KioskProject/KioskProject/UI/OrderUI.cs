@@ -37,7 +37,6 @@ namespace KioskProject
             count.Text = "0";
             allCategories = Category.GetAllCategoryNames();
             ShowCategoryPage();
-            await LangINFO.TranslateControlsAsync(this, LangINFO.CurrentLanguage);
         }
 
 
@@ -59,9 +58,6 @@ namespace KioskProject
                 () => { currentPage++; ShowCategoryPage(); }
             );
         }
-
-
-
 
         //특정 카테고리에 해당하는 메뉴 db에 불러오기
 
@@ -104,6 +100,5 @@ namespace KioskProject
             cartForm.Show();
             this.Hide();
         }
-      
     }
 }
