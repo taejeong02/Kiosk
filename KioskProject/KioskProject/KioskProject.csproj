@@ -155,6 +155,7 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuOptionController.cs" />
     <Compile Include="UI\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>

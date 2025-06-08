@@ -13,21 +13,19 @@ namespace KioskProject
     public partial class MenuOption : Form
     {
         private MyMenuItem selectedItem;
-        private MenuOptionData selectedOption = new MenuOptionData();
-        public MenuOptionData SelectedOption => selectedOption;
+        public MenuOptionData SelectedOption => controller.OptionData;
+
+        private MenuOptionController controller;
         public MenuOption(MyMenuItem item)
         {
             InitializeComponent();
             selectedItem = item;
+            controller = new MenuOptionController(item.Price);
 
-            // 초기화
+            // 초기화 UI
             lblMenuName.Text = item.Name;
-            lblPrice.Text = item.Price.ToString() + "원";
-            lblQuantity.Text = selectedOption.Quantity.ToString();
-
-            btnMiddle.BackColor = Color.LightBlue;
-            btnLaze.BackColor = SystemColors.Control;
-            SetSpiciness("보통맛");
+            UpdateQuantity();
+            UpdatePrice();
         }
 
         private void btnAddCart_Click(object sender, EventArgs e)
@@ -37,30 +35,30 @@ namespace KioskProject
         }
         private void UpdatePrice()
         {
-            int total = selectedOption.CalculateTotalPrice(selectedItem.Price);
+            int total = controller.GetTotalPrice();
             lblPrice.Text = $"{total}원";
         }
         private void UpdateQuantity()
         {
-            lblQuantity.Text = selectedOption.Quantity.ToString();
+            lblQuantity.Text = controller.GetQuantity().ToString();
         }
         private void btnMiddle_Click(object sender, EventArgs e)
         {
-            selectedOption.IsUpsize = false;
+            controller.SetUpsize(false); // ✅
             btnMiddle.BackColor = Color.LightBlue;
             btnLaze.BackColor = SystemColors.Control;
             UpdatePrice();
         }
         private void btnLaze_Click(object sender, EventArgs e)
         {
-            selectedOption.IsUpsize = true;
+            controller.SetUpsize(true);
             btnLaze.BackColor = Color.LightBlue;
             btnMiddle.BackColor = SystemColors.Control;
             UpdatePrice();
         }
         private void SetSpiciness(string level)
         {
-            selectedOption.Spiciness = level;
+            controller.SetSpiciness(level);
             btnOne.BackColor = btnTwo.BackColor = btnThree.BackColor = btnFour.BackColor = SystemColors.Control;
             switch (level)
             {
@@ -73,39 +71,36 @@ namespace KioskProject
 
         private void btnone_Click(object sender, EventArgs e)
         {
-            SetSpiciness("순한맛");
+            controller.SetSpiciness("순한맛");
         }
 
         private void btntwo_Click(object sender, EventArgs e)
         {
-            SetSpiciness("보통맛");
+            controller.SetSpiciness("보통맛");
         }
 
         private void btnthree_Click(object sender, EventArgs e)
         {
-            SetSpiciness("매운맛");
+            controller.SetSpiciness("매운맛");
         }
 
         private void btnfour_Click(object sender, EventArgs e)
         {
-            SetSpiciness("엄청매운맛");
+            controller.SetSpiciness("엄청매운맛");
         }
 
         private void btnplus_Click(object sender, EventArgs e)
         {
-            selectedOption.Quantity++;
+            controller.IncreaseQty();
             UpdateQuantity();
             UpdatePrice();
         }
 
         private void btnmius_Click(object sender, EventArgs e)
         {
-            if (selectedOption.Quantity > 1)
-            {
-                selectedOption.Quantity--;
-                UpdateQuantity();
-                UpdatePrice();
-            }
+            controller.DecreaseQty();
+            UpdateQuantity();
+            UpdatePrice();
         }
 
         private void MenuOption_Load(object sender, EventArgs e)
@@ -137,7 +132,7 @@ namespace KioskProject
 
         private void btnLaze_Click_1(object sender, EventArgs e)
         {
-            selectedOption.IsUpsize = true;
+            controller.SetUpsize(true);
             btnLaze.BackColor = Color.LightBlue;
             btnMiddle.BackColor = SystemColors.Control;
             UpdatePrice();
@@ -145,7 +140,7 @@ namespace KioskProject
 
         private void btnMiddle_Click_1(object sender, EventArgs e)
         {
-            selectedOption.IsUpsize = false;
+            controller.SetUpsize(false);
             btnMiddle.BackColor = Color.LightBlue;
             btnLaze.BackColor = SystemColors.Control;
             UpdatePrice();
