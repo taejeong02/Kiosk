@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using KioskProject;
 
 namespace KioskProject
 {
@@ -11,14 +10,6 @@ namespace KioskProject
     {
         public string CategoryName { get; set; }
 
-<<<<<<< HEAD
-=======
-        public List<MenuItem> GetItems()
-        {
-            return MenuItem.GetMenuItemsFromDB(this.CategoryName);
-        }
-
->>>>>>> b4e2f0c5b2eb3d1f331ef792d13746567d81a2c3
         public static List<string> GetAllCategoryNames()
         {
             return MenuItem.GetAllCategories();
@@ -29,7 +20,8 @@ namespace KioskProject
             return MenuItem.GetMenuItemsFromDB(this.CategoryName);
         }
 
-        public static void LoadMenuByCategory(string categoryName, FlowLayoutPanel panel, Action<MyMenuItem, MenuOptionData> onAddToOrder)
+        // 해당 카테고리 메뉴를 패널에 뿌려주기
+        public static void LoadMenuByCategory(string categoryName, FlowLayoutPanel panel, Action<MenuItem, MenuOptionData> onAddToOrder)
         {
             panel.Controls.Clear();
 
@@ -38,7 +30,6 @@ namespace KioskProject
 
             foreach (var item in items)
             {
-                var myItem = new MyMenuItem(item.Name, item.Price, item.Category, item.IsSpicyOptionEnabled, item.IsSizeOptionEnabled);
                 string imagePath = Path.Combine(Application.StartupPath, "MenuImages", item.Name + ".jpg");
 
                 Panel panelItem = new Panel
@@ -88,10 +79,10 @@ namespace KioskProject
 
                 EventHandler clickHandler = (s, e) =>
                 {
-                    MenuOption optionForm = new MenuOption(myItem);
+                    MenuOption optionForm = new MenuOption(item); // MenuItem 객체 그대로 넘김
                     if (optionForm.ShowDialog() == DialogResult.OK)
                     {
-                        onAddToOrder(myItem, optionForm.SelectedOption);
+                        onAddToOrder(item, optionForm.SelectedOption);
                     }
                 };
 
@@ -107,6 +98,7 @@ namespace KioskProject
             }
         }
 
+        // 카테고리 버튼들을 패널에 페이징 방식으로 출력
         public static void ShowCategoryPage(
             FlowLayoutPanel categoryPanel,
             List<string> categories,
@@ -157,7 +149,8 @@ namespace KioskProject
             }
         }
 
-        public static void AddToOrder(MyMenuItem item, MenuOptionData option, ListBox listBox, Label countLabel)
+        // 주문리스트에 항목 추가
+        public static void AddToOrder(MenuItem item, MenuOptionData option, ListBox listBox, Label countLabel)
         {
             string upsizeText = option.IsUpsize ? "곱빼기-" : "";
             string key = $"{item.Name}-{upsizeText}{option.Spiciness}-{option.Quantity}개";

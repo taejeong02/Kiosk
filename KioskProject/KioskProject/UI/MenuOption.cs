@@ -12,11 +12,11 @@ namespace KioskProject
 {
     public partial class MenuOption : Form
     {
-        private MyMenuItem selectedItem;
+        private MenuItem selectedItem;
         public MenuOptionData SelectedOption => controller.OptionData;
 
         private MenuOptionController controller;
-        public MenuOption(MyMenuItem item)
+        public MenuOption(MenuItem item)
         {
             InitializeComponent();
             selectedItem = item;
