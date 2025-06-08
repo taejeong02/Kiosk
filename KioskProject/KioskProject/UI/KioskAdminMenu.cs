@@ -514,12 +514,12 @@ namespace KioskProject
                 itemToUpdate.IsSizeOptionEnabled = isSize ? 1 : 0;
 
                 //DB 수정
-                KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
-                db.Update(itemToUpdate);
-
-
-                ShowMessage("메뉴가 수정되었습니다.");
-                DisplayMenuList();
+                var updater = new KioskProject.controll.AdminMenuUpdate();
+                if (updater.UpdateMenu(itemToUpdate))
+                {
+                    ShowMessage("메뉴가 수정되었습니다.");
+                    DisplayMenuList();
+                }
             }
             else
             {
