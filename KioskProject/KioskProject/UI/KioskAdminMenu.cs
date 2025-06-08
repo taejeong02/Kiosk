@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class KioskAdminMenu : Form
+    public partial class KioskAdminMenu : MetroFramework.Forms.MetroForm
     {
         public class FoodItem
         {
