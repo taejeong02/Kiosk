@@ -65,5 +65,23 @@ namespace KioskProject
 
             return categories;
         }
+        
+    }
+    public class MyMenuItem
+    {
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public string Category { get; set; }
+        public bool IsSpicyOptionEnabled { get; set; }
+        public bool IsSizeOptionEnabled { get; set; }
+
+        public MyMenuItem(string name, int price, string category, bool isSpicy, bool isSize)
+        {
+            Name = name;
+            Price = price;
+            Category = category;
+            IsSpicyOptionEnabled = isSpicy;
+            IsSizeOptionEnabled = isSize;
+        }
     }
 }
