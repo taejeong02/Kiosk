@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace KioskProject
 {
-    public partial class Form2 : Form
+    public partial class UsePointUI : Form
     {
         private int _paymentAmount;
         private int _Point;
@@ -19,8 +19,8 @@ namespace KioskProject
         private static int _UsePoint;
         private static string phonenumber;
 
-        public static Form2 Instance;
-        public Form2(int Point, int paymentAmount, string number)
+        public static UsePointUI Instance;
+        public UsePointUI(int Point, int paymentAmount, string number)
         {
             InitializeComponent();
             Instance = this;
@@ -92,7 +92,7 @@ namespace KioskProject
         private void Closebutton_Click(object sender, EventArgs e)
         {
             _UsePoint = 0;
-            Form3 form3 = new Form3(_savePoint, _paymentAmount, _UsePoint);
+            PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint);
             var result = form3.ShowDialog();
             form3.FormClosed += (s, args) => Application.Exit();
             this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
@@ -113,7 +113,7 @@ namespace KioskProject
                 );
                 _UsePoint = used;
                 UsingPoint.SetUsePoint(used);
-                Form3 form3 = new Form3(_savePoint, _paymentAmount, _UsePoint);
+                PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint);
                 var result = form3.ShowDialog();
                 form3.FormClosed += (s, args) => Application.Exit();
                 this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환

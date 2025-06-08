@@ -1,6 +1,6 @@
 ﻿namespace KioskProject
 {
-    partial class Form1
+    partial class SavePointUI
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -253,12 +253,13 @@
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // Form1
+            // SavePointUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(372, 568);
+            this.ControlBox = false;
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.NotsaveButton);
             this.Controls.Add(this.panel1);
@@ -276,7 +277,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "SavePointUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SavePoint";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
