@@ -339,6 +339,9 @@ namespace KioskProject
 
         private void Addmenu_btn_Click(object sender, EventArgs e)
         {
+
+            //체크박스 상태 갱신
+            this.ActiveControl = null;
             //ID수정 방지 위한 읽기 모드
             Num_txt.ReadOnly = false;
 
@@ -424,8 +427,9 @@ namespace KioskProject
             {
                 foodItems.Remove(itemToRemove);
                 // DB 삭제
-                KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
-                db.Delete(itemToRemove.ProductID);
+                KioskProject.controll.AdminMenuDeletMenu deleter = new KioskProject.controll.AdminMenuDeletMenu();
+                bool success = deleter.DeleteMenu(itemToRemove.ProductID);
+
 
 
                 //이미지 파일도 함께 삭제
@@ -511,12 +515,12 @@ namespace KioskProject
                 itemToUpdate.IsSizeOptionEnabled = isSize ? 1 : 0;
 
                 //DB 수정
-                KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
-                db.Update(itemToUpdate);
-
-
-                ShowMessage("메뉴가 수정되었습니다.");
-                DisplayMenuList();
+                var updater = new KioskProject.controll.AdminMenuUpdate();
+                if (updater.UpdateMenu(itemToUpdate))
+                {
+                    ShowMessage("메뉴가 수정되었습니다.");
+                    DisplayMenuList();
+                }
             }
             else
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Utilities.Encoders;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,18 +15,7 @@ namespace KioskProject
     {
         public Select_Language()
         {
-            InitializeComponent(); // 이하 이미지 버튼
-            try
-            {
-                this.Korean.BackgroundImage = Image.FromFile("KoreanFlag.png");
-                this.China.BackgroundImage = Image.FromFile("ChinaFlag.jpg");
-                this.English.BackgroundImage = Image.FromFile("AmericaFlag.jpg");
-                this.Japan.BackgroundImage = Image.FromFile("JapanFlag.jpg");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("이미지 로딩 오류: " + ex.Message);
-            }
+            InitializeComponent();
         }
 
         int clickcount = 0; // 관리자창은 일반인이 접근하지 못하게끔 숨겨둬야함
@@ -38,26 +28,6 @@ namespace KioskProject
                 adminLogin.ShowDialog();
                 clickcount = 0; // 클릭카운트 초기화
             }
-        }
-
-        private void Korean_Click(object sender, EventArgs e)
-        {
-            welcome_lbl.Text = "어서오세요.";
-        }
-
-        private void English_Click(object sender, EventArgs e)
-        {
-            welcome_lbl.Text = "Welcome";
-        }
-
-        private void China_Click(object sender, EventArgs e)
-        {
-            welcome_lbl.Text = "欢迎";
-        }
-
-        private void Japan_Click(object sender, EventArgs e)
-        {
-            welcome_lbl.Text = "ようこそ";
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -74,11 +44,6 @@ namespace KioskProject
             orderui.FormClosed += (s, args) => Application.Exit();
             this.Hide(); // 현재 폼 숨김
             orderui.Show();
-        }
-
-        private void Select_Language_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
