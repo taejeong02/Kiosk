@@ -56,18 +56,7 @@ namespace KioskProject
             btnMiddle.BackColor = SystemColors.Control;
             UpdatePrice();
         }
-        private void SetSpiciness(string level)
-        {
-            controller.SetSpiciness(level);
-            btnOne.BackColor = btnTwo.BackColor = btnThree.BackColor = btnFour.BackColor = SystemColors.Control;
-            switch (level)
-            {
-                case "순한맛": btnOne.BackColor = Color.LightCoral; break;
-                case "보통맛": btnTwo.BackColor = Color.LightCoral; break;
-                case "매운맛": btnThree.BackColor = Color.LightCoral; break;
-                case "엄청매운맛": btnFour.BackColor = Color.LightCoral; break;
-            }
-        }
+       
 
         private void btnone_Click(object sender, EventArgs e)
         {
