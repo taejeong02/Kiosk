@@ -32,7 +32,7 @@ namespace KioskProject
  
         //폼 첫 로드 시 호출, 카운트 초기화, 카테고리 버튼 생성
 
-        private void OrderUI_Load(object sender, EventArgs e)
+        async private void OrderUI_Load(object sender, EventArgs e)
         {
             count.Text = "0";
             allCategories = Category.GetAllCategoryNames();
@@ -58,9 +58,6 @@ namespace KioskProject
                 () => { currentPage++; ShowCategoryPage(); }
             );
         }
-
-
-
 
         //특정 카테고리에 해당하는 메뉴 db에 불러오기
 
@@ -103,6 +100,5 @@ namespace KioskProject
             cartForm.Show();
             this.Hide();
         }
-      
     }
 }

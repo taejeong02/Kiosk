@@ -41,7 +41,6 @@ namespace KioskProject
             PerPersonAmount.Text = $"{totalAmount}원"; // 총 금액 그대로 표시
             labelCount.Text = $"{numberOfPeople}명";
             UpdatePersonPanels();
-
         }
 
         private void Minus_btn_Click(object sender, EventArgs e) // 총인원수 감소 버튼
