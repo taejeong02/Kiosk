@@ -98,8 +98,6 @@ namespace KioskProject
             UsePointUI form2 = new UsePointUI(point, PaymentAmount, phone);
             var result = form2.ShowDialog();
             form2.FormClosed += (s, args) => Application.Exit();
-            this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
-            this.Close();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
