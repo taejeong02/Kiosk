@@ -111,8 +111,10 @@ namespace KioskProject
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+
                 _UsePoint = used;
                 UsingPoint.SetUsePoint(used);
+
                 PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint);
                 var result = form3.ShowDialog();
                 form3.FormClosed += (s, args) => Application.Exit();
