@@ -11,8 +11,6 @@ namespace KioskProject
     {
         private string connectionString = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234";
 
-        //string insertQuery = "INSERT INTO admin(admin_id, admin_pw, admin_uniquenum) VALUES('testID', 'testPW', '12345')";
-
         public bool validateAdminAccount(string id, string pw) // 데이터베이스 내부의 id, pw가 일치하는지 검사하는 함수
         {
             string query = "SELECT COUNT(*) FROM admin_db WHERE admin_id = @id AND admin_pw = @pw";

@@ -16,7 +16,7 @@ namespace KioskProject
         public static List<MenuItem> GetMenuItemsFromDB(string categoryName)
         {
             List<MenuItem> items = new List<MenuItem>();
-            string connStr = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
+            string connStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234";
 
             using (var conn = new MySqlConnection(connStr))
             {
@@ -47,7 +47,7 @@ namespace KioskProject
         public static List<string> GetAllCategories()
         {
             List<string> categories = new List<string>();
-            string connStr = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
+            string connStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234";
 
             using (var conn = new MySqlConnection(connStr))
             {
