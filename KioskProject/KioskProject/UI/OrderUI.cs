@@ -20,6 +20,7 @@ namespace KioskProject
                            // Select_LanguageUI가 종료되는 것이 아니라 Hide 숨겨짐. 이후 OrderUI의 뒤로가기 버튼을 누르면
                            // Select_LanguageUI를 다시 표시하기 위한 작업
         private Dictionary<string, int> orderList = new Dictionary<string, int>();
+
         public OrderUI(Form prevForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace KioskProject
         private int currentPage = 0;
         private const int itemsPerPage = 7;
         //폼 첫 로드 시 호출, 카운트 초기화, 카테고리 버튼 생성
+
         private void OrderUI_Load(object sender, EventArgs e)
         {
             count.Text = "0";
@@ -146,6 +148,7 @@ namespace KioskProject
                         picture.Image = Image.FromStream(fs);
                     }
                 }
+
                 else
                 {
                     picture.BackColor = Color.LightGray;
@@ -188,16 +191,13 @@ namespace KioskProject
                 panel.Controls.Add(nameLabel);
                 flowLayoutPanel1.Controls.Add(panel);
             }
-        
-   
-                }
+        }
             
-        
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
         private void AddToOrder(MyMenuItem item, MenuOptionData option)
         {
             string upsizeText = option.IsUpsize ? "곱빼기-" : "";
@@ -218,6 +218,7 @@ namespace KioskProject
             previousForm.Show(); // 숨겨둔 이전 폼 Select_LanguageUI 다시 보여줌
             this.Close(); // 현재 폼 종료
         }
+
         private void flowLayoutPanelCategory(object sender, PaintEventArgs e)
         {
 
@@ -227,6 +228,7 @@ namespace KioskProject
         {
 
         }
+
         public void RestoreCartFromData()
         {
 

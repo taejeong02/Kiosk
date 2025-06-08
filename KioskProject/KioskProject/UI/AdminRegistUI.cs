@@ -25,6 +25,7 @@ namespace KioskProject
             AdminRegistControl adminRegist = new AdminRegistControl(); // adminregistControl 객체 생성
             adminRegist.admin_account_SaverDB(ID, PW); // adminregistControl의 amdin_account_saveDB함수의 인자에
                                                        // 위의 string변수 2개를 인자로 넘김
+            this.Close();
         }
     }
 }
