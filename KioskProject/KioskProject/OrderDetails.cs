@@ -31,7 +31,7 @@ namespace KioskProject
                 listBox1.Items.Add(item);
             }
 
-            price_lbl.Text = $"총 결제한 금액: {totalAmount:N0}원";
+            price_lbl.Text = $"총 금액: {totalAmount:N0}원 \n총 결제한 금액: {totalAmount:N0}원";
         }
     }
 }

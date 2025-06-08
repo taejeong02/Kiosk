@@ -93,6 +93,11 @@ namespace KioskProject
         {
             return cartControl.GetCartItems(dataGridView1);
         }
+
+        private void cashbtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("현금 결제는 카운터에서 진행해주세요!","현금 결제",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
     }
 
 }
