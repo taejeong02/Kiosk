@@ -32,7 +32,7 @@ namespace KioskProject
  
         //폼 첫 로드 시 호출, 카운트 초기화, 카테고리 버튼 생성
 
-        async private void OrderUI_Load(object sender, EventArgs e)
+        private void OrderUI_Load(object sender, EventArgs e)
         {
             count.Text = "0";
             allCategories = Category.GetAllCategoryNames();

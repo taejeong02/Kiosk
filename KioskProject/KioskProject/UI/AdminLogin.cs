@@ -42,10 +42,5 @@ namespace KioskProject
             AdminRegistUI registUI = new AdminRegistUI();
             registUI.ShowDialog();
         }
-
-        private void AdminLogin_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

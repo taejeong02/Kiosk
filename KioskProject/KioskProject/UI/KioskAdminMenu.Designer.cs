@@ -56,7 +56,7 @@ namespace KioskProject
             this.button1 = new System.Windows.Forms.Button();
             this.Spicy_checkbox = new System.Windows.Forms.CheckBox();
             this.Size_checkbox = new System.Windows.Forms.CheckBox();
-            this.totalprice_btn = new MetroFramework.Controls.MetroButton();
+            this.totalprice_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Menu_gridview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -321,7 +321,6 @@ namespace KioskProject
             this.Spicy_checkbox.TabIndex = 21;
             this.Spicy_checkbox.Text = "맵기 선택";
             this.Spicy_checkbox.UseVisualStyleBackColor = true;
-            this.Spicy_checkbox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Size_checkbox
             // 
@@ -334,15 +333,16 @@ namespace KioskProject
             this.Size_checkbox.TabIndex = 22;
             this.Size_checkbox.Text = "사이즈 선택";
             this.Size_checkbox.UseVisualStyleBackColor = true;
-            this.Size_checkbox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // totalprice_btn
-            // 
-            this.totalprice_btn.Location = new System.Drawing.Point(429, 724);
+            //
+            this.totalprice_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.totalprice_btn.Location = new System.Drawing.Point(428, 728);
             this.totalprice_btn.Name = "totalprice_btn";
             this.totalprice_btn.Size = new System.Drawing.Size(111, 33);
             this.totalprice_btn.TabIndex = 23;
             this.totalprice_btn.Text = "매출 확인";
+            this.totalprice_btn.Click += new System.EventHandler(this.totalprice_btn_Click);
             // 
             // KioskAdminMenu
             // 
@@ -408,6 +408,6 @@ namespace KioskProject
         private DataGridViewTextBoxColumn ColProductName;
         private DataGridViewTextBoxColumn ColProductPrice;
         private DataGridViewTextBoxColumn ColProductCategory;
-        private MetroFramework.Controls.MetroButton totalprice_btn;
+        private Button totalprice_btn;
     }
 }

@@ -1,5 +1,6 @@
-﻿using System;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 
 namespace KioskProject
 {
@@ -38,6 +39,31 @@ namespace KioskProject
                     }
                 }
             }
+        }
+
+        public static List<OrderInfo> GetAllOrders()
+        {
+            var orders = new List<OrderInfo>();
+
+            using (var conn = new MySqlConnection(connStr))
+            {
+                conn.Open();
+                string query = "SELECT orderDate, totalamount, orderData FROM `order`";
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        orders.Add(new OrderInfo
+                        {
+                            OrderDate = reader.GetDateTime("orderDate"),
+                            TotalAmount = reader.GetInt32("totalamount"),
+                        });
+                    }
+                }
+            }
+
+            return orders;
         }
     }
 }

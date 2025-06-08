@@ -591,18 +591,10 @@ namespace KioskProject
             SaveMenuImage(productId);
         }
 
-
-        //맵기 선택
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void totalprice_btn_Click(object sender, EventArgs e)
         {
-
-        }
-
-
-        //사이즈업 선택
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
+            TotalSalesReport totalSalesReport = new TotalSalesReport();
+            totalSalesReport.Show();
         }
     }
 }

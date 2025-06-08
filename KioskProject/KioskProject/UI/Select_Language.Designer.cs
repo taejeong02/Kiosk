@@ -91,10 +91,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Korean;
-        private System.Windows.Forms.Button China;
-        private System.Windows.Forms.Button English;
-        private System.Windows.Forms.Button Japan;
         private MetroFramework.Controls.MetroLabel test;
         private MetroFramework.Controls.MetroLabel welcome_lbl;
         private MetroFramework.Controls.MetroButton metroButton1;

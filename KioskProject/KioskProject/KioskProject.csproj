@@ -142,6 +142,7 @@
     <Compile Include="controll\AdminMenuAdd.cs" />
     <Compile Include="controll\AdminMenuDeletMenu.cs" />
     <Compile Include="controll\AdminMenuUpdate.cs" />
+    <Compile Include="controll\SalesInquiry.cs" />
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
     <Compile Include="entity\MenuDB.cs" />

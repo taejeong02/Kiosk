@@ -111,7 +111,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminLogin";
-            this.Load += new System.EventHandler(this.AdminLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
