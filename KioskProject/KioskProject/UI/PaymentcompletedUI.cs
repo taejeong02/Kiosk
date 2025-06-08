@@ -24,8 +24,7 @@ namespace KioskProject
             _paymentAmount = paymentAmount - usePoint;
             _usePoint = usePoint;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void paymentButton_Click(object sender, EventArgs e)
         {
             if (_savePoint != 0)
             {
