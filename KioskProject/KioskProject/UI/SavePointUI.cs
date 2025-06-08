@@ -91,13 +91,11 @@ namespace KioskProject
         private void button0_Click(object sender, EventArgs e) { AddDigit("0"); }
         private void EraseButton_Click(object sender, EventArgs e) { RemoveLastText(); }
         private void NotsaveButton_Click(object sender, EventArgs e) {
-            phone = textBox1.Text.Trim();
-            UsingPoint.SetPhoneNumber(phone);
-            point = UsingPoint.FindPoint(phone);
-            UsingPoint.SetPayment(PaymentAmount);
-            UsePointUI form2 = new UsePointUI(point, PaymentAmount, phone);
-            var result = form2.ShowDialog();
-            form2.FormClosed += (s, args) => Application.Exit();
+            PaymentcompletedUI form3 = new PaymentcompletedUI(0, PaymentAmount, 0);
+            var result = form3.ShowDialog();
+            form3.FormClosed += (s, args) => Application.Exit();
+            this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
+            this.Close();
         }
 
         private void saveButton_Click(object sender, EventArgs e)

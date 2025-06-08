@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.totalprice_lbl = new MetroFramework.Controls.MetroLabel();
+            this.price_lbl = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // listBox1
@@ -41,22 +42,31 @@
             this.listBox1.Size = new System.Drawing.Size(373, 574);
             this.listBox1.TabIndex = 0;
             // 
-            // lblTotalAmount
+            // totalprice_lbl
             // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(180, 664);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(57, 23);
-            this.lblTotalAmount.TabIndex = 1;
-            this.lblTotalAmount.Text = "label";
+            this.totalprice_lbl.AutoSize = true;
+            this.totalprice_lbl.Location = new System.Drawing.Point(58, 649);
+            this.totalprice_lbl.Name = "totalprice_lbl";
+            this.totalprice_lbl.Size = new System.Drawing.Size(62, 19);
+            this.totalprice_lbl.TabIndex = 1;
+            this.totalprice_lbl.Text = "총 금액: ";
+            // 
+            // price_lbl
+            // 
+            this.price_lbl.AutoSize = true;
+            this.price_lbl.Location = new System.Drawing.Point(126, 649);
+            this.price_lbl.Name = "price_lbl";
+            this.price_lbl.Size = new System.Drawing.Size(37, 19);
+            this.price_lbl.TabIndex = 2;
+            this.price_lbl.Text = "금액";
             // 
             // OrderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 800);
-            this.Controls.Add(this.lblTotalAmount);
+            this.Controls.Add(this.price_lbl);
+            this.Controls.Add(this.totalprice_lbl);
             this.Controls.Add(this.listBox1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "OrderDetails";
@@ -71,6 +81,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label lblTotalAmount;
+        private MetroFramework.Controls.MetroLabel totalprice_lbl;
+        private MetroFramework.Controls.MetroLabel price_lbl;
     }
 }
