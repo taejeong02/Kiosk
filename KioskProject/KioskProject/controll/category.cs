@@ -11,6 +11,14 @@ namespace KioskProject
     {
         public string CategoryName { get; set; }
 
+<<<<<<< HEAD
+=======
+        public List<MenuItem> GetItems()
+        {
+            return MenuItem.GetMenuItemsFromDB(this.CategoryName);
+        }
+
+>>>>>>> b4e2f0c5b2eb3d1f331ef792d13746567d81a2c3
         public static List<string> GetAllCategoryNames()
         {
             return MenuItem.GetAllCategories();

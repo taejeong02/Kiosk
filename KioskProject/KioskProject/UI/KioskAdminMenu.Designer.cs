@@ -49,13 +49,14 @@ namespace KioskProject
             this.F5_btn = new System.Windows.Forms.Button();
             this.Back_btn = new System.Windows.Forms.Button();
             this.Menu_gridview = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Spicy_checkbox = new System.Windows.Forms.CheckBox();
-            this.Size_checkbox = new System.Windows.Forms.CheckBox();
             this.ColProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProductCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Spicy_checkbox = new System.Windows.Forms.CheckBox();
+            this.Size_checkbox = new System.Windows.Forms.CheckBox();
+            this.totalprice_btn = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.Menu_gridview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +129,7 @@ namespace KioskProject
             // Search_txt
             // 
             this.Search_txt.Location = new System.Drawing.Point(432, 47);
-            this.Search_txt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Search_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Search_txt.Name = "Search_txt";
             this.Search_txt.Size = new System.Drawing.Size(114, 21);
             this.Search_txt.TabIndex = 6;
@@ -136,7 +137,7 @@ namespace KioskProject
             // Num_txt
             // 
             this.Num_txt.Location = new System.Drawing.Point(432, 175);
-            this.Num_txt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Num_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Num_txt.Name = "Num_txt";
             this.Num_txt.Size = new System.Drawing.Size(113, 21);
             this.Num_txt.TabIndex = 7;
@@ -144,7 +145,7 @@ namespace KioskProject
             // Name_txt
             // 
             this.Name_txt.Location = new System.Drawing.Point(431, 227);
-            this.Name_txt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Name_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Name_txt.Name = "Name_txt";
             this.Name_txt.Size = new System.Drawing.Size(113, 21);
             this.Name_txt.TabIndex = 8;
@@ -152,7 +153,7 @@ namespace KioskProject
             // Price_txt
             // 
             this.Price_txt.Location = new System.Drawing.Point(431, 289);
-            this.Price_txt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Price_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Price_txt.Name = "Price_txt";
             this.Price_txt.Size = new System.Drawing.Size(113, 21);
             this.Price_txt.TabIndex = 9;
@@ -160,7 +161,7 @@ namespace KioskProject
             // Category_txt
             // 
             this.Category_txt.Location = new System.Drawing.Point(431, 353);
-            this.Category_txt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Category_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Category_txt.Name = "Category_txt";
             this.Category_txt.Size = new System.Drawing.Size(113, 21);
             this.Category_txt.TabIndex = 10;
@@ -169,7 +170,7 @@ namespace KioskProject
             // 
             this.Search_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Search_btn.Location = new System.Drawing.Point(432, 81);
-            this.Search_btn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Search_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(112, 33);
             this.Search_btn.TabIndex = 11;
@@ -180,8 +181,8 @@ namespace KioskProject
             // Delmenu_btn
             // 
             this.Delmenu_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Delmenu_btn.Location = new System.Drawing.Point(428, 630);
-            this.Delmenu_btn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Delmenu_btn.Location = new System.Drawing.Point(428, 577);
+            this.Delmenu_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Delmenu_btn.Name = "Delmenu_btn";
             this.Delmenu_btn.Size = new System.Drawing.Size(112, 33);
             this.Delmenu_btn.TabIndex = 12;
@@ -192,8 +193,8 @@ namespace KioskProject
             // Modify_btn
             // 
             this.Modify_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Modify_btn.Location = new System.Drawing.Point(428, 728);
-            this.Modify_btn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Modify_btn.Location = new System.Drawing.Point(428, 675);
+            this.Modify_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Modify_btn.Name = "Modify_btn";
             this.Modify_btn.Size = new System.Drawing.Size(112, 33);
             this.Modify_btn.TabIndex = 13;
@@ -204,8 +205,8 @@ namespace KioskProject
             // Addmenu_btn
             // 
             this.Addmenu_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Addmenu_btn.Location = new System.Drawing.Point(428, 584);
-            this.Addmenu_btn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Addmenu_btn.Location = new System.Drawing.Point(428, 531);
+            this.Addmenu_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Addmenu_btn.Name = "Addmenu_btn";
             this.Addmenu_btn.Size = new System.Drawing.Size(112, 33);
             this.Addmenu_btn.TabIndex = 14;
@@ -216,8 +217,8 @@ namespace KioskProject
             // F5_btn
             // 
             this.F5_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.F5_btn.Location = new System.Drawing.Point(427, 677);
-            this.F5_btn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.F5_btn.Location = new System.Drawing.Point(427, 624);
+            this.F5_btn.Margin = new System.Windows.Forms.Padding(1);
             this.F5_btn.Name = "F5_btn";
             this.F5_btn.Size = new System.Drawing.Size(112, 33);
             this.F5_btn.TabIndex = 15;
@@ -229,7 +230,7 @@ namespace KioskProject
             // 
             this.Back_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Back_btn.Location = new System.Drawing.Point(428, 777);
-            this.Back_btn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Back_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(112, 33);
             this.Back_btn.TabIndex = 16;
@@ -252,7 +253,7 @@ namespace KioskProject
             this.ColProductPrice,
             this.ColProductCategory});
             this.Menu_gridview.Location = new System.Drawing.Point(15, 47);
-            this.Menu_gridview.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Menu_gridview.Margin = new System.Windows.Forms.Padding(1);
             this.Menu_gridview.MultiSelect = false;
             this.Menu_gridview.Name = "Menu_gridview";
             this.Menu_gridview.ReadOnly = true;
@@ -264,44 +265,6 @@ namespace KioskProject
             this.Menu_gridview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Menu_gridview_CellClick);
             this.Menu_gridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Menu_gridview_CellContentClick);
             this.Menu_gridview.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Menu_gridview_MouseClick);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(428, 486);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 33);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "사진추가";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.UploadImage_btn_Click);
-            // 
-            // Spicy_checkbox
-            // 
-            this.Spicy_checkbox.AutoSize = true;
-            this.Spicy_checkbox.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Spicy_checkbox.Location = new System.Drawing.Point(440, 402);
-            this.Spicy_checkbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Spicy_checkbox.Name = "Spicy_checkbox";
-            this.Spicy_checkbox.Size = new System.Drawing.Size(93, 24);
-            this.Spicy_checkbox.TabIndex = 21;
-            this.Spicy_checkbox.Text = "맵기 선택";
-            this.Spicy_checkbox.UseVisualStyleBackColor = true;
-            this.Spicy_checkbox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // Size_checkbox
-            // 
-            this.Size_checkbox.AutoSize = true;
-            this.Size_checkbox.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Size_checkbox.Location = new System.Drawing.Point(431, 444);
-            this.Size_checkbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Size_checkbox.Name = "Size_checkbox";
-            this.Size_checkbox.Size = new System.Drawing.Size(108, 24);
-            this.Size_checkbox.TabIndex = 22;
-            this.Size_checkbox.Text = "사이즈 선택";
-            this.Size_checkbox.UseVisualStyleBackColor = true;
-            this.Size_checkbox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // ColProductID
             // 
@@ -335,12 +298,59 @@ namespace KioskProject
             this.ColProductCategory.Name = "ColProductCategory";
             this.ColProductCategory.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.Location = new System.Drawing.Point(428, 486);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 33);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "사진추가";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.UploadImage_btn_Click);
+            // 
+            // Spicy_checkbox
+            // 
+            this.Spicy_checkbox.AutoSize = true;
+            this.Spicy_checkbox.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Spicy_checkbox.Location = new System.Drawing.Point(440, 402);
+            this.Spicy_checkbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Spicy_checkbox.Name = "Spicy_checkbox";
+            this.Spicy_checkbox.Size = new System.Drawing.Size(93, 24);
+            this.Spicy_checkbox.TabIndex = 21;
+            this.Spicy_checkbox.Text = "맵기 선택";
+            this.Spicy_checkbox.UseVisualStyleBackColor = true;
+            this.Spicy_checkbox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // Size_checkbox
+            // 
+            this.Size_checkbox.AutoSize = true;
+            this.Size_checkbox.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Size_checkbox.Location = new System.Drawing.Point(431, 444);
+            this.Size_checkbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Size_checkbox.Name = "Size_checkbox";
+            this.Size_checkbox.Size = new System.Drawing.Size(108, 24);
+            this.Size_checkbox.TabIndex = 22;
+            this.Size_checkbox.Text = "사이즈 선택";
+            this.Size_checkbox.UseVisualStyleBackColor = true;
+            this.Size_checkbox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // totalprice_btn
+            // 
+            this.totalprice_btn.Location = new System.Drawing.Point(429, 724);
+            this.totalprice_btn.Name = "totalprice_btn";
+            this.totalprice_btn.Size = new System.Drawing.Size(111, 33);
+            this.totalprice_btn.TabIndex = 23;
+            this.totalprice_btn.Text = "매출 확인";
+            // 
             // KioskAdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 861);
             this.ControlBox = false;
+            this.Controls.Add(this.totalprice_btn);
             this.Controls.Add(this.Size_checkbox);
             this.Controls.Add(this.Spicy_checkbox);
             this.Controls.Add(this.button1);
@@ -362,9 +372,8 @@ namespace KioskProject
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "KioskAdminMenu";
-            this.Text = "키오스크 관리자 메뉴 화면";
             this.Load += new System.EventHandler(this.KioskAdminMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Menu_gridview)).EndInit();
             this.ResumeLayout(false);
@@ -399,5 +408,6 @@ namespace KioskProject
         private DataGridViewTextBoxColumn ColProductName;
         private DataGridViewTextBoxColumn ColProductPrice;
         private DataGridViewTextBoxColumn ColProductCategory;
+        private MetroFramework.Controls.MetroButton totalprice_btn;
     }
 }
