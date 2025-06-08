@@ -334,6 +334,7 @@
             this.Controls.Add(this.lblMenuName);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "MenuOption";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuOption";
             this.Load += new System.EventHandler(this.MenuOption_Load);
             this.pnlSizeOption.ResumeLayout(false);

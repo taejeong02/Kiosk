@@ -100,7 +100,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Location = new System.Drawing.Point(22, 16);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(505, 155);
             this.flowLayoutPanel2.TabIndex = 14;
@@ -119,6 +119,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "OrderUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderUI";
             this.Load += new System.EventHandler(this.OrderUI_Load);
             this.ResumeLayout(false);
