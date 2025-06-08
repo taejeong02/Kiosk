@@ -1,47 +1,19 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
-namespace KioskProject
+namespace KioskProject.entity
 {
-    public static class UsingPoint
+    internal class UserDB
     {
-        private static int _paymentAmount;
-        private static int _Point;
-        private static int _UsePoint;
-        private static int _savePoint;
-        private static int _finalPoint;
-        private static string _phoneNumber;
         public static class DBConfig
         {
             public static readonly string ConnStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234;";
         }
-        public static void SetPhoneNumber(string phone)
-        {
-            _phoneNumber = phone;
-        }
-        public static void SetPayment(int payment)
-        {
-            _paymentAmount = payment;
-        }
-        public static void SetSavePoint(int savepoint)
-        {
-            _savePoint = savepoint;
-        }
-        public static void SetUsePoint(int usepoint)
-        {
-            _UsePoint = usepoint;
-        }
-        public static int FindPoint(string phone)
-        {
-            if (!IsExistingUser(phone))
-                InsertUser(phone);
 
-            return GetPoint(phone);
-        }
         public static bool IsExistingUser(string phone)
         {
             using (var conn = new MySqlConnection(DBConfig.ConnStr))
@@ -65,7 +37,6 @@ namespace KioskProject
                 using (var cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@phone", phone);
-                    cmd.Parameters.AddWithValue("@point", 1000);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -80,7 +51,6 @@ namespace KioskProject
                 {
                     cmd.Parameters.AddWithValue("@phone", phone);
                     var result = cmd.ExecuteScalar();
-                    _Point = int.Parse(result.ToString());
                     if (result != null && result != DBNull.Value)
                         return Convert.ToInt32(result);
                     else
@@ -88,34 +58,16 @@ namespace KioskProject
                 }
             }
         }
-        public static int UsePoint()
+        public static void UpdatePoint(string phone, int point)
         {
-            _Point = GetPoint(_phoneNumber);
-            _finalPoint = _Point - _UsePoint;
-            UpdatePoint();
-            return _finalPoint;
-        }
-        public static int AddPoint()
-        {
-            if (_savePoint < 0) _savePoint = 0; // 음수 적립 방지
-            _Point = GetPoint(_phoneNumber);
-            _finalPoint = _Point + _savePoint;
-            UpdatePoint();
-            return _finalPoint;
-        }
-        public static void UpdatePoint()
-        {
-            string connStr = DBConfig.ConnStr;
-
-            using (var conn = new MySqlConnection(connStr))
+            using (var conn = new MySqlConnection(DBConfig.ConnStr))
             {
                 conn.Open();
                 string query = "UPDATE user SET point = @point WHERE number = @phone";
-
                 using (var cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@point", _finalPoint);
-                    cmd.Parameters.AddWithValue("@phone", _phoneNumber);  // static 변수 그대로 사용
+                    cmd.Parameters.AddWithValue("@point", point);
+                    cmd.Parameters.AddWithValue("@phone", phone);
                     cmd.ExecuteNonQuery();
                 }
             }
