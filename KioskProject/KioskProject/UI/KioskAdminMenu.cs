@@ -427,8 +427,9 @@ namespace KioskProject
             {
                 foodItems.Remove(itemToRemove);
                 // DB 삭제
-                KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
-                db.Delete(itemToRemove.ProductID);
+                KioskProject.controll.AdminMenuDeletMenu deleter = new KioskProject.controll.AdminMenuDeletMenu();
+                bool success = deleter.DeleteMenu(itemToRemove.ProductID);
+
 
 
                 //이미지 파일도 함께 삭제
