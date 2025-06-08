@@ -59,9 +59,6 @@ namespace KioskProject
             );
         }
 
-
-
-
         //특정 카테고리에 해당하는 메뉴 db에 불러오기
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
