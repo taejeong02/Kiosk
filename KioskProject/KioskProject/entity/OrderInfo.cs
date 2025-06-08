@@ -23,7 +23,6 @@ namespace KioskProject
                     cmd.Parameters.AddWithValue("id", OrderId);
                     cmd.Parameters.AddWithValue("@date", OrderDate);
                     cmd.Parameters.AddWithValue("@total", TotalAmount);
-                    cmd.Parameters.AddWithValue("@data", OrderData);
 
                     int result = cmd.ExecuteNonQuery();
                     return result > 0;

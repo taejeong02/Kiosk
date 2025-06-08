@@ -36,6 +36,7 @@
             this.welcome_lbl = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.cbolang = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
             // 
             // Korean
@@ -132,11 +133,21 @@
             this.metroButton2.Text = "포장";
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // cbolang
+            // 
+            this.cbolang.FormattingEnabled = true;
+            this.cbolang.ItemHeight = 23;
+            this.cbolang.Location = new System.Drawing.Point(9, 16);
+            this.cbolang.Name = "cbolang";
+            this.cbolang.Size = new System.Drawing.Size(133, 29);
+            this.cbolang.TabIndex = 13;
+            // 
             // Select_Language
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 900);
+            this.Controls.Add(this.cbolang);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.welcome_lbl);
@@ -164,5 +175,6 @@
         private MetroFramework.Controls.MetroLabel welcome_lbl;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroComboBox cbolang;
     }
 }

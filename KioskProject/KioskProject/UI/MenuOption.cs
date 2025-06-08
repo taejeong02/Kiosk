@@ -103,12 +103,12 @@ namespace KioskProject
             UpdatePrice();
         }
 
-        private void MenuOption_Load(object sender, EventArgs e)
+        async private void MenuOption_Load(object sender, EventArgs e)
         {
             lblMenuName.Text = selectedItem.Name;
             UpdatePrice();
             UpdateQuantity();
-
+            await LangINFO.TranslateControlsAsync(this, LangINFO.CurrentLanguage);
             // 옵션 UI 보이기 여부
             pnlSizeOption.Visible = selectedItem.IsSizeOptionEnabled;
             pnlSpicyOption.Visible = selectedItem.IsSpicyOptionEnabled;

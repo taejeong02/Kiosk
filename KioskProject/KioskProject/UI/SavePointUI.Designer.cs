@@ -280,6 +280,7 @@
             this.Name = "SavePointUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SavePoint";
+            this.Load += new System.EventHandler(this.SavePointUI_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
