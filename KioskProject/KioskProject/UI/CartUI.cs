@@ -123,7 +123,6 @@ namespace KioskProject
         {
             previousForm.RestoreCartFromData(); // ← 리스트 복원
             previousForm.Show();                // 폼 다시 보여줌
-            this.Close();
         }
 
         private void cardbtn_Click(object sender, EventArgs e)
