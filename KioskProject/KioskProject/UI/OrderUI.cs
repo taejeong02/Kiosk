@@ -11,15 +11,23 @@ using System.IO;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.BC;
+using KioskProject;
 
 namespace KioskProject
 {
     public partial class OrderUI : Form
     {
+<<<<<<< HEAD
+        Form previousForm;
+        private List<string> allCategories = new List<string>();
+        private int currentPage = 0;
+        private const int itemsPerPage = 7;
+=======
         Form previousForm; // 이전 폼을 저장할 변수 => Select_LanguageUI에서 매장을 선택하면 해당 폼이 출력되며
                            // Select_LanguageUI가 종료되는 것이 아니라 Hide 숨겨짐. 이후 OrderUI의 뒤로가기 버튼을 누르면
                            // Select_LanguageUI를 다시 표시하기 위한 작업
         private Dictionary<string, int> orderList = new Dictionary<string, int>();
+>>>>>>> b4e2f0c5b2eb3d1f331ef792d13746567d81a2c3
 
         public OrderUI(Form prevForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
@@ -27,92 +35,40 @@ namespace KioskProject
             this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
         }
 
-
-        //DB에서 카테고리 목록 불러오기
-        private List<string> LoadCategoriesFromDB()
-        {
-            return Category.GetAllCategoryNames();
-        }
-
-        private List<string> allCategories = new List<string>();
-        private int currentPage = 0;
-        private const int itemsPerPage = 7;
+ 
         //폼 첫 로드 시 호출, 카운트 초기화, 카테고리 버튼 생성
 
         private void OrderUI_Load(object sender, EventArgs e)
         {
             count.Text = "0";
-            GenerateCategoryButtons();
+            allCategories = Category.GetAllCategoryNames();
+            ShowCategoryPage();
         }
 
 
         //자동 증가 카테고리 버튼
-        private void GenerateCategoryButtons()
-        {
-            allCategories = LoadCategoriesFromDB();  // 전체 카테고리 저장
-            currentPage = 0;                         // 첫 페이지로 초기화
-            ShowCategoryPage();                      // 페이지 표시
-        }
+  
         //현재 페이지 카테고리 버튼 생성
         private void ShowCategoryPage()
         {
-            flowLayoutPanel2.Controls.Clear();
-
-            int start = currentPage * itemsPerPage;
-            int end = Math.Min(start + itemsPerPage, allCategories.Count);
-
-            for (int i = start; i < end; i++)
-            {
-                string category = allCategories[i];
-
-                Button btn = new Button();
-                btn.Text = category;
-                btn.Width = 100;
-                btn.Height = 50;
-                btn.Margin = new Padding(5);
-                btn.Tag = category;
-
-                btn.Click += (s, e) =>
-                {
-                    string selectedCategory = (string)((Button)s).Tag;
-                    LoadMenuByCategory(selectedCategory);
-                };
-
-                flowLayoutPanel2.Controls.Add(btn);
-            }
-
-            // 다음/이전 버튼 붙이기
-            if (currentPage > 0)
-            {
-                Button prevBtn = new Button();
-                prevBtn.Text = "이전";
-                prevBtn.Width = 100;
-                prevBtn.Height = 50;
-                prevBtn.Margin = new Padding(5);
-                prevBtn.Click += (s, e) =>
-                {
-                    currentPage--;
-                    ShowCategoryPage();
-                };
-                flowLayoutPanel2.Controls.Add(prevBtn);
-            }
-
-            if (end < allCategories.Count)
-            {
-                Button nextBtn = new Button();
-                nextBtn.Text = "다음";
-                nextBtn.Width = 100;
-                nextBtn.Height = 50;
-                nextBtn.Margin = new Padding(5);
-                nextBtn.Click += (s, e) =>
-                {
-                    currentPage++;
-                    ShowCategoryPage();
-                };
-                flowLayoutPanel2.Controls.Add(nextBtn);
-            }
+            Category.ShowCategoryPage(
+               flowLayoutPanel2,
+               allCategories,
+               currentPage,
+               itemsPerPage,
+               selectedCategory => Category.LoadMenuByCategory(selectedCategory, flowLayoutPanel1, (item, option) =>
+               {
+                   Category.AddToOrder(item, option, listBox1, count);
+               }),
+               () => { currentPage--; ShowCategoryPage(); },
+               () => { currentPage++; ShowCategoryPage(); }
+           );
         }
 
+<<<<<<< HEAD
+        
+
+=======
         //특정 카테고리에 해당하는 메뉴 db에 불러오기
         private void LoadMenuByCategory(string category)
         {
@@ -193,10 +149,13 @@ namespace KioskProject
             }
         }
             
+>>>>>>> b4e2f0c5b2eb3d1f331ef792d13746567d81a2c3
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+<<<<<<< HEAD
+=======
 
         private void AddToOrder(MyMenuItem item, MenuOptionData option)
         {
@@ -212,6 +171,7 @@ namespace KioskProject
                 count.Text = countValue.ToString();
             }
         }
+>>>>>>> b4e2f0c5b2eb3d1f331ef792d13746567d81a2c3
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -244,27 +204,9 @@ namespace KioskProject
 
             CartUI cartForm = new CartUI(this, cartLines);
             cartForm.FormClosed += (s, args) => Application.Exit();
-            cartForm.Show();           // ← 이거 추가해야 폼 뜸
-            this.Hide();               // ← 숨기고 싶으면 이 줄도 추가
+            cartForm.Show();
+            this.Hide();
         }
-    }
-
-    //사용자 정의 메뉴 항목 클래스 메뉴,이름, 가격, 카테고리 포함
-    public class MyMenuItem
-    {
-        public string Name { get; set; }
-        public int Price { get; set; }
-        public string Category { get; set; }
-        public bool IsSpicyOptionEnabled { get; set; }
-        public bool IsSizeOptionEnabled { get; set; }
-
-        public MyMenuItem(string name, int price, string category, bool isSpicy, bool isSize)
-        {
-            Name = name;
-            Price = price;
-            Category = category;
-            IsSpicyOptionEnabled = isSpicy;
-            IsSizeOptionEnabled = isSize;
-        }
+      
     }
 }
