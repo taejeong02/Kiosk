@@ -14,64 +14,21 @@ namespace KioskProject
     {
         public static int _total;
         private OrderUI previousForm;
+        private CartControl cartControl;
         public CartUI(OrderUI prevForm, List<string> items)
         {
             InitializeComponent();
             this.previousForm = prevForm;
+            cartControl = new CartControl();
 
-            SetupCartGrid();
-            LoadCartItems(items);  // items는 List<string>
-        }
-        private void SetupCartGrid()
-        {
-            dataGridView1.Columns.Clear();
-
-            dataGridView1.Columns.Add("ItemNo", "상품 번호");
-            dataGridView1.Columns.Add("ItemName", "상품명");
-            dataGridView1.Columns.Add("Qty", "상품 수량");
-            dataGridView1.Columns.Add("Price", "상품 가격");
-
-            dataGridView1.AllowUserToAddRows = false;
-        }
-        private void LoadCartItems(List<string> items)
-        {
-            dataGridView1.Rows.Clear();
-            int itemNo = 1;
-
-            foreach (string line in items)
-            {
-                string[] parts = line.Split(':');
-                string namePart = parts[0].Trim();
-                string pricePart = parts[1].Replace("원", "").Trim();
-                int price = int.Parse(pricePart);
-
-                string[] nameParts = namePart.Split('-');
-                string itemName = string.Join("-", nameParts.Take(nameParts.Length - 1));
-                string qtyStr = nameParts.Last().Replace("개", "");
-                int qty = int.Parse(qtyStr);
-
-                dataGridView1.Rows.Add(
-                    itemNo++,
-                    itemName,
-                    qty,
-                    price
-                );
-            }
-
+            cartControl.SetupCartGrid(dataGridView1);
+            cartControl.LoadCartItems(dataGridView1, items);
             UpdateTotalPrice();
         }
+        
         private void UpdateTotalPrice()
         {
-            int total = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells["Price"].Value != null)
-                {
-                    total += Convert.ToInt32(row.Cells["Price"].Value);
-                }
-            }
-            _total = total;
-            lbltotal.Text = $"총 결제 금액 : {total:N0}원";
+            _total = cartControl.UpdateTotalPrice(dataGridView1, lbltotal);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,7 +72,6 @@ namespace KioskProject
                 row.Cells["Qty"].Value = qty;
                 row.Cells["Price"].Value = unitPrice * qty;
             }
-
             UpdateTotalPrice();
         }
 
@@ -123,41 +79,24 @@ namespace KioskProject
         {
             previousForm.RestoreCartFromData(); // ← 리스트 복원
             previousForm.Show();                // 폼 다시 보여줌
-            this.Close();
         }
 
         private void cardbtn_Click(object sender, EventArgs e)
         {
-            int totalPrice = 0;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells["Price"].Value != null)
-                {
-                    totalPrice += Convert.ToInt32(row.Cells["Price"].Value);
-                }
-            }
-
+            int totalPrice = _total;
             PaymentUI paymentForm = new PaymentUI(totalPrice, this);
             paymentForm.FormClosed += (s, args) => Application.Exit();
             paymentForm.Show();
-            this.Hide(); // CartUI는 숨기기만
+            this.Hide();
         }
         public List<string> GetCartItems()
         {
-            List<string> items = new List<string>();
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (!row.IsNewRow)
-                {
-                    string menu = row.Cells["ItemName"].Value.ToString();
-                    string qty = row.Cells["Qty"].Value.ToString();
-                    string price = row.Cells["Price"].Value.ToString();
+            return cartControl.GetCartItems(dataGridView1);
+        }
 
-                    items.Add($"{menu} - {qty}개 : {price}원");
-                }
-            }
-            return items.Distinct().ToList(); // 중복제거
+        private void cashbtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("현금 결제는 카운터에서 진행해주세요!","현금 결제",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 

@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,12 +24,7 @@ namespace KioskProject
             public int IsSizeOptionEnabled { get; set; }
 
         }
-
         private List<FoodItem> foodItems = new List<FoodItem>();
-
-        private string connectionString = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
-
-
         public KioskAdminMenu()
         {
             InitializeComponent();
@@ -166,32 +160,12 @@ namespace KioskProject
 
         private void DisplayMenuList()
         {
-            foodItems.Clear();
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT * FROM menu ORDER BY CAST(ProductID AS UNSIGNED)";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    foodItems.Add(new FoodItem
-                    {
-                        ProductID = reader["ProductID"].ToString(),
-                        ProductName = reader["ProductName"].ToString(),
-                        ProductPrice = reader["ProductPrice"].ToString(),
-                        ProductCategory = reader["ProductCategory"].ToString(),
-                        IsSpicyOptionEnabled = Convert.ToInt32(reader["IsSpicyOptionEnabled"]),
-                        IsSizeOptionEnabled = Convert.ToInt32(reader["IsSizeOptionEnabled"])
-                    });
-                }
-            }
+            KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
+            foodItems = db.SelectAll();
 
             Menu_gridview.DataSource = null;
             Menu_gridview.DataSource = foodItems;
-            // 각 행에 따른 상품번호 이미지 로드
+
             for (int i = 0; i < Menu_gridview.Rows.Count; i++)
             {
                 string productId = Menu_gridview.Rows[i].Cells["ProductID"].Value.ToString();
@@ -400,21 +374,9 @@ namespace KioskProject
 
             };
             foodItems.Add(newItem);
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "INSERT INTO menu (ProductID, ProductName, ProductPrice, ProductCategory, IsSpicyOptionEnabled, IsSizeOptionEnabled) " +
-                       "VALUES (@id, @name, @price, @category, @spicy, @size)";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@price", price);
-                cmd.Parameters.AddWithValue("@category", category);
-                cmd.Parameters.AddWithValue("@spicy", isSpicy ? 1 : 0);
-                cmd.Parameters.AddWithValue("@size", isSize ? 1 : 0);
-                cmd.ExecuteNonQuery();
-            }
+            //DB 저장 로직 
+            KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
+            db.Insert(newItem);
 
             //메뉴 추가 성공 메시지 출력
             ShowMessage("메뉴가 등록되었습니다.");
@@ -461,14 +423,11 @@ namespace KioskProject
             if (itemToRemove != null)
             {
                 foodItems.Remove(itemToRemove);
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "DELETE FROM menu WHERE ProductID = @id";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@id", itemToRemove.ProductID);
-                    cmd.ExecuteNonQuery();
-                }
+                // DB 삭제
+                KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
+                db.Delete(itemToRemove.ProductID);
+
+
                 //이미지 파일도 함께 삭제
                 foreach (DataGridViewRow row in Menu_gridview.Rows)
                 {
@@ -548,22 +507,13 @@ namespace KioskProject
                 itemToUpdate.ProductName = name;
                 itemToUpdate.ProductPrice = price;
                 itemToUpdate.ProductCategory = category;
+                itemToUpdate.IsSpicyOptionEnabled = isSpicy ? 1 : 0;
+                itemToUpdate.IsSizeOptionEnabled = isSize ? 1 : 0;
 
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "UPDATE menu SET ProductName = @name, ProductPrice = @price, ProductCategory = @category, " +
-                           "IsSpicyOptionEnabled = @spicy, IsSizeOptionEnabled = @size WHERE ProductID = @id";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@name", name);
-                    cmd.Parameters.AddWithValue("@price", price);
-                    cmd.Parameters.AddWithValue("@category", category);
-                    cmd.Parameters.AddWithValue("@spicy", isSpicy ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@size", isSize ? 1 : 0);
+                //DB 수정
+                KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
+                db.Update(itemToUpdate);
 
-                    cmd.ExecuteNonQuery();
-                }
 
                 ShowMessage("메뉴가 수정되었습니다.");
                 DisplayMenuList();

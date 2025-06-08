@@ -82,20 +82,20 @@
             // lbltotal
             // 
             this.lbltotal.AutoSize = true;
-            this.lbltotal.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbltotal.Location = new System.Drawing.Point(236, 624);
             this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(149, 26);
+            this.lbltotal.Size = new System.Drawing.Size(143, 29);
             this.lbltotal.TabIndex = 1;
             this.lbltotal.Text = "총 결제 금액 : ";
             // 
             // cart
             // 
             this.cart.AutoSize = true;
-            this.cart.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cart.Location = new System.Drawing.Point(34, 50);
             this.cart.Name = "cart";
-            this.cart.Size = new System.Drawing.Size(96, 26);
+            this.cart.Size = new System.Drawing.Size(89, 29);
             this.cart.TabIndex = 1;
             this.cart.Text = "장바구니";
             // 
@@ -117,6 +117,7 @@
             this.cashbtn.TabIndex = 2;
             this.cashbtn.Text = "현금결제";
             this.cashbtn.UseVisualStyleBackColor = true;
+            this.cashbtn.Click += new System.EventHandler(this.cashbtn_Click);
             // 
             // cardbtn
             // 

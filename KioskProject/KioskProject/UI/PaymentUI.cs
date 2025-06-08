@@ -64,12 +64,11 @@ namespace KioskProject
         private void CancelPaying_btn_Click(object sender, EventArgs e) // 결제 취소 버튼
         {
             MessageBox.Show("결제가 취소되었습니다.");
-
+            previousCartForm.Show(); // CartUI 다시 보여줌
         }
 
         private void ChangePaymentMethod_btn_Click(object sender, EventArgs e) //결제 수단 변경 
         {
-            this.Close();                 // PaymentUI 닫고
             previousCartForm.Show();     // CartUI 다시 보여줌 (숨겨진 상태에서 복귀)
         }
 
