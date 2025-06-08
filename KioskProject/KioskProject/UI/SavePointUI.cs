@@ -118,10 +118,5 @@ namespace KioskProject
             this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
             this.Close();
         }
-
-        async private void SavePointUI_Load(object sender, EventArgs e)
-        {
-            await LangINFO.TranslateControlsAsync(this, LangINFO.CurrentLanguage);
-        }
     }
 }

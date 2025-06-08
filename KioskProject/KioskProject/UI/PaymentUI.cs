@@ -36,12 +36,11 @@ namespace KioskProject
             this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click);
         }
 
-        async private void Form2_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
             PerPersonAmount.Text = $"{totalAmount}원"; // 총 금액 그대로 표시
             labelCount.Text = $"{numberOfPeople}명";
             UpdatePersonPanels();
-            await LangINFO.TranslateControlsAsync(this, LangINFO.CurrentLanguage);
         }
 
         private void Minus_btn_Click(object sender, EventArgs e) // 총인원수 감소 버튼
