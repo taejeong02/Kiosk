@@ -281,6 +281,18 @@ namespace KioskProject
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string> cartLines = new List<string>();
+            foreach (var obj in listBox1.Items)
+            {
+                cartLines.Add(obj.ToString());
+            }
+
+            CartUI cartForm = new CartUI(this, cartLines);
+            cartForm.Show();           // ← 이거 추가해야 폼 뜸
+            this.Hide();               // ← 숨기고 싶으면 이 줄도 추가
+        }
     }
 
     //사용자 정의 메뉴 항목 클래스 메뉴,이름, 가격, 카테고리 포함

@@ -14,13 +14,13 @@ namespace KioskProject
     {
         public static int _total;
         private OrderUI previousForm;
-        public CartUI(OrderUI prevForm, List<CartItem> items)
+        public CartUI(OrderUI prevForm, List<string> items)
         {
             InitializeComponent();
             this.previousForm = prevForm;
 
             SetupCartGrid();
-            LoadCartItems(items);
+            LoadCartItems(items);  // items는 List<string>
         }
         private void SetupCartGrid()
         {
@@ -33,31 +33,28 @@ namespace KioskProject
 
             dataGridView1.AllowUserToAddRows = false;
         }
-        private void LoadCartItems(List<CartItem> items)
+        private void LoadCartItems(List<string> items)
         {
             dataGridView1.Rows.Clear();
             int itemNo = 1;
 
-            foreach (var item in items)
+            foreach (string line in items)
             {
-                int totalPrice = item.TotalPrice;
-                int qty = item.Quantity;
+                string[] parts = line.Split(':');
+                string namePart = parts[0].Trim();
+                string pricePart = parts[1].Replace("원", "").Trim();
+                int price = int.Parse(pricePart);
 
-                // 메뉴명 가공: 곱빼기 + 맵기
-                string nameWithOption = item.Name;
+                string[] nameParts = namePart.Split('-');
+                string itemName = string.Join("-", nameParts.Take(nameParts.Length - 1));
+                string qtyStr = nameParts.Last().Replace("개", "");
+                int qty = int.Parse(qtyStr);
 
-                if (item.IsUpsize)
-                    nameWithOption += "-곱빼기";
-
-                if (!string.IsNullOrEmpty(item.Spiciness))
-                    nameWithOption += $"-{item.Spiciness}";
-
-                // DataGridView에 행 추가
                 dataGridView1.Rows.Add(
                     itemNo++,
-                    nameWithOption,
+                    itemName,
                     qty,
-                    totalPrice
+                    price
                 );
             }
 

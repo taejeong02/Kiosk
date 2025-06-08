@@ -46,28 +46,28 @@
             this.btnAddCart = new System.Windows.Forms.Button();
             this.lblMenuName = new System.Windows.Forms.Label();
             this.pnlSizeOption = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlSpicyOption = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlBottomArea = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlSpicyOption = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlBottomArea = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlSizeOption.SuspendLayout();
-            this.pnlSpicyOption.SuspendLayout();
-            this.pnlBottomArea.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnlSpicyOption.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.pnlBottomArea.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnmius
             // 
             this.btnmius.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnmius.Location = new System.Drawing.Point(573, 142);
-            this.btnmius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnmius.Location = new System.Drawing.Point(401, 95);
+            this.btnmius.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnmius.Name = "btnmius";
-            this.btnmius.Size = new System.Drawing.Size(66, 58);
+            this.btnmius.Size = new System.Drawing.Size(46, 39);
             this.btnmius.TabIndex = 26;
             this.btnmius.Text = "-";
             this.btnmius.UseVisualStyleBackColor = true;
@@ -76,10 +76,10 @@
             // btnplus
             // 
             this.btnplus.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold);
-            this.btnplus.Location = new System.Drawing.Point(407, 142);
-            this.btnplus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnplus.Location = new System.Drawing.Point(285, 95);
+            this.btnplus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnplus.Name = "btnplus";
-            this.btnplus.Size = new System.Drawing.Size(66, 58);
+            this.btnplus.Size = new System.Drawing.Size(46, 39);
             this.btnplus.TabIndex = 25;
             this.btnplus.Text = "+";
             this.btnplus.UseVisualStyleBackColor = true;
@@ -89,10 +89,9 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblQuantity.Location = new System.Drawing.Point(508, 160);
-            this.lblQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQuantity.Location = new System.Drawing.Point(356, 107);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(29, 28);
+            this.lblQuantity.Size = new System.Drawing.Size(20, 19);
             this.lblQuantity.TabIndex = 24;
             this.lblQuantity.Text = "0";
             // 
@@ -100,10 +99,9 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblPrice.Location = new System.Drawing.Point(507, 240);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Location = new System.Drawing.Point(355, 160);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(35, 33);
+            this.lblPrice.Size = new System.Drawing.Size(22, 22);
             this.lblPrice.TabIndex = 22;
             this.lblPrice.Text = "0";
             // 
@@ -111,10 +109,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(38, 240);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(27, 160);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 33);
+            this.label7.Size = new System.Drawing.Size(102, 22);
             this.label7.TabIndex = 21;
             this.label7.Text = "주문금액";
             // 
@@ -122,19 +119,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(61, 155);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(43, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 33);
+            this.label5.Size = new System.Drawing.Size(56, 22);
             this.label5.TabIndex = 20;
             this.label5.Text = "수량";
             // 
             // btnFour
             // 
-            this.btnFour.Location = new System.Drawing.Point(541, 77);
-            this.btnFour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnFour.Location = new System.Drawing.Point(379, 51);
+            this.btnFour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFour.Name = "btnFour";
-            this.btnFour.Size = new System.Drawing.Size(126, 111);
+            this.btnFour.Size = new System.Drawing.Size(88, 74);
             this.btnFour.TabIndex = 19;
             this.btnFour.Text = "엄청매운맛";
             this.btnFour.UseVisualStyleBackColor = true;
@@ -142,10 +138,10 @@
             // 
             // btnThree
             // 
-            this.btnThree.Location = new System.Drawing.Point(367, 77);
-            this.btnThree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnThree.Location = new System.Drawing.Point(257, 51);
+            this.btnThree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThree.Name = "btnThree";
-            this.btnThree.Size = new System.Drawing.Size(126, 111);
+            this.btnThree.Size = new System.Drawing.Size(88, 74);
             this.btnThree.TabIndex = 18;
             this.btnThree.Text = "매운맛";
             this.btnThree.UseVisualStyleBackColor = true;
@@ -153,10 +149,10 @@
             // 
             // btnTwo
             // 
-            this.btnTwo.Location = new System.Drawing.Point(191, 77);
-            this.btnTwo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnTwo.Location = new System.Drawing.Point(134, 51);
+            this.btnTwo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTwo.Name = "btnTwo";
-            this.btnTwo.Size = new System.Drawing.Size(126, 111);
+            this.btnTwo.Size = new System.Drawing.Size(88, 74);
             this.btnTwo.TabIndex = 17;
             this.btnTwo.Text = "보통맛";
             this.btnTwo.UseVisualStyleBackColor = true;
@@ -164,10 +160,10 @@
             // 
             // btnOne
             // 
-            this.btnOne.Location = new System.Drawing.Point(26, 77);
-            this.btnOne.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnOne.Location = new System.Drawing.Point(18, 51);
+            this.btnOne.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOne.Name = "btnOne";
-            this.btnOne.Size = new System.Drawing.Size(126, 111);
+            this.btnOne.Size = new System.Drawing.Size(88, 74);
             this.btnOne.TabIndex = 16;
             this.btnOne.Text = "순한맛";
             this.btnOne.UseVisualStyleBackColor = true;
@@ -177,10 +173,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(20, 16);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(14, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 33);
+            this.label4.Size = new System.Drawing.Size(56, 22);
             this.label4.TabIndex = 15;
             this.label4.Text = "맵기";
             // 
@@ -188,10 +183,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(365, 217);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(256, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 28);
+            this.label3.Size = new System.Drawing.Size(89, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "사이즈업";
             // 
@@ -199,19 +193,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(119, 217);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(83, 145);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 28);
+            this.label2.Size = new System.Drawing.Size(49, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "기본";
             // 
             // btnLaze
             // 
-            this.btnLaze.Location = new System.Drawing.Point(67, 38);
-            this.btnLaze.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLaze.Location = new System.Drawing.Point(47, 25);
+            this.btnLaze.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLaze.Name = "btnLaze";
-            this.btnLaze.Size = new System.Drawing.Size(174, 168);
+            this.btnLaze.Size = new System.Drawing.Size(122, 112);
             this.btnLaze.TabIndex = 12;
             this.btnLaze.Text = "button3";
             this.btnLaze.UseVisualStyleBackColor = true;
@@ -219,10 +212,10 @@
             // 
             // btnMiddle
             // 
-            this.btnMiddle.Location = new System.Drawing.Point(343, 38);
-            this.btnMiddle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnMiddle.Location = new System.Drawing.Point(240, 25);
+            this.btnMiddle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMiddle.Name = "btnMiddle";
-            this.btnMiddle.Size = new System.Drawing.Size(174, 168);
+            this.btnMiddle.Size = new System.Drawing.Size(122, 112);
             this.btnMiddle.TabIndex = 11;
             this.btnMiddle.Text = "button2";
             this.btnMiddle.UseVisualStyleBackColor = true;
@@ -230,10 +223,10 @@
             // 
             // btnAddCart
             // 
-            this.btnAddCart.Location = new System.Drawing.Point(17, 301);
-            this.btnAddCart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAddCart.Location = new System.Drawing.Point(12, 201);
+            this.btnAddCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddCart.Name = "btnAddCart";
-            this.btnAddCart.Size = new System.Drawing.Size(641, 93);
+            this.btnAddCart.Size = new System.Drawing.Size(449, 62);
             this.btnAddCart.TabIndex = 10;
             this.btnAddCart.Text = "장바구니 추가";
             this.btnAddCart.UseVisualStyleBackColor = true;
@@ -243,51 +236,45 @@
             // 
             this.lblMenuName.AutoSize = true;
             this.lblMenuName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblMenuName.Location = new System.Drawing.Point(21, 7);
-            this.lblMenuName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMenuName.Location = new System.Drawing.Point(15, 5);
             this.lblMenuName.Name = "lblMenuName";
-            this.lblMenuName.Size = new System.Drawing.Size(170, 52);
+            this.lblMenuName.Size = new System.Drawing.Size(99, 33);
             this.lblMenuName.TabIndex = 27;
             this.lblMenuName.Text = "음식이름";
             // 
             // pnlSizeOption
             // 
             this.pnlSizeOption.Controls.Add(this.panel2);
-            this.pnlSizeOption.Location = new System.Drawing.Point(3, 3);
+            this.pnlSizeOption.Location = new System.Drawing.Point(2, 2);
+            this.pnlSizeOption.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlSizeOption.Name = "pnlSizeOption";
-            this.pnlSizeOption.Size = new System.Drawing.Size(603, 365);
+            this.pnlSizeOption.Size = new System.Drawing.Size(491, 231);
             this.pnlSizeOption.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.btnLaze);
+            this.panel2.Controls.Add(this.btnMiddle);
+            this.panel2.Location = new System.Drawing.Point(2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(467, 218);
+            this.panel2.TabIndex = 32;
             // 
             // pnlSpicyOption
             // 
             this.pnlSpicyOption.AutoSize = true;
             this.pnlSpicyOption.Controls.Add(this.panel1);
             this.pnlSpicyOption.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlSpicyOption.Location = new System.Drawing.Point(3, 374);
+            this.pnlSpicyOption.Location = new System.Drawing.Point(2, 237);
+            this.pnlSpicyOption.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlSpicyOption.Name = "pnlSpicyOption";
-            this.pnlSpicyOption.Size = new System.Drawing.Size(712, 238);
+            this.pnlSpicyOption.Size = new System.Drawing.Size(498, 159);
             this.pnlSpicyOption.TabIndex = 29;
             this.pnlSpicyOption.WrapContents = false;
             this.pnlSpicyOption.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSpicyOption_Paint);
-            // 
-            // pnlBottomArea
-            // 
-            this.pnlBottomArea.Controls.Add(this.panel3);
-            this.pnlBottomArea.Location = new System.Drawing.Point(3, 618);
-            this.pnlBottomArea.Name = "pnlBottomArea";
-            this.pnlBottomArea.Size = new System.Drawing.Size(709, 456);
-            this.pnlBottomArea.TabIndex = 30;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.pnlSizeOption);
-            this.flowLayoutPanel1.Controls.Add(this.pnlSpicyOption);
-            this.flowLayoutPanel1.Controls.Add(this.pnlBottomArea);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 72);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(720, 1126);
-            this.flowLayoutPanel1.TabIndex = 31;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // panel1
             // 
@@ -296,22 +283,21 @@
             this.panel1.Controls.Add(this.btnTwo);
             this.panel1.Controls.Add(this.btnThree);
             this.panel1.Controls.Add(this.btnFour);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 232);
+            this.panel1.Size = new System.Drawing.Size(494, 155);
             this.panel1.TabIndex = 32;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
+            // pnlBottomArea
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.btnLaze);
-            this.panel2.Controls.Add(this.btnMiddle);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(574, 284);
-            this.panel2.TabIndex = 32;
+            this.pnlBottomArea.Controls.Add(this.panel3);
+            this.pnlBottomArea.Location = new System.Drawing.Point(2, 400);
+            this.pnlBottomArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlBottomArea.Name = "pnlBottomArea";
+            this.pnlBottomArea.Size = new System.Drawing.Size(496, 304);
+            this.pnlBottomArea.TabIndex = 30;
             // 
             // panel3
             // 
@@ -322,33 +308,45 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.btnAddCart);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(699, 423);
+            this.panel3.Size = new System.Drawing.Size(489, 282);
             this.panel3.TabIndex = 33;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.pnlSizeOption);
+            this.flowLayoutPanel1.Controls.Add(this.pnlSpicyOption);
+            this.flowLayoutPanel1.Controls.Add(this.pnlBottomArea);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(55, 49);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(518, 752);
+            this.flowLayoutPanel1.TabIndex = 31;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // MenuOption
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 1244);
+            this.ClientSize = new System.Drawing.Size(584, 861);
             this.Controls.Add(this.lblMenuName);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuOption";
             this.Text = "MenuOption";
             this.Load += new System.EventHandler(this.MenuOption_Load);
             this.pnlSizeOption.ResumeLayout(false);
-            this.pnlSpicyOption.ResumeLayout(false);
-            this.pnlBottomArea.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnlSpicyOption.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pnlBottomArea.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

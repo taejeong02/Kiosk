@@ -41,19 +41,17 @@
             // 
             this.flowLayoutPanel1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 284);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 189);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(724, 515);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 343);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(541, 905);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(379, 603);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(201, 72);
+            this.btnBack.Size = new System.Drawing.Size(141, 48);
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "뒤로가기";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -62,11 +60,10 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(31, 831);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(22, 554);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(471, 400);
+            this.listBox1.Size = new System.Drawing.Size(331, 268);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -74,10 +71,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(510, 850);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(357, 567);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 33);
+            this.label1.Size = new System.Drawing.Size(109, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "선택한 상품 : ";
             // 
@@ -85,36 +81,36 @@
             // 
             this.count.AutoSize = true;
             this.count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.count.Location = new System.Drawing.Point(662, 850);
-            this.count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.count.Location = new System.Drawing.Point(463, 567);
             this.count.Name = "count";
-            this.count.Size = new System.Drawing.Size(91, 33);
+            this.count.Size = new System.Drawing.Size(62, 24);
             this.count.TabIndex = 12;
             this.count.Text = "count";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(541, 1004);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(379, 669);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 209);
+            this.button1.Size = new System.Drawing.Size(140, 139);
             this.button1.TabIndex = 13;
             this.button1.Text = "장바구니";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(31, 24);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(22, 16);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(722, 233);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(505, 155);
             this.flowLayoutPanel2.TabIndex = 14;
             this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCategory);
             // 
             // OrderUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 1244);
+            this.ClientSize = new System.Drawing.Size(584, 861);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.count);
@@ -122,7 +118,6 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderUI";
             this.Text = "OrderUI";
             this.Load += new System.EventHandler(this.OrderUI_Load);
