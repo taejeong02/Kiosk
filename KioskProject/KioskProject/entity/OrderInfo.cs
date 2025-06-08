@@ -12,7 +12,7 @@ namespace KioskProject
 
         private static string connStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234;";
 
-        public bool SaveToDatabase()
+        public int SaveToDatabase()
         {
             using (var conn = new MySqlConnection(connStr))
             {
@@ -26,7 +26,17 @@ namespace KioskProject
                     cmd.Parameters.AddWithValue("@data", OrderData);
 
                     int result = cmd.ExecuteNonQuery();
-                    return result > 0;
+                    if (result > 0)
+                    {
+                        // 최근 INSERT된 PK값 가져옴
+                        cmd.CommandText = "SELECT LAST_INSERT_ID()";
+                        this.OrderId = Convert.ToInt32(cmd.ExecuteScalar());
+                        return this.OrderId;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 }
             }
         }

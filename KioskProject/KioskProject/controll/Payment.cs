@@ -34,8 +34,8 @@ namespace KioskProject
             return true;
         }
 
-        // ✅ 새로운 메서드: 결제 완료 시 주문 저장
-        public bool SaveOrder(string orderData)
+        //  결제 완료 시 주문 저장
+        public int SaveOrder(string orderData)
         {
             OrderInfo order = new OrderInfo
             {

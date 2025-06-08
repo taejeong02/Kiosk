@@ -145,6 +145,7 @@
       <DependentUpon>OrderDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\OrderInfo.cs" />
+    <Compile Include="ReceiptControl.cs" />
     <Compile Include="UI\SavePointUI.cs">
       <SubType>Form</SubType>
     </Compile>
