@@ -12,10 +12,12 @@ using KioskProject;
 
 namespace KioskProject
 {
-    public partial class Form1 : Form
+    public partial class SavePointUI : Form
     {
         public static int PaymentAmount;
-        public Form1(int payment)
+        public int point;
+        public string phone;
+        public SavePointUI(int payment)
         {
             InitializeComponent();
             PaymentAmount = payment;
@@ -26,10 +28,12 @@ namespace KioskProject
         public int FindPoint(string phone)
         {
             if (!UsingPoint.IsExistingUser(phone))
+            {
                 UsingPoint.InsertUser(phone);
-            MessageBox.Show($"[신규등록] {phone} 사용자 등록 완료\n초기 포인트: 1,000P",
+                MessageBox.Show($"[신규등록] {phone} 사용자 등록 완료\n초기 포인트: 1,000P",
                                 "신규 사용자 등록", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            }
             return UsingPoint.GetPoint(phone);
         }
 
@@ -86,22 +90,31 @@ namespace KioskProject
         private void ClearButton_Click(object sender, EventArgs e) { textBox1.Text = "010 - "; }
         private void button0_Click(object sender, EventArgs e) { AddDigit("0"); }
         private void EraseButton_Click(object sender, EventArgs e) { RemoveLastText(); }
-        private void NotsaveButton_Click(object sender, EventArgs e) { this.Close(); }
+        private void NotsaveButton_Click(object sender, EventArgs e) {
+            phone = textBox1.Text.Trim();
+            UsingPoint.SetPhoneNumber(phone);
+            point = UsingPoint.FindPoint(phone);
+            UsingPoint.SetPayment(PaymentAmount);
+            UsePointUI form2 = new UsePointUI(point, PaymentAmount, phone);
+            var result = form2.ShowDialog();
+            form2.FormClosed += (s, args) => Application.Exit();
+        }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string phone = textBox1.Text.Trim();
+            phone = textBox1.Text.Trim();
             if (!IsValidPhoneNumber(phone))
             {
                 MessageBox.Show("전화번호 형식이 올바르지 않습니다.\n예: 010-1234-5678",
                                 "입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            FindPoint(phone);
             UsingPoint.SetPhoneNumber(phone);
             int point = UsingPoint.FindPoint(phone);
             UsingPoint.SetPayment(PaymentAmount);
 
-            Form2 form2 = new Form2(point, PaymentAmount, phone);
+            UsePointUI form2 = new UsePointUI(point, PaymentAmount, phone);
             var result = form2.ShowDialog();
             form2.FormClosed += (s, args) => Application.Exit();
             this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환

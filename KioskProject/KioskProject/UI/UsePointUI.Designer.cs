@@ -1,6 +1,6 @@
 ﻿namespace KioskProject
 {
-    partial class Form2
+    partial class UsePointUI
     {
         /// <summary>
         /// Required designer variable.
@@ -308,12 +308,13 @@
             this.label7.TabIndex = 19;
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Form2
+            // UsePointUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(372, 568);
+            this.ControlBox = false;
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.usePointbutton);
@@ -334,7 +335,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
-            this.Name = "Form2";
+            this.Name = "UsePointUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UsePoint";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

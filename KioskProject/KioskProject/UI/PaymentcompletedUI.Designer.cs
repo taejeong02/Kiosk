@@ -1,6 +1,6 @@
 ﻿namespace KioskProject
 {
-    partial class Form3
+    partial class PaymentcompletedUI
     {
         /// <summary>
         /// Required designer variable.
@@ -41,13 +41,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form3
+            // PaymentcompletedUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 568);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
-            this.Name = "Form3";
+            this.Name = "PaymentcompletedUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "payment";
             this.ResumeLayout(false);
 

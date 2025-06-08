@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class Form3 : Form
+    public partial class PaymentcompletedUI : Form
     {
         private int _savePoint;
         private int _updatedPoint;
         private int _paymentAmount;
         private int _usePoint;
 
-        public Form3(int savePoint, int paymentAmount, int usePoint)
+        public PaymentcompletedUI(int savePoint, int paymentAmount, int usePoint)
         {
             InitializeComponent();
             _savePoint = savePoint;
