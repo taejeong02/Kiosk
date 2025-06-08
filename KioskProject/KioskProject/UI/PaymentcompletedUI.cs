@@ -27,9 +27,11 @@ namespace KioskProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _updatedPoint = UsingPoint.UsePoint();
-            _updatedPoint = UsingPoint.AddPoint();
-
+            if (_savePoint != 0)
+            {
+                _updatedPoint = UsingPoint.UsePoint();
+                _updatedPoint = UsingPoint.AddPoint();
+            }
             MessageBox.Show(
                 $"결제금액 {_paymentAmount:N0}원이 결제 되었습니다.\n" +
                 $"사용한 포인트 {_usePoint:N0}P\n" +
@@ -39,6 +41,7 @@ namespace KioskProject
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+            _updatedPoint = 0;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
