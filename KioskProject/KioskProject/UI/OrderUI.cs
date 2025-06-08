@@ -128,120 +128,89 @@ namespace KioskProject
                 flowLayoutPanel2.Controls.Add(nextBtn);
             }
         }
-        
+
         //특정 카테고리에 해당하는 메뉴 db에 불러오기
         private void LoadMenuByCategory(string category)
         {
             flowLayoutPanel1.Controls.Clear();
 
-            string connStr = "server=34.45.48.0;database=Kiosk;uid=appuser;pwd=KioskProjectghguddeumk2";
+            var cat = new Category { CategoryName = category };
+            List<MenuItem> items = cat.GetItems();
 
-
-            using (MySqlConnection conn = new MySqlConnection(connStr))
+            foreach (var item in items)
             {
-                conn.Open();
-                string query = "SELECT ProductID, ProductName, ProductPrice, IsSpicyOptionEnabled, IsSizeOptionEnabled FROM menu WHERE ProductCategory = @category";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                var myItem = new MyMenuItem(item.Name, item.Price, item.Category, item.IsSpicyOptionEnabled, item.IsSizeOptionEnabled);
+                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", item.Name + ".jpg");
+
+                Panel panel = new Panel
                 {
-                    cmd.Parameters.AddWithValue("@category", category);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    Width = 120,
+                    Height = 150,
+                    Margin = new Padding(5),
+                    BackColor = Color.White,
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                PictureBox picture = new PictureBox
+                {
+                    Dock = DockStyle.Fill,
+                    SizeMode = PictureBoxSizeMode.Zoom
+                };
+
+                if (File.Exists(imagePath))
+                {
+                    using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
                     {
-                        while (reader.Read())
-                        {
-                            string productId = reader["ProductID"].ToString();
-                            string name = reader["ProductName"].ToString();
-                            int price = Convert.ToInt32(reader["ProductPrice"]);
-                            bool isSpicy = Convert.ToBoolean(reader["IsSpicyOptionEnabled"]);
-                            bool isSize = Convert.ToBoolean(reader["IsSizeOptionEnabled"]);
-                            // 이미지 경로 설정
-                            string imagePath = Path.Combine(Application.StartupPath, "MenuImages", productId + ".jpg");
-                            //옵션값 전달
-                            MyMenuItem item = new MyMenuItem(name, price, category, isSpicy, isSize);
-
-                            // 메뉴 박스 패널
-                            Panel panel = new Panel();
-                            panel.Width = 120;
-                            panel.Height = 150;
-                            panel.Margin = new Padding(5);
-                            panel.BackColor = Color.White;
-                            panel.BorderStyle = BorderStyle.FixedSingle;
-                            // 메뉴사진
-                            PictureBox picture = new PictureBox();
-                            picture.Dock = DockStyle.Fill;
-                            picture.SizeMode = PictureBoxSizeMode.Zoom;
-
-
-                            //이미지 파일 존재하면 로드, 없으면 회색 배경
-                            if (File.Exists(imagePath))
-                            {
-                                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
-                                {
-                                    picture.Image = Image.FromStream(fs); // 이미지 로딩
-                                }
-                            }
-                            else
-                            {
-                                picture.BackColor = Color.LightGray; // 이미지 없을 경우
-                            }
-
-                            // 메뉴명
-                            Label nameLabel = new Label();
-                            nameLabel.Text = name;
-                            nameLabel.Dock = DockStyle.Top;
-                            nameLabel.TextAlign = ContentAlignment.MiddleCenter;
-                            nameLabel.Font = new Font("맑은 고딕", 10, FontStyle.Bold);
-                            nameLabel.Height = 40;
-
-                            // 가격
-                            Label priceLabel = new Label();
-                            priceLabel.Text = price.ToString("N0") + "원";
-                            priceLabel.Dock = DockStyle.Bottom;
-                            priceLabel.TextAlign = ContentAlignment.MiddleCenter;
-                            priceLabel.Font = new Font("맑은 고딕", 9, FontStyle.Regular);
-                            priceLabel.Height = 30;
-
-                            // 메뉴 정보 객체
-                            MyMenuItem menuItem = new MyMenuItem(name, price, category, isSpicy, isSize);
-
-                            // 클릭 이벤트 정의
-                            EventHandler clickHandler = (s, e) =>
-                            {
-                                MenuOption optionForm = new MenuOption(item);
-                                if (optionForm.ShowDialog() == DialogResult.OK)
-                                {
-                                    AddToOrder(item, optionForm.SelectedOption);
-                                }
-                            };
-
-                            // 모든 컨트롤에 클릭 이벤트 개별 등록
-                            panel.Click += clickHandler;
-                            picture.Click += clickHandler;
-                            nameLabel.Click += clickHandler;
-                            priceLabel.Click += clickHandler;
-
-                            
-                            panel.Controls.Add(picture);     // 사진
-                            panel.Controls.Add(priceLabel);  // 가격
-                            panel.Controls.Add(nameLabel);   // 이름
-
-                            
-                            flowLayoutPanel1.Controls.Add(panel);
-                        }
+                        picture.Image = Image.FromStream(fs);
                     }
                 }
-            }
-        }
+                else
+                {
+                    picture.BackColor = Color.LightGray;
+                }
 
-        // 메뉴 클릭 이벤트
-        private void HandleMenuClick(MyMenuItem item)
-        {
-            MenuOption optionForm = new MenuOption(item);
-            if (optionForm.ShowDialog() == DialogResult.OK)
-            {
-                AddToOrder(item, optionForm.SelectedOption);
-            }
-        }
+                Label nameLabel = new Label
+                {
+                    Text = item.Name,
+                    Dock = DockStyle.Top,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("맑은 고딕", 10, FontStyle.Bold),
+                    Height = 40
+                };
 
+                Label priceLabel = new Label
+                {
+                    Text = item.Price.ToString("N0") + "원",
+                    Dock = DockStyle.Bottom,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("맑은 고딕", 9),
+                    Height = 30
+                };
+
+                EventHandler clickHandler = (s, e) =>
+                {
+                    MenuOption optionForm = new MenuOption(myItem);
+                    if (optionForm.ShowDialog() == DialogResult.OK)
+                    {
+                        AddToOrder(myItem, optionForm.SelectedOption);
+                    }
+                };
+
+                panel.Click += clickHandler;
+                picture.Click += clickHandler;
+                nameLabel.Click += clickHandler;
+                priceLabel.Click += clickHandler;
+
+                panel.Controls.Add(picture);
+                panel.Controls.Add(priceLabel);
+                panel.Controls.Add(nameLabel);
+                flowLayoutPanel1.Controls.Add(panel);
+            }
+        
+   
+                }
+            
+        
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

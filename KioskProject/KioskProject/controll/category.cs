@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace KioskProject
 {
-    public static class Category
+    public class Category
     {
-        public static List<MenuItem> GetMenuByCategory(string category)
+        public string CategoryName { get; set; }
+
+        public List<MenuItem> GetItems()
         {
-            return MenuDatabase.MenuItems
-                .Where(item => item.Category == category)
-                .ToList();
+            return MenuItem.GetMenuItemsFromDB(this.CategoryName);
         }
     }
 }
