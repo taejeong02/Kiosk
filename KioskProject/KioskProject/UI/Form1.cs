@@ -101,7 +101,7 @@ namespace KioskProject
             int point = UsingPoint.FindPoint(phone);
             UsingPoint.SetPayment(PaymentAmount);
 
-            UsingPointUI form2 = new UsingPointUI(point, PaymentAmount, phone);
+            Form2 form2 = new Form2(point, PaymentAmount, phone);
             var result = form2.ShowDialog();
             form2.FormClosed += (s, args) => Application.Exit();
             this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환

@@ -113,7 +113,7 @@ namespace KioskProject
             // 버튼 클릭 이벤트 연결
             btnPay.Click += (sender, e) =>
             {
-                UsingPointUI form1 = new UsingPointUI(amount);
+                Form1 form1 = new Form1(amount);
                 var result = form1.ShowDialog();
 
                 if (isPaid[index - 1]) // 이미 결제함
