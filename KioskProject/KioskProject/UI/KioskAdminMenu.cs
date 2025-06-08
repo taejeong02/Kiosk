@@ -11,10 +11,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KioskProject.UI
+namespace KioskProject
 {
-
-    public partial class KioskAdminMenu: Form
+    public partial class KioskAdminMenu : Form
     {
         public class FoodItem
         {
@@ -227,13 +226,39 @@ namespace KioskProject.UI
         //행 클릭 시 텍스트 박스 자동 채우기 함수
         private void Menu_gridview_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = Menu_gridview.Rows[e.RowIndex];
 
+                Num_txt.Text = row.Cells["ProductID"].Value.ToString();
+                Name_txt.Text = row.Cells["ProductName"].Value.ToString();
+                Price_txt.Text = row.Cells["ProductPrice"].Value.ToString();
+                Category_txt.Text = row.Cells["ProductCategory"].Value.ToString();
+
+                //체크박스
+                int spicy = Convert.ToInt32(row.Cells["IsSpicyOptionEnabled"].Value ?? 0);
+                int size = Convert.ToInt32(row.Cells["IsSizeOptionEnabled"].Value ?? 0);
+
+                Spicy_checkbox.Checked = spicy == 1;
+                Size_checkbox.Checked = size == 1;
+            }
         }
 
         // 빈 공간 클릭 시 입력값 초기화
         private void Menu_gridview_MouseClick(object sender, MouseEventArgs e)
         {
+            var hit = Menu_gridview.HitTest(e.X, e.Y);
 
+            // 클릭한 부분이 셀이 아닌 경우
+            if (hit.Type != DataGridViewHitTestType.Cell)
+            {
+                Num_txt.Text = "";
+                Name_txt.Text = "";
+                Price_txt.Text = "";
+                Category_txt.Text = "";
+                Spicy_checkbox.Checked = false;
+                Size_checkbox.Checked = false;
+            }
         }
 
 
@@ -245,30 +270,307 @@ namespace KioskProject.UI
                    string.IsNullOrWhiteSpace(Num_txt.Text);
         }
 
-        private void Back_btn_Click(object sender, EventArgs e)
+        private void Menu_gridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Back_btn_Click(object sender, EventArgs e)
+        {
+            //입력 필드에 내용 있는지 확인
+            if (!IsInputEmpty() || Spicy_checkbox.Checked || Size_checkbox.Checked)
+            {
+                ShowMessage("메뉴 추가를 완료하고 종료해주세요");
+                return;
+            }
+            //초기화면 로딩
+            Select_Language main = new Select_Language();
+            //현재 폼 종료
+            this.Hide();
+            //폼 보여주기
+            main.Show();
         }
 
         private void Search_btn_Click(object sender, EventArgs e)
         {
+            //검색어 가져오기
+            string keyword = Search_txt.Text.Trim();
 
+            //검색어가 비어있는 경우 전체 표시
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                DisplayMenuList();
+                return;
+            }
+
+            //리스트에서 검색어 포함 항목만 필터링
+            List<FoodItem> searchResult = foodItems.FindAll(item =>
+            item.ProductName.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0
+            );
+
+
+            //검색 결과 테이블에 없음
+            if (searchResult.Count == 0)
+            {
+                ShowMessage("검색된 상품이 없습니다.");
+                return;
+            }
+
+            //검색 결과 테이블에 반영
+            Menu_gridview.DataSource = null;
+            Menu_gridview.DataSource = searchResult;
+
+
+            //이미지도 함께 출력
+            for (int i = 0; i < Menu_gridview.Rows.Count; i++)
+            {
+                string productId = Menu_gridview.Rows[i].Cells["ProductID"].Value.ToString();
+                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", productId + ".jpg");
+
+                if (File.Exists(imagePath))
+                {
+                    try
+                    {
+                        using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                        {
+                            using (Image original = Image.FromStream(fs))
+                            {
+                                // 복사본을 만들어 DataGridView에만 사용하고 파일은 닫음
+                                Image thumb = new Bitmap(original, new Size(50, 50));
+                                Menu_gridview.Rows[i].Cells["ProductImage"].Value = (Image)thumb.Clone();
+                                thumb.Dispose();
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        // 실패 시 기본 회색 이미지 넣기
+                        Bitmap blank = new Bitmap(50, 50);
+                        using (Graphics g = Graphics.FromImage(blank))
+                            g.Clear(Color.LightGray);
+                        Menu_gridview.Rows[i].Cells["ProductImage"].Value = blank;
+                    }
+                }
+                else
+                {
+                    Bitmap blank = new Bitmap(50, 50);
+                    using (Graphics g = Graphics.FromImage(blank))
+                        g.Clear(Color.LightGray);
+                    Menu_gridview.Rows[i].Cells["ProductImage"].Value = blank;
+                }
+            }
         }
-
+        
 
         private void Addmenu_btn_Click(object sender, EventArgs e)
         {
+            //ID수정 방지 위한 읽기 모드
+            Num_txt.ReadOnly = false;
 
+            //입력값 가져오기
+            string id = Num_txt.Text.Trim();
+            string name = Name_txt.Text.Trim();
+            string price = Price_txt.Text.Trim();
+            string category = Category_txt.Text.Trim();
+
+            //체크박스 상태 가져오기
+            bool isSpicy = Spicy_checkbox.Checked;
+            bool isSize = Size_checkbox.Checked;
+
+            //입력값 유효성 검사
+            if (!ValidateInput(id, name, price, category))
+                return;
+
+            //중복 검사
+            if (IsDuplicate(name))
+            {
+                ShowMessage("이미 등록된 메뉴입니다.");
+                return;
+            }
+
+            FoodItem newItem = new FoodItem
+            {
+                ProductID = id,
+                ProductName = name,
+                ProductPrice = price,
+                ProductCategory = category,
+                IsSpicyOptionEnabled = isSpicy ? 1 : 0,
+                IsSizeOptionEnabled = isSize ? 1 : 0
+
+            };
+            foodItems.Add(newItem);
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "INSERT INTO menu (ProductID, ProductName, ProductPrice, ProductCategory, IsSpicyOptionEnabled, IsSizeOptionEnabled) " +
+                       "VALUES (@id, @name, @price, @category, @spicy, @size)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@category", category);
+                cmd.Parameters.AddWithValue("@spicy", isSpicy ? 1 : 0);
+                cmd.Parameters.AddWithValue("@size", isSize ? 1 : 0);
+                cmd.ExecuteNonQuery();
+            }
+
+            //메뉴 추가 성공 메시지 출력
+            ShowMessage("메뉴가 등록되었습니다.");
+
+            //입력 필드 초기화
+            Num_txt.Text = "";
+            Name_txt.Text = "";
+            Price_txt.Text = "";
+            Category_txt.Text = "";
+
+            // 체크박스 초기화
+            Spicy_checkbox.Checked = false;
+            Size_checkbox.Checked = false;
         }
 
         private void Delmenu_btn_Click(object sender, EventArgs e)
         {
+            //현재 선택된 행 가져오기
+            DataGridViewRow selectedRow = Menu_gridview.CurrentRow;
 
+            //선택된 행이 없는 경우
+            if (selectedRow == null)
+            {
+                ShowMessage("삭제할 항목을 선택해주세요");
+                return;
+            }
+
+            //선택된 행에서 상품명 가져오기
+            string selectedName = selectedRow.Cells["ProductName"].Value.ToString();
+
+            //삭제 확인 메시지
+            DialogResult result = MessageBox.Show($"{selectedName}메뉴를 정말 삭제하시겠습니까?", "삭제 확인",
+                MessageBoxButtons.YesNo);
+            //아니요 누르면 중단
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
+            //리스트에서 상품명 가진 항목 찾기
+            FoodItem itemToRemove = foodItems.Find(item => item.ProductName == selectedName);
+
+            //항목이 존재하면 삭제, 없으면 메시지 출력
+            if (itemToRemove != null)
+            {
+                foodItems.Remove(itemToRemove);
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "DELETE FROM menu WHERE ProductID = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", itemToRemove.ProductID);
+                    cmd.ExecuteNonQuery();
+                }
+                //이미지 파일도 함께 삭제
+                foreach (DataGridViewRow row in Menu_gridview.Rows)
+                {
+                    if (row.Cells["ProductID"].Value?.ToString() == itemToRemove.ProductID)
+                    {
+                        var cellValue = row.Cells["ProductImage"].Value;
+                        if (cellValue is Image img)
+                        {
+                            row.Cells["ProductImage"].Value = null;
+                            img.Dispose();
+                        }
+                        break;
+                    }
+                }
+                //이미지 파일 삭제
+                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", itemToRemove.ProductID + ".jpg");
+                if (File.Exists(imagePath))
+                {
+                    try
+                    {
+                        File.Delete(imagePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowMessage("이미지 삭제 중 오류 발생: " + ex.Message);
+                    }
+                }
+
+                ShowMessage("메뉴가 삭제되었습니다.");
+
+
+                Menu_gridview.DataSource = null;
+                Menu_gridview.ClearSelection();
+                Menu_gridview.CurrentCell = null;
+                DisplayMenuList();
+            }
+            else
+            {
+                ShowMessage("선택한 항목을 찾을 수 없습니다.");
+            }
         }
 
         private void Modify_btn_Click(object sender, EventArgs e)
         {
+            DataGridViewRow selectedRow = Menu_gridview.CurrentRow;
 
+            if (selectedRow == null)
+            {
+                ShowMessage("수정할 항목을 선택해주세요.");
+                return;
+            }
+
+            //상품번호 불러오기
+            string originalId = selectedRow.Cells["ProductID"].Value.ToString();
+
+            //입력칸 불러오기
+            string id = Num_txt.Text.Trim();
+            string name = Name_txt.Text.Trim();
+            string price = Price_txt.Text.Trim();
+            string category = Category_txt.Text.Trim();
+            bool isSpicy = Spicy_checkbox.Checked;
+            bool isSize = Size_checkbox.Checked;
+
+            if (id != originalId)
+            {
+                ShowMessage("상품번호는 수정할 수 없습니다.");
+                return;
+            }
+
+            // 유효성 검사
+            if (!ValidateInput(id, name, price, category, isModify: true))
+                return;
+
+            FoodItem itemToUpdate = foodItems.Find(item => item.ProductID == originalId);
+            if (itemToUpdate != null)
+            {
+                itemToUpdate.ProductName = name;
+                itemToUpdate.ProductPrice = price;
+                itemToUpdate.ProductCategory = category;
+
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "UPDATE menu SET ProductName = @name, ProductPrice = @price, ProductCategory = @category, " +
+                           "IsSpicyOptionEnabled = @spicy, IsSizeOptionEnabled = @size WHERE ProductID = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@price", price);
+                    cmd.Parameters.AddWithValue("@category", category);
+                    cmd.Parameters.AddWithValue("@spicy", isSpicy ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@size", isSize ? 1 : 0);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                ShowMessage("메뉴가 수정되었습니다.");
+                DisplayMenuList();
+            }
+            else
+            {
+                ShowMessage("수정할 항목을 찾을 수 없습니다.");
+            }
         }
 
         private void F5_btn_Click(object sender, EventArgs e)
@@ -321,19 +623,28 @@ namespace KioskProject.UI
         //이미지 추가 버튼
         private void UploadImage_btn_Click(object sender, EventArgs e)
         {
+            string productId = Num_txt.Text.Trim();
 
+            // 상품번호가 비어있으면 경고
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                ShowMessage("상품번호를 먼저 입력해주세요.");
+                return;
+            }
+
+            // 이미지 업로드 함수 호출
+            SaveMenuImage(productId);
         }
 
-        private void Menu_gridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
+        //맵기 선택
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
+
+        //사이즈업 선택
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
 

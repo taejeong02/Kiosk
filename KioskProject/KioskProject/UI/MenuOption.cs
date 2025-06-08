@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KioskProject;
-using KioskProject.UI;
 
 namespace KioskProject
 {
@@ -167,7 +165,5 @@ namespace KioskProject
         {
 
         }
-
-       
     }
 }

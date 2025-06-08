@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="LangINFO.cs" />
     <Compile Include="entity\MenuItem.cs" />
+    <Compile Include="entity\OptionData.cs" />
     <Compile Include="UI\KioskAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,7 +192,6 @@
     <Compile Include="UI\MenuOption.Designer.cs">
       <DependentUpon>MenuOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="entity\OptionData.cs" />
     <Compile Include="UI\OrderUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,9 +237,7 @@
     <EmbeddedResource Include="UI\MenuOption.resx">
       <DependentUpon>MenuOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\OrderUI.resx">
-      <DependentUpon>OrderUI.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OrderUI.resx" />
     <EmbeddedResource Include="UI\PaymentUI.resx">
       <DependentUpon>PaymentUI.cs</DependentUpon>
     </EmbeddedResource>

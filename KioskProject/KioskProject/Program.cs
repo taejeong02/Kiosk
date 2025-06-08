@@ -1,5 +1,4 @@
 ﻿using KioskProject;
-using KioskProject.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +17,7 @@ namespace KioskProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Select_Language());
+            Application.Run(new KioskAdminMenu());
         }
     }
 }
