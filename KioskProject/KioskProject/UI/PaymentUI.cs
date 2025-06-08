@@ -23,6 +23,7 @@ namespace KioskProject
         private int numberOfPeople = 1;
 
         private CartUI previousCartForm;
+        OrderInfo OrderInfo = new OrderInfo();
 
         public PaymentUI(int totalAmount, CartUI cartForm)
         {
@@ -133,14 +134,9 @@ namespace KioskProject
                 if (isPaid.All(x => x))
                 {
                     MessageBox.Show("모든 결제가 완료되었습니다!", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                  
-
-
+                    OrderInfo.SaveToDatabase();
                     OrderDetails orderDetails = new OrderDetails(previousCartForm.GetCartItems(), totalAmount);
                     orderDetails.Show();
-
-                    this.Close(); // PaymentUI 닫기
                 }
             };
 

@@ -135,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartControl.cs" />
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
     <Compile Include="entity\UserDB.cs" />

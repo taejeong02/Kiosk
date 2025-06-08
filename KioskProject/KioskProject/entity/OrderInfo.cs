@@ -17,9 +17,10 @@ namespace KioskProject
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string query = "INSERT INTO `order` (orderDate, totalamount, orderData) VALUES (@date, @total, @data)";
+                string query = "INSERT INTO `order` (orderId, orderDate, totalamount, orderData) VALUES (@id, @date, @total, @data)";
                 using (var cmd = new MySqlCommand(query, conn))
                 {
+                    cmd.Parameters.AddWithValue("id", OrderId);
                     cmd.Parameters.AddWithValue("@date", OrderDate);
                     cmd.Parameters.AddWithValue("@total", TotalAmount);
                     cmd.Parameters.AddWithValue("@data", OrderData);
