@@ -339,6 +339,9 @@ namespace KioskProject
 
         private void Addmenu_btn_Click(object sender, EventArgs e)
         {
+
+            //체크박스 상태 갱신
+            this.ActiveControl = null;
             //ID수정 방지 위한 읽기 모드
             Num_txt.ReadOnly = false;
 
