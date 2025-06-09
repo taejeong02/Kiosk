@@ -11,7 +11,7 @@ namespace KioskProject.entity
     {
         public static class DBConfig
         {
-            public static readonly string ConnStr = "Server=127.0.0.1;Port=3306;Database=Kiosk;Uid=root;Pwd=123456;";
+            public static readonly string ConnStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234;";
         }
 
         public static bool IsExistingUser(string phone)
