@@ -132,7 +132,15 @@ namespace KioskProject
                 if (isPaid.All(x => x))
                 {
                     MessageBox.Show("모든 결제가 완료되었습니다!", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    OrderInfo.SaveToDatabase();
+
+                    // 실제 결제 정보를 사용해 저장
+                    var orderInfo = new OrderInfo
+                    {
+                        OrderDate = DateTime.Now,
+                        TotalAmount = totalAmount
+                    };
+                    orderInfo.SaveToDatabase();
+
                     OrderDetails orderDetails = new OrderDetails(previousCartForm.GetCartItems(), totalAmount);
                     orderDetails.Show();
                 }

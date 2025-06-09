@@ -10,7 +10,6 @@ namespace KioskProject
         public DateTime OrderDate { get; set; }
         public int TotalAmount { get; set; }
 
-
         private static string connStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234;";
 
         public int SaveToDatabase()
@@ -18,10 +17,10 @@ namespace KioskProject
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string query = "INSERT INTO `order` (orderId, orderDate, totalamount) VALUES (@id, @date, @total)";
+                // orderId는 절대 INSERT에 넣지 마라!
+                string query = "INSERT INTO `order` (orderDate, totalamount) VALUES (@date, @total)";
                 using (var cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("id", OrderId);
                     cmd.Parameters.AddWithValue("@date", OrderDate);
                     cmd.Parameters.AddWithValue("@total", TotalAmount);
 
@@ -48,7 +47,7 @@ namespace KioskProject
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string query = "SELECT orderDate, totalamount, orderData FROM `order`";
+                string query = "SELECT orderId, orderDate, totalamount FROM `order`";
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -56,6 +55,7 @@ namespace KioskProject
                     {
                         orders.Add(new OrderInfo
                         {
+                            OrderId = reader.GetInt32("orderId"),
                             OrderDate = reader.GetDateTime("orderDate"),
                             TotalAmount = reader.GetInt32("totalamount"),
                         });
