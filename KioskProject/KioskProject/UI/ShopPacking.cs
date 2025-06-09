@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class Select_Language : MetroFramework.Forms.MetroForm
+    public partial class ShopPacking : MetroFramework.Forms.MetroForm
     {
-        public Select_Language()
+        public ShopPacking()
         {
             InitializeComponent();
         }
