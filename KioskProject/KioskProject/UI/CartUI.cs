@@ -15,10 +15,13 @@ namespace KioskProject
         public static int _total;
         private OrderUI previousForm;
         private CartControl cartControl;
+        private List<string> cartLines;
+        private PaymentUI paymentForm;
         public CartUI(OrderUI prevForm, List<string> items)
         {
             InitializeComponent();
             this.previousForm = prevForm;
+            this.cartLines = new List<string>(items);
             cartControl = new CartControl();
 
             cartControl.SetupCartGrid(dataGridView1);
@@ -77,17 +80,34 @@ namespace KioskProject
 
         private void backbtn_Click(object sender, EventArgs e)
         {
-            previousForm.RestoreCartFromData(); // ← 리스트 복원
-            previousForm.Show();                // 폼 다시 보여줌
+            cartLines = cartControl.GetCartItems(dataGridView1); // 최신 내용으로 갱신
+            previousForm.RestoreCartFromData(cartLines);         // 복원 전달
+            previousForm.Show();
+            this.Close();
         }
 
         private void cardbtn_Click(object sender, EventArgs e)
         {
             int totalPrice = _total;
-            PaymentUI paymentForm = new PaymentUI(totalPrice, this);
-            paymentForm.FormClosed += (s, args) => Application.Exit();
-            paymentForm.Show();
-            this.Hide();
+
+
+            // 폼이 null이거나 이미 dispose된 경우에만 새로 생성
+            if (paymentForm == null || paymentForm.IsDisposed)
+            {
+                paymentForm = new PaymentUI(totalPrice, this);
+            }
+
+            // 숨겨져 있으면 다시 보여주기
+            if (!paymentForm.Visible)
+            {
+                paymentForm.Show();
+            }
+            else
+            {
+                paymentForm.BringToFront(); // 이미 떠 있으면 앞으로
+            }
+
+            this.Hide(); // CartUI는 숨김
         }
         public List<string> GetCartItems()
         {

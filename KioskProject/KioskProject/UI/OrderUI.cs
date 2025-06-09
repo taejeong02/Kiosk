@@ -22,6 +22,7 @@ namespace KioskProject
         private List<string> allCategories = new List<string>();
         private int currentPage = 0;
         private const int itemsPerPage = 7;
+        private CartUI cartForm;
 
         public OrderUI(Form prevForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
@@ -82,9 +83,16 @@ namespace KioskProject
 
         }
 
-        public void RestoreCartFromData()
+        public void RestoreCartFromData(List<string> cartLine)
         {
+            listBox1.Items.Clear(); // 기존 장바구니 내용 초기화
 
+            foreach (string line in cartLine)
+            {
+                listBox1.Items.Add(line); // 넘겨받은 항목 다시 추가
+            }
+
+            count.Text = listBox1.Items.Count.ToString(); // 수량 업데이트
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,10 +103,21 @@ namespace KioskProject
                 cartLines.Add(obj.ToString());
             }
 
-            CartUI cartForm = new CartUI(this, cartLines);
-            cartForm.FormClosed += (s, args) => Application.Exit();
-            cartForm.Show();
-            this.Hide();
+            if (cartForm == null || cartForm.IsDisposed)
+            {
+                cartForm = new CartUI(this, cartLines);
+                cartForm.FormClosed += (s, args) =>
+                {
+                    this.Show();            // CartUI 닫히면 다시 OrderUI 보여줌
+                    cartForm = null;        // 참조 초기화
+                };
+                cartForm.Show();
+                this.Hide();                // 현재 OrderUI는 숨김
+            }
+            else
+            {
+                cartForm.BringToFront();    // 이미 열려있으면 앞으로
+            }
         }
     }
 }
