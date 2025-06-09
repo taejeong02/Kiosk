@@ -118,6 +118,11 @@ namespace KioskProject
         {
             MessageBox.Show("현금 결제는 카운터에서 진행해주세요!","현금 결제",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
+
+        private void CartUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
