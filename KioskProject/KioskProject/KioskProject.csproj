@@ -223,11 +223,11 @@
     <Compile Include="UI\PaymentUI.Designer.cs">
       <DependentUpon>PaymentUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Select_Language.cs">
+    <Compile Include="UI\ShopPacking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Select_Language.Designer.cs">
-      <DependentUpon>Select_Language.cs</DependentUpon>
+    <Compile Include="UI\ShopPacking.Designer.cs">
+      <DependentUpon>ShopPacking.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,8 +269,8 @@
     <EmbeddedResource Include="UI\PaymentUI.resx">
       <DependentUpon>PaymentUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Select_Language.resx">
-      <DependentUpon>Select_Language.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ShopPacking.resx">
+      <DependentUpon>ShopPacking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
