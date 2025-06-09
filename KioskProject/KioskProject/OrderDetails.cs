@@ -38,7 +38,7 @@ namespace KioskProject
             {
                 OrderDate = DateTime.Now,
                 TotalAmount = totalAmount,
-   
+                OrderData = string.Join("\n", orderItems)
             };
             this.orderId = order.SaveToDatabase();
             if (this.orderId <= 0)

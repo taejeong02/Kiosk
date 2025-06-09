@@ -35,13 +35,13 @@ namespace KioskProject
         }
 
         //  결제 완료 시 주문 저장
-        public int SaveOrder()
+        public int SaveOrder(string orderData)
         {
             OrderInfo order = new OrderInfo
             {
                 OrderDate = DateTime.Now,
                 TotalAmount = totalAmount,
-                
+                OrderData = orderData
             };
 
             return order.SaveToDatabase();
