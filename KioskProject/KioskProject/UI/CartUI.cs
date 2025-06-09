@@ -15,10 +15,13 @@ namespace KioskProject
         public static int _total;
         private OrderUI previousForm;
         private CartControl cartControl;
+        private List<string> cartLines;
+
         public CartUI(OrderUI prevForm, List<string> items)
         {
             InitializeComponent();
             this.previousForm = prevForm;
+            this.cartLines = new List<string>(items);
             cartControl = new CartControl();
 
             cartControl.SetupCartGrid(dataGridView1);
@@ -77,17 +80,16 @@ namespace KioskProject
 
         private void backbtn_Click(object sender, EventArgs e)
         {
-            previousForm.RestoreCartFromData(); // ← 리스트 복원
+            previousForm.RestoreCartFromData(cartLines); // ← 리스트 복원
             previousForm.Show();                // 폼 다시 보여줌
+            this.Close();
         }
 
         private void cardbtn_Click(object sender, EventArgs e)
         {
             int totalPrice = _total;
             PaymentUI paymentForm = new PaymentUI(totalPrice, this);
-            paymentForm.FormClosed += (s, args) => Application.Exit();
             paymentForm.Show();
-            this.Hide();
         }
         public List<string> GetCartItems()
         {
