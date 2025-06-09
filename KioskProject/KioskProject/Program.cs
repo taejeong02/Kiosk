@@ -17,7 +17,7 @@ namespace KioskProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShopPacking());
+            Application.Run(new Select_Language());
         }
     }
 }

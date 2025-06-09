@@ -258,10 +258,10 @@ namespace KioskProject
                 return;
             }
             //초기화면 로딩
-            ShopPacking main = new ShopPacking();
+            Select_Language main = new Select_Language();
             main.FormClosed += (s, args) => Application.Exit();
             //현재 폼 종료
-            this.Close();
+            this.Hide();
             //폼 보여주기
             main.Show();
         }
