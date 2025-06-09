@@ -9,7 +9,7 @@ namespace KioskProject
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
         public int TotalAmount { get; set; }
-        public string OrderData { get; set; }
+
 
         private static string connStr = "Server=34.45.48.0;Port=3306;Database=Kiosk;Uid=root;Pwd=admin1234;";
 
@@ -18,7 +18,7 @@ namespace KioskProject
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string query = "INSERT INTO `order` (orderId, orderDate, totalamount, orderData) VALUES (@id, @date, @total, @data)";
+                string query = "INSERT INTO `order` (orderId, orderDate, totalamount) VALUES (@id, @date, @total)";
                 using (var cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("id", OrderId);
