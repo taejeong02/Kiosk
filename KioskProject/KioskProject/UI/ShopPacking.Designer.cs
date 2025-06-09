@@ -1,6 +1,6 @@
 ﻿namespace KioskProject
 {
-    partial class Select_Language
+    partial class ShopPacking
     {
         /// <summary>
         /// Required designer variable.
