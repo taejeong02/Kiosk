@@ -33,7 +33,8 @@ namespace KioskProject
 
             foreach (var item in items)
             {
-                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", item.Name + ".jpg");
+                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", item.ProductID + ".jpg");
+
 
                 Panel panelItem = new Panel
                 {

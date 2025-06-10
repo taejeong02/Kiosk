@@ -85,6 +85,7 @@ namespace KioskProject.entity
     //OrderUI.cs랑 통신하는 부분임
     public class MenuDataItem
     {
+        public string ProductID { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public string Category { get; set; }
@@ -110,6 +111,7 @@ namespace KioskProject.entity
                         {
                             items.Add(new MenuDataItem
                             {
+                                ProductID = reader["ProductID"].ToString(),
                                 Name = reader["ProductName"].ToString(),
                                 Price = int.Parse(reader["ProductPrice"].ToString()),
                                 Category = reader["ProductCategory"].ToString(),
