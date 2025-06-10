@@ -106,11 +106,11 @@ namespace KioskProject
                 cartLines.Add(obj.ToString());
             }
 
-<<<<<<< HEAD
+
             cartForm = new CartUI(this, cartLines, previousForm2);
             cartForm.Show();
             this.Hide();
-=======
+
             if (cartForm == null || cartForm.IsDisposed)
             {
                 cartForm = new CartUI(this, cartLines);
@@ -126,7 +126,7 @@ namespace KioskProject
             {
                 cartForm.BringToFront();    // 이미 열려있으면 앞으로
             }
->>>>>>> 939020e505ca95a839462236f2511dc7acf5ba84
+
         }
     }
 }
