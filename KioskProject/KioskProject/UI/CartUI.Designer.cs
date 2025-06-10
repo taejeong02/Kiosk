@@ -55,7 +55,9 @@
             this.Price});
             this.dataGridView1.Location = new System.Drawing.Point(23, 93);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(549, 495);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -64,21 +66,25 @@
             // 
             this.productNum.HeaderText = "상품 번호";
             this.productNum.Name = "productNum";
+            this.productNum.ReadOnly = true;
             // 
             // productName
             // 
             this.productName.HeaderText = "상품명";
             this.productName.Name = "productName";
+            this.productName.ReadOnly = true;
             // 
             // Qty
             // 
             this.Qty.HeaderText = "상품 수량";
             this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
             // 
             // Price
             // 
             this.Price.HeaderText = "상품 가격";
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
             // lbltotal
             // 
