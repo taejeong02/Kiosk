@@ -52,5 +52,10 @@ namespace KioskProject
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void PaymentcompletedUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

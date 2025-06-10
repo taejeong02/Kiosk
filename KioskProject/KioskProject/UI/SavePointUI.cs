@@ -118,5 +118,10 @@ namespace KioskProject
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void SavePointUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
