@@ -71,6 +71,7 @@ namespace KioskProject
         private void btnBack_Click(object sender, EventArgs e)
         {
             previousForm.Show();
+            this.Hide();
         }
 
         private void flowLayoutPanelCategory(object sender, PaintEventArgs e)
