@@ -40,7 +40,6 @@
             this.cardbtn = new System.Windows.Forms.Button();
             this.Plusbtn = new System.Windows.Forms.Button();
             this.Miusbtn = new System.Windows.Forms.Button();
-            this.Timer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,47 +52,40 @@
             this.productName,
             this.Qty,
             this.Price});
-            this.dataGridView1.Location = new System.Drawing.Point(33, 140);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 93);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 742);
+            this.dataGridView1.Size = new System.Drawing.Size(549, 495);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // productNum
             // 
             this.productNum.HeaderText = "상품 번호";
-            this.productNum.MinimumWidth = 8;
             this.productNum.Name = "productNum";
             // 
             // productName
             // 
             this.productName.HeaderText = "상품명";
-            this.productName.MinimumWidth = 8;
             this.productName.Name = "productName";
             // 
             // Qty
             // 
             this.Qty.HeaderText = "상품 수량";
-            this.Qty.MinimumWidth = 8;
             this.Qty.Name = "Qty";
             // 
             // Price
             // 
             this.Price.HeaderText = "상품 가격";
-            this.Price.MinimumWidth = 8;
             this.Price.Name = "Price";
             // 
             // lbltotal
             // 
             this.lbltotal.AutoSize = true;
             this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbltotal.Location = new System.Drawing.Point(337, 936);
-            this.lbltotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbltotal.Location = new System.Drawing.Point(236, 624);
             this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(217, 40);
+            this.lbltotal.Size = new System.Drawing.Size(143, 29);
             this.lbltotal.TabIndex = 1;
             this.lbltotal.Text = "총 결제 금액 : ";
             // 
@@ -101,19 +93,17 @@
             // 
             this.cart.AutoSize = true;
             this.cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cart.Location = new System.Drawing.Point(49, 75);
-            this.cart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cart.Location = new System.Drawing.Point(34, 50);
             this.cart.Name = "cart";
-            this.cart.Size = new System.Drawing.Size(133, 40);
+            this.cart.Size = new System.Drawing.Size(89, 29);
             this.cart.TabIndex = 1;
             this.cart.Text = "장바구니";
             // 
             // backbtn
             // 
-            this.backbtn.Location = new System.Drawing.Point(56, 1035);
-            this.backbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backbtn.Location = new System.Drawing.Point(39, 690);
             this.backbtn.Name = "backbtn";
-            this.backbtn.Size = new System.Drawing.Size(226, 280);
+            this.backbtn.Size = new System.Drawing.Size(158, 187);
             this.backbtn.TabIndex = 2;
             this.backbtn.Text = "뒤로가기";
             this.backbtn.UseVisualStyleBackColor = true;
@@ -121,10 +111,9 @@
             // 
             // cashbtn
             // 
-            this.cashbtn.Location = new System.Drawing.Point(344, 1035);
-            this.cashbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.cashbtn.Location = new System.Drawing.Point(241, 690);
             this.cashbtn.Name = "cashbtn";
-            this.cashbtn.Size = new System.Drawing.Size(226, 280);
+            this.cashbtn.Size = new System.Drawing.Size(158, 187);
             this.cashbtn.TabIndex = 2;
             this.cashbtn.Text = "현금결제";
             this.cashbtn.UseVisualStyleBackColor = true;
@@ -132,10 +121,9 @@
             // 
             // cardbtn
             // 
-            this.cardbtn.Location = new System.Drawing.Point(591, 1035);
-            this.cardbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.cardbtn.Location = new System.Drawing.Point(414, 690);
             this.cardbtn.Name = "cardbtn";
-            this.cardbtn.Size = new System.Drawing.Size(226, 280);
+            this.cardbtn.Size = new System.Drawing.Size(158, 187);
             this.cardbtn.TabIndex = 2;
             this.cardbtn.Text = "카드결제";
             this.cardbtn.UseVisualStyleBackColor = true;
@@ -143,10 +131,9 @@
             // 
             // Plusbtn
             // 
-            this.Plusbtn.Location = new System.Drawing.Point(56, 915);
-            this.Plusbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.Plusbtn.Location = new System.Drawing.Point(39, 610);
             this.Plusbtn.Name = "Plusbtn";
-            this.Plusbtn.Size = new System.Drawing.Size(107, 90);
+            this.Plusbtn.Size = new System.Drawing.Size(75, 60);
             this.Plusbtn.TabIndex = 3;
             this.Plusbtn.Text = "+";
             this.Plusbtn.UseVisualStyleBackColor = true;
@@ -154,32 +141,19 @@
             // 
             // Miusbtn
             // 
-            this.Miusbtn.Location = new System.Drawing.Point(174, 915);
-            this.Miusbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.Miusbtn.Location = new System.Drawing.Point(122, 610);
             this.Miusbtn.Name = "Miusbtn";
-            this.Miusbtn.Size = new System.Drawing.Size(107, 90);
+            this.Miusbtn.Size = new System.Drawing.Size(75, 60);
             this.Miusbtn.TabIndex = 3;
             this.Miusbtn.Text = "-";
             this.Miusbtn.UseVisualStyleBackColor = true;
             this.Miusbtn.Click += new System.EventHandler(this.Miusbtn_Click);
             // 
-            // Timer
-            // 
-            this.Timer.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Timer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Timer.Location = new System.Drawing.Point(541, 75);
-            this.Timer.Name = "Timer";
-            this.Timer.Size = new System.Drawing.Size(276, 40);
-            this.Timer.TabIndex = 4;
-            this.Timer.Text = "120";
-            this.Timer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // CartUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 1350);
-            this.Controls.Add(this.Timer);
+            this.ClientSize = new System.Drawing.Size(600, 900);
             this.Controls.Add(this.Miusbtn);
             this.Controls.Add(this.Plusbtn);
             this.Controls.Add(this.cardbtn);
@@ -188,9 +162,7 @@
             this.Controls.Add(this.cart);
             this.Controls.Add(this.lbltotal);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CartUI";
-            this.Padding = new System.Windows.Forms.Padding(29, 90, 29, 30);
             this.Load += new System.EventHandler(this.CartUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -212,6 +184,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.Button Plusbtn;
         private System.Windows.Forms.Button Miusbtn;
-        private System.Windows.Forms.Label Timer;
     }
 }
