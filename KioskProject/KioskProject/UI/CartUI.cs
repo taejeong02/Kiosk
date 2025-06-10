@@ -205,38 +205,5 @@ namespace KioskProject
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초";
         }
-
-
-        public void HandleInactivityTimer()
-        {
-            remainingTime--;
-
-            // 타이머 남은 시간 라벨이 있다면 업데이트
-            Timer.Text = $"남은 시간: {remainingTime}초";
-
-            if (remainingTime == 0)
-            {
-                inactivityTimer.Stop();
-                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "타이머 만료",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                StaticCartData.Clear(); // 저장된 카트 정보 초기화
-
-                // 이전 OrderUI 폼 닫기
-                if (previousForm != null && !previousForm.IsDisposed)
-                {
-                    previousForm.Close();
-                }
-
-                // 초기화면 ShopPacking 다시 보여주기
-                if (previousForm2 != null)
-                {
-                    previousForm2.Show(); // ShopPacking 폼을 직접 표시
-                }
-
-                this.Close(); // CartUI 닫기
-            }
-        }
     }
-
 }

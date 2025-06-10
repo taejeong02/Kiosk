@@ -68,14 +68,16 @@ namespace KioskProject
 
         private void CancelPaying_btn_Click(object sender, EventArgs e) // 결제 취소 버튼
         {
+            inactivityTimer.Stop();
             MessageBox.Show("결제가 취소되었습니다.");
             previousCartForm.Show(); // CartUI 다시 보여줌
             this.Hide();
-
+            previousCartForm.CartUI_Activated(sender, e);
         }
 
         private void ChangePaymentMethod_btn_Click(object sender, EventArgs e) //결제 수단 변경 
         {
+            inactivityTimer.Stop();
             previousCartForm.Show();     // CartUI 다시 보여줌 (숨겨진 상태에서 복귀)
             this.Hide();
 
@@ -181,7 +183,8 @@ namespace KioskProject
             if (remainingTime == 0)
             {
                 inactivityTimer.Stop();
-                cartUI.HandleInactivityTimer();
+                cartUI.InactivityTimer_Tick(sender, e);
+                this.Close();
             }
         }
         private void StartInactivityTimer()
