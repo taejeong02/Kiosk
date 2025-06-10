@@ -39,8 +39,6 @@
             this.btnTwo = new System.Windows.Forms.Button();
             this.btnOne = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnLaze = new System.Windows.Forms.Button();
             this.btnMiddle = new System.Windows.Forms.Button();
             this.btnAddCart = new System.Windows.Forms.Button();
@@ -88,49 +86,50 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblQuantity.Location = new System.Drawing.Point(356, 107);
+            this.lblQuantity.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblQuantity.Location = new System.Drawing.Point(354, 102);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(20, 19);
+            this.lblQuantity.Size = new System.Drawing.Size(27, 26);
             this.lblQuantity.TabIndex = 24;
             this.lblQuantity.Text = "0";
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblPrice.Location = new System.Drawing.Point(355, 160);
+            this.lblPrice.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblPrice.Location = new System.Drawing.Point(354, 159);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(22, 22);
+            this.lblPrice.Size = new System.Drawing.Size(27, 26);
             this.lblPrice.TabIndex = 22;
             this.lblPrice.Text = "0";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(27, 160);
+            this.label7.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(42, 159);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 22);
+            this.label7.Size = new System.Drawing.Size(96, 26);
             this.label7.TabIndex = 21;
             this.label7.Text = "주문금액";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(43, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 22);
+            this.label5.Size = new System.Drawing.Size(54, 26);
             this.label5.TabIndex = 20;
             this.label5.Text = "수량";
             // 
             // btnFour
             // 
-            this.btnFour.Location = new System.Drawing.Point(379, 51);
+            this.btnFour.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnFour.Location = new System.Drawing.Point(381, 51);
             this.btnFour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFour.Name = "btnFour";
-            this.btnFour.Size = new System.Drawing.Size(88, 74);
+            this.btnFour.Size = new System.Drawing.Size(98, 74);
             this.btnFour.TabIndex = 19;
             this.btnFour.Text = "엄청매운맛";
             this.btnFour.UseVisualStyleBackColor = true;
@@ -138,6 +137,7 @@
             // 
             // btnThree
             // 
+            this.btnThree.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnThree.Location = new System.Drawing.Point(257, 51);
             this.btnThree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThree.Name = "btnThree";
@@ -149,6 +149,7 @@
             // 
             // btnTwo
             // 
+            this.btnTwo.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnTwo.Location = new System.Drawing.Point(134, 51);
             this.btnTwo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTwo.Name = "btnTwo";
@@ -160,6 +161,7 @@
             // 
             // btnOne
             // 
+            this.btnOne.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnOne.Location = new System.Drawing.Point(18, 51);
             this.btnOne.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOne.Name = "btnOne";
@@ -172,57 +174,40 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(14, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 22);
+            this.label4.Size = new System.Drawing.Size(42, 21);
             this.label4.TabIndex = 15;
             this.label4.Text = "맵기";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(256, 145);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 19);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "사이즈업";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(83, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 19);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "기본";
-            // 
             // btnLaze
             // 
-            this.btnLaze.Location = new System.Drawing.Point(237, 31);
+            this.btnLaze.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnLaze.Location = new System.Drawing.Point(254, 31);
             this.btnLaze.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLaze.Name = "btnLaze";
             this.btnLaze.Size = new System.Drawing.Size(122, 112);
             this.btnLaze.TabIndex = 12;
-            this.btnLaze.Text = "button3";
+            this.btnLaze.Text = "사이즈업";
             this.btnLaze.UseVisualStyleBackColor = true;
             this.btnLaze.Click += new System.EventHandler(this.btnLaze_Click_1);
             // 
             // btnMiddle
             // 
+            this.btnMiddle.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnMiddle.Location = new System.Drawing.Point(47, 31);
             this.btnMiddle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMiddle.Name = "btnMiddle";
             this.btnMiddle.Size = new System.Drawing.Size(122, 112);
             this.btnMiddle.TabIndex = 11;
-            this.btnMiddle.Text = "button2";
+            this.btnMiddle.Text = "기본";
             this.btnMiddle.UseVisualStyleBackColor = true;
             this.btnMiddle.Click += new System.EventHandler(this.btnMiddle_Click_1);
             // 
             // btnAddCart
             // 
+            this.btnAddCart.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnAddCart.Location = new System.Drawing.Point(12, 201);
             this.btnAddCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddCart.Name = "btnAddCart";
@@ -253,8 +238,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnLaze);
             this.panel2.Controls.Add(this.btnMiddle);
             this.panel2.Location = new System.Drawing.Point(2, 2);
@@ -339,7 +322,6 @@
             this.Load += new System.EventHandler(this.MenuOption_Load);
             this.pnlSizeOption.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.pnlSpicyOption.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -366,8 +348,6 @@
         private System.Windows.Forms.Button btnTwo;
         private System.Windows.Forms.Button btnOne;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLaze;
         private System.Windows.Forms.Button btnMiddle;
         public System.Windows.Forms.Button btnAddCart;
