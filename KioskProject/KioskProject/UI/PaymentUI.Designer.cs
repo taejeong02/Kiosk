@@ -39,6 +39,7 @@ namespace KioskProject
             this.Plus_btn = new System.Windows.Forms.Button();
             this.Minus_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ChangePaymentMethod_btn
@@ -142,11 +143,23 @@ namespace KioskProject
             this.label1.TabIndex = 30;
             this.label1.Text = "총 인원 수 :";
             // 
+            // Timer
+            // 
+            this.Timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Timer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Timer.Location = new System.Drawing.Point(213, 804);
+            this.Timer.Name = "Timer";
+            this.Timer.Size = new System.Drawing.Size(191, 42);
+            this.Timer.TabIndex = 41;
+            this.Timer.Text = "label2";
+            this.Timer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // PaymentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 900);
+            this.Controls.Add(this.Timer);
             this.Controls.Add(this.ChangePaymentMethod_btn);
             this.Controls.Add(this.PerPersonAmount);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -176,5 +189,6 @@ namespace KioskProject
         private System.Windows.Forms.Button Plus_btn;
         private System.Windows.Forms.Button Minus_btn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Timer;
     }
 }

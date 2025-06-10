@@ -1,4 +1,5 @@
 ﻿using KioskProject;
+using MetroFramework.Forms;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static KioskProject.CartUI;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
-using MetroFramework.Forms;
 
 
 namespace KioskProject
@@ -21,23 +22,24 @@ namespace KioskProject
         private bool[] isPaid; // 인원 수만큼 상태 저장
         private int totalAmount = 0;
         private int numberOfPeople = 1;
-        private ShopPacking previousForm2;
 
         private System.Windows.Forms.Timer inactivityTimer;
         private int remainingTime = 10;
         private CartUI previousCartForm;
         OrderInfo OrderInfo = new OrderInfo();
 
-        public PaymentUI(int totalAmount, CartUI cartForm, ShopPacking shopPackingForm)
+        private CartUI cartUI;
+
+        public PaymentUI(int totalAmount, CartUI cartForm)
         {
             InitializeComponent();
 
             this.totalAmount = totalAmount;
             this.previousCartForm = cartForm;
-            this.previousForm2 = shopPackingForm;
-
+            this.cartUI = cartForm;
             this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click);
             this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click);
+            StartInactivityTimer();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -168,6 +170,38 @@ namespace KioskProject
                 Panel panel = CreatePersonPanel(i, perAmount);
                 flowLayoutPanel1.Controls.Add(panel);
             }
+        }
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Timer.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime == 0)
+            {
+                inactivityTimer.Stop();
+                cartUI.HandleInactivityTimer();
+            }
+        }
+        private void StartInactivityTimer()
+        {
+            inactivityTimer = new System.Windows.Forms.Timer();
+            inactivityTimer.Interval = 1000; // 1초마다
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            inactivityTimer.Start();
+
+            this.MouseMove += ResetInactivityTimer;
+            this.MouseClick += ResetInactivityTimer;
+        }
+        public void PaymentUI_Activated(object sender, EventArgs e)
+        {
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Timer.Text = $"남은 시간: {remainingTime}초";
         }
     }
 }
