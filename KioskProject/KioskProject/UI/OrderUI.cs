@@ -107,7 +107,7 @@ namespace KioskProject
             if (cartForm == null || cartForm.IsDisposed)
             {
                 cartForm = new CartUI(this, cartLines);
-                //cartForm.FormClosed += (s, args) =>
+                cartForm.FormClosed += (s, args) =>
                 {
                     this.Show();            // CartUI 닫히면 다시 OrderUI 보여줌
                     cartForm = null;        // 참조 초기화
