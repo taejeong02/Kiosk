@@ -4,6 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entity = KioskProject.entity;
+
 
 namespace KioskProject
 {
@@ -13,21 +15,21 @@ namespace KioskProject
 
         public static List<string> GetAllCategoryNames()
         {
-            return MenuItem.GetAllCategories();
+            return Entity.MenuDataItem.GetAllCategories();
         }
 
-        public List<MenuItem> GetItems()
+        public List<Entity.MenuDataItem> GetItems()
         {
-            return MenuItem.GetMenuItemsFromDB(this.CategoryName);
+            return Entity.MenuDataItem.GetMenuItemsFromDB(this.CategoryName);
         }
 
         // 해당 카테고리 메뉴를 패널에 뿌려주기
-        public static void LoadMenuByCategory(string categoryName, FlowLayoutPanel panel, Action<MenuItem, MenuOptionData> onAddToOrder)
+        public static void LoadMenuByCategory(string categoryName, FlowLayoutPanel panel, Action<Entity.MenuDataItem, MenuOptionData> onAddToOrder)
         {
             panel.Controls.Clear();
 
             var cat = new Category { CategoryName = categoryName };
-            List<MenuItem> items = cat.GetItems();
+            List<Entity.MenuDataItem> items = cat.GetItems();
 
             foreach (var item in items)
             {
@@ -151,7 +153,7 @@ namespace KioskProject
         }
 
         // 주문리스트에 항목 추가
-        public static void AddToOrder(MenuItem item, MenuOptionData option, ListBox listBox, Label countLabel)
+        public static void AddToOrder(Entity.MenuDataItem item, MenuOptionData option, ListBox listBox, Label countLabel)
         {
             string upsizeText = option.IsUpsize ? "곱빼기-" : "";
             string key = $"{item.Name}-{upsizeText}{option.Spiciness}-{option.Quantity}개";

@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KioskProject.entity;
 
 namespace KioskProject
 {
     public partial class MenuOption : Form
     {
-        private MenuItem selectedItem;
+        private MenuDataItem selectedItem;
         public MenuOptionData SelectedOption => controller.OptionData;
 
         private MenuOptionController controller;
-        public MenuOption(MenuItem item)
+        public MenuOption(MenuDataItem item)
         {
             InitializeComponent();
             selectedItem = item;
@@ -44,7 +45,7 @@ namespace KioskProject
         }
         private void btnMiddle_Click(object sender, EventArgs e)
         {
-            controller.SetUpsize(false); // ✅
+            controller.SetUpsize(false); 
             btnMiddle.BackColor = Color.LightBlue;
             btnLaze.BackColor = SystemColors.Control;
             UpdatePrice();

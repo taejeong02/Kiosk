@@ -197,7 +197,6 @@
     <Compile Include="UI\CartUI.Designer.cs">
       <DependentUpon>CartUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="entity\MenuItem.cs" />
     <Compile Include="entity\OptionData.cs" />
     <Compile Include="UI\KioskAdminMenu.cs">
       <SubType>Form</SubType>
