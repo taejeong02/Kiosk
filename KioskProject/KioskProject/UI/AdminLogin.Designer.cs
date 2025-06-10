@@ -35,6 +35,7 @@
             this.Login_btn = new MetroFramework.Controls.MetroButton();
             this.regist_btn = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.logintimer_lbl = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // adminId_lbl
@@ -96,11 +97,21 @@
             this.metroLabel1.TabIndex = 6;
             this.metroLabel1.Text = "관리자 로그인";
             // 
+            // logintimer_lbl
+            // 
+            this.logintimer_lbl.AutoSize = true;
+            this.logintimer_lbl.Location = new System.Drawing.Point(6, 177);
+            this.logintimer_lbl.Name = "logintimer_lbl";
+            this.logintimer_lbl.Size = new System.Drawing.Size(40, 19);
+            this.logintimer_lbl.TabIndex = 7;
+            this.logintimer_lbl.Text = "timer";
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 200);
+            this.Controls.Add(this.logintimer_lbl);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.regist_btn);
             this.Controls.Add(this.Login_btn);
@@ -111,6 +122,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminLogin";
+            this.Load += new System.EventHandler(this.AdminLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +137,6 @@
         private MetroFramework.Controls.MetroButton Login_btn;
         private MetroFramework.Controls.MetroButton regist_btn;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel logintimer_lbl;
     }
 }

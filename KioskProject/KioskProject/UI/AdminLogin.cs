@@ -13,6 +13,7 @@ namespace KioskProject
 {
     public partial class AdminLogin : MetroFramework.Forms.MetroForm
     {
+        private AdminLoginControl loginControl;
         public AdminLogin()
         {
             InitializeComponent();
@@ -23,7 +24,6 @@ namespace KioskProject
             string ID = adminId_txtBox.Text.Trim(); // 텍스트 박스에 입력된 문자를 각각의 string 변수에 저장
             string PW = adminPw_txtBox.Text.Trim();
 
-            AdminLoginControl loginControl = new AdminLoginControl(); // logincontrol 객체 생성
             bool result = loginControl.admin_Login(ID, PW); // 로그인 함수에 인자(위의 string 변수)를 넣어 호출, 이후 반환값을 result에 저장
 
             if (result == true) 
@@ -41,6 +41,12 @@ namespace KioskProject
         {
             AdminRegistUI registUI = new AdminRegistUI();
             registUI.ShowDialog();
+        }
+
+        private void AdminLogin_Load(object sender, EventArgs e)
+        {
+            loginControl = new AdminLoginControl(this, logintimer_lbl);
+            loginControl.StartCountdown(60);
         }
     }
 }
