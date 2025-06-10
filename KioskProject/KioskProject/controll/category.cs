@@ -54,7 +54,8 @@ namespace KioskProject
                 {
                     using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
                     {
-                        picture.Image = Image.FromStream(fs);
+                        Image tempImage = Image.FromStream(fs);
+                        picture.Image = new Bitmap(tempImage);
                     }
                 }
                 else
