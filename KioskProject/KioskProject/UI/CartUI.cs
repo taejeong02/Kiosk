@@ -40,6 +40,12 @@ namespace KioskProject
         private void UpdateTotalPrice()
         {
             _total = cartControl.UpdateTotalPrice(dataGridView1, lbltotal);
+            // 카트의 총 금액이 0이 되면 OrderUI로 돌아감
+            if (_total == 0 && this.Visible) // 현재 폼이 화면에 보일 때만 실행 (불필요한 동작 방지)
+            {
+                MessageBox.Show("장바구니가 비었습니다. 상품 선택 화면으로 돌아갑니다.", "장바구니 비었음", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                backbtn_Click(this, EventArgs.Empty); // backbtn_Click 이벤트 핸들러 호출
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

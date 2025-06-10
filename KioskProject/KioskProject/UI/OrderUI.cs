@@ -106,9 +106,27 @@ namespace KioskProject
                 cartLines.Add(obj.ToString());
             }
 
+<<<<<<< HEAD
             cartForm = new CartUI(this, cartLines, previousForm2);
             cartForm.Show();
             this.Hide();
+=======
+            if (cartForm == null || cartForm.IsDisposed)
+            {
+                cartForm = new CartUI(this, cartLines);
+                cartForm.FormClosed += (s, args) =>
+                {
+                    this.Show();            // CartUI 닫히면 다시 OrderUI 보여줌
+                    cartForm = null;        // 참조 초기화
+                };
+                cartForm.Show();
+                this.Hide();                // 현재 OrderUI는 숨김
+            }
+            else
+            {
+                cartForm.BringToFront();    // 이미 열려있으면 앞으로
+            }
+>>>>>>> 939020e505ca95a839462236f2511dc7acf5ba84
         }
     }
 }
