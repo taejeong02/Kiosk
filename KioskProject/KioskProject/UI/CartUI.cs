@@ -105,11 +105,11 @@ namespace KioskProject
         {
             inactivityTimer.Stop();
             int totalPrice = _total;
-
+            remainingTime = 0;
             // 폼이 null이거나 이미 dispose된 경우에만 새로 생성
             if (paymentForm == null || paymentForm.IsDisposed)
             {
-                paymentForm = new PaymentUI(totalPrice, this);
+                paymentForm = new PaymentUI(totalPrice, this, previousForm2);
             }
 
             // 숨겨져 있으면 다시 보여주기
@@ -177,7 +177,7 @@ namespace KioskProject
             // 타이머 남은 시간 라벨이 있다면 업데이트
             Timer.Text = $"남은 시간: {remainingTime}초";
 
-            if (remainingTime == 0)
+            if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
                 MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "타이머 만료",

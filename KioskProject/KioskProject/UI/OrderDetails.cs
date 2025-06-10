@@ -67,7 +67,7 @@ namespace KioskProject
                 autoTimer.Dispose();
                 autoTimer = null;
             }
-            ReceiptControl.ShowReceipt(orderId);
+            ReceiptControl.ShowReceipt(orderId, shopPacking);
             this.Hide();
             shopPacking = new ShopPacking();
             shopPacking.Show();

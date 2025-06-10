@@ -1,9 +1,11 @@
 ﻿using KioskProject;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 public class ReceiptControl
 {
-    public static void ShowReceipt(int orderId)
+    private ShopPacking previousForm2;
+    public static void ShowReceipt(int orderId, ShopPacking shopPackingForm)
     {
         // DB에서 주문 정보 읽기
         var orderInfo = LoadOrderInfo(orderId);
@@ -34,8 +36,6 @@ public class ReceiptControl
         {
             MessageBox.Show($"주문번호: {orderInfo.OrderId}", "주문번호", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        Application.Exit();
     }
 
     private static OrderInfo LoadOrderInfo(int orderId)

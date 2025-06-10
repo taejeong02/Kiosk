@@ -22,21 +22,19 @@ namespace KioskProject
         private bool[] isPaid; // 인원 수만큼 상태 저장
         private int totalAmount = 0;
         private int numberOfPeople = 1;
+        private ShopPacking previousForm2;
 
         private System.Windows.Forms.Timer inactivityTimer;
         private int remainingTime = 10;
         private CartUI previousCartForm;
         OrderInfo OrderInfo = new OrderInfo();
 
-        private CartUI cartUI;
-
-        public PaymentUI(int totalAmount, CartUI cartForm)
+        public PaymentUI(int totalAmount, CartUI cartForm, ShopPacking shopPackingForm)
         {
             InitializeComponent();
 
             this.totalAmount = totalAmount;
             this.previousCartForm = cartForm;
-            this.cartUI = cartForm;
             this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click);
             this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click);
             StartInactivityTimer();
@@ -125,6 +123,7 @@ namespace KioskProject
             // 버튼 클릭 이벤트 연결
             btnPay.Click += (sender, e) =>
             {
+                inactivityTimer.Stop();
                 SavePointUI form1 = new SavePointUI(amount);
                 var result = form1.ShowDialog();
 
@@ -148,6 +147,7 @@ namespace KioskProject
                     OrderInfo.SaveToDatabase();
                     OrderDetails orderDetails = new OrderDetails(previousCartForm.GetCartItems(), totalAmount);
                     orderDetails.Show();
+                    this.Close();
                 }
             };
 
@@ -183,7 +183,7 @@ namespace KioskProject
             if (remainingTime == 0)
             {
                 inactivityTimer.Stop();
-                cartUI.InactivityTimer_Tick(sender, e);
+                previousCartForm.InactivityTimer_Tick(sender, e);
                 this.Close();
             }
         }

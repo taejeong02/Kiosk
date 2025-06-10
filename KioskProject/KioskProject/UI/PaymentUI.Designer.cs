@@ -151,7 +151,7 @@ namespace KioskProject
             this.Timer.Name = "Timer";
             this.Timer.Size = new System.Drawing.Size(191, 42);
             this.Timer.TabIndex = 41;
-            this.Timer.Text = "label2";
+            this.Timer.Text = "남은 시간: 10초";
             this.Timer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PaymentUI
