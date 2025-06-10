@@ -33,7 +33,6 @@ namespace KioskProject
         private void metroButton1_Click(object sender, EventArgs e)
         {
             OrderUI orderui = new OrderUI(this); // 현재 폼 참조 전달
-            orderui.FormClosed += (s, args) => Application.Exit();
             this.Hide(); // 현재 폼 숨김
             orderui.Show();
         }
@@ -41,7 +40,6 @@ namespace KioskProject
         private void metroButton2_Click(object sender, EventArgs e)
         {
             OrderUI orderui = new OrderUI(this); // 현재 폼 참조 전달
-            orderui.FormClosed += (s, args) => Application.Exit();
             this.Hide(); // 현재 폼 숨김
             orderui.Show();
         }
