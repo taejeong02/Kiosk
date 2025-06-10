@@ -36,15 +36,15 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(58, 61);
+            this.listBox1.Location = new System.Drawing.Point(75, 77);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(373, 574);
+            this.listBox1.Size = new System.Drawing.Size(423, 589);
             this.listBox1.TabIndex = 0;
             // 
             // price_lbl
             // 
             this.price_lbl.AutoSize = true;
-            this.price_lbl.Location = new System.Drawing.Point(58, 649);
+            this.price_lbl.Location = new System.Drawing.Point(75, 684);
             this.price_lbl.Name = "price_lbl";
             this.price_lbl.Size = new System.Drawing.Size(37, 19);
             this.price_lbl.TabIndex = 2;
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 800);
+            this.ClientSize = new System.Drawing.Size(600, 900);
             this.Controls.Add(this.price_lbl);
             this.Controls.Add(this.listBox1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
