@@ -33,11 +33,12 @@
             // 
             // paymentButton
             // 
-            this.paymentButton.Location = new System.Drawing.Point(82, 166);
+            this.paymentButton.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.paymentButton.Location = new System.Drawing.Point(83, 178);
             this.paymentButton.Name = "paymentButton";
             this.paymentButton.Size = new System.Drawing.Size(210, 155);
             this.paymentButton.TabIndex = 0;
-            this.paymentButton.Text = "결제완료";
+            this.paymentButton.Text = "카드삽입";
             this.paymentButton.UseVisualStyleBackColor = true;
             this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
             // 
