@@ -206,5 +206,10 @@ namespace KioskProject
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초";
         }
+
+        private void Timer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

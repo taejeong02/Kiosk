@@ -133,5 +133,10 @@ namespace KioskProject
             }
             else label7.Text = _paymentAmount.ToString("N0") + "원";
         }
+
+        private void UsePointUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

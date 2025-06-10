@@ -27,5 +27,10 @@ namespace KioskProject
                                                        // 위의 string변수 2개를 인자로 넘김
             this.Close();
         }
+
+        private void AdminRegistUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
