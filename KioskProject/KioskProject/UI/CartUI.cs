@@ -156,9 +156,13 @@ namespace KioskProject
                 }
 
                 // 초기화면 ShopPacking 다시 보여주기
-                if (previousForm != null && previousForm.Owner != null && previousForm.Owner is ShopPacking shopForm)
+                if (previousForm != null && previousForm.Owner != null)
                 {
-                    shopForm.Show();
+                    var shopForm = previousForm.Owner as ShopPacking;
+                    if (shopForm != null && !shopForm.IsDisposed)
+                    {
+                        shopForm.Show();
+                    }
                 }
 
                 this.Close(); // CartUI 닫기
