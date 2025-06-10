@@ -28,6 +28,7 @@ namespace KioskProject
             PaymentAmount = payment;
             textBox1.Text = "010 - ";
             label3.Text = ((int)(PaymentAmount * 0.05)).ToString("N0") + "P";
+            StartInactivityTimer();
         }
 
         public int FindPoint(string phone)
