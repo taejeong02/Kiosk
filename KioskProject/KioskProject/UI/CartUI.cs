@@ -133,13 +133,28 @@ namespace KioskProject
         {
             inactivityTimer.Stop();
 
-            // 현금 결제 메시지
-            MessageBox.Show("현금 결제는 카운터에서 진행해주세요!", "현금 결제", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // 관리자 폼에서 승인 여부를 확인
+            var adminForm = Application.OpenForms.OfType<KioskAdminMenu>().FirstOrDefault();
+            if (adminForm != null && adminForm.IsCashPaymentApproved())
+            {
+                // 결제 승인 처리
+                MessageBox.Show("결제가완료되었습니다.", "결제 승인", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Payment 객체 생성
-            Payment payment = new Payment();
-            // CartUI에서 카트 아이템을 가져와 결제 승인 요청
-            payment.ApproveCashPayment(cartLines);
+                // 총 결제 금액 계산
+                int totalPrice = _total;
+
+                // OrderDetails 폼을 열고, 결제 금액을 넘겨줌
+                OrderDetails orderDetails = new OrderDetails(cartLines, totalPrice);
+                orderDetails.Show(); // 결제 내역을 표시할 폼 실행
+
+                // 결제 완료 후 카트 데이터를 비우고, ShopPacking으로 돌아가도록 처리
+                StaticCartData.Clear();
+            }
+            else
+            {
+                // 관리자 승인 안된 경우, 승인 요청 메시지 표시
+                MessageBox.Show("카운터에서 결제를 완료해주세요.", "결제 승인", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void CartUI_Load(object sender, EventArgs e)

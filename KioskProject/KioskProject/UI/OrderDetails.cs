@@ -31,6 +31,7 @@ namespace KioskProject
             foreach (var item in orderItems.Distinct())
                 listBox1.Items.Add(item);
 
+            // 전달받은 총 결제 금액을 표시
             price_lbl.Text = $"총 결제한 금액: {totalAmount:N0}원";
 
             // 주문을 먼저 저장하고 orderId 확보
@@ -52,7 +53,7 @@ namespace KioskProject
             if (autoTimer == null)
             {
                 autoTimer = new Timer();
-                autoTimer.Interval = 5000; // 3초(3000ms)
+                autoTimer.Interval = 5000; // 5초 후 자동 처리
                 autoTimer.Tick += AutoTimer_Tick;
                 autoTimer.Start();
             }
