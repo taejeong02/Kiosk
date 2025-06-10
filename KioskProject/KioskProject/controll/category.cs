@@ -103,7 +103,7 @@ namespace KioskProject
 
         // 카테고리 버튼들을 패널에 페이징 방식으로 출력
         public static void ShowCategoryPage(
-            FlowLayoutPanel categoryPanel,
+            FlowLayoutPanel categoryPanel, 
             List<string> categories,
             int currentPage,
             int itemsPerPage,
