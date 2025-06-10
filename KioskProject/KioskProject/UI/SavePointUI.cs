@@ -17,6 +17,11 @@ namespace KioskProject
         public static int PaymentAmount;
         public int point;
         public string phone;
+        private ShopPacking shopPacking;
+        private CartUI previousCartForm;
+
+        private System.Windows.Forms.Timer inactivityTimer;
+        private int remainingTime = 10;
         public SavePointUI(int payment)
         {
             InitializeComponent();
@@ -122,6 +127,40 @@ namespace KioskProject
         private void SavePointUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Timer.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime == 0)
+            {
+                inactivityTimer.Stop();
+                previousCartForm.InactivityTimer_Tick(sender, e);
+                this.Close();
+            }
+        }
+
+        private void StartInactivityTimer()
+        {
+            inactivityTimer = new System.Windows.Forms.Timer();
+            inactivityTimer.Interval = 1000; // 1초마다
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            inactivityTimer.Start();
+
+            this.MouseMove += ResetInactivityTimer;
+            this.MouseClick += ResetInactivityTimer;
+        }
+        public void CartUI_Activated(object sender, EventArgs e)
+        {
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Timer.Text = $"남은 시간: {remainingTime}초";
         }
     }
 }
