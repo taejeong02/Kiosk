@@ -63,12 +63,21 @@ namespace KioskProject
         {
             _timeLeft--;
             _timerLabel.Text = _timeLeft.ToString();
-
+            
+            
             if (_timeLeft <= 0)
             {
                 _timer.Stop();
                 MessageBox.Show("시간 초과. 폼을 닫습니다.");
                 _loginForm.Close();
+            }
+        }
+
+        public void StopTimer()
+        {
+            if (_timer != null && _timer.Enabled)
+            {
+                _timer.Stop();
             }
         }
     }
