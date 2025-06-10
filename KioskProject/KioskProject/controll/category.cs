@@ -33,7 +33,8 @@ namespace KioskProject
 
             foreach (var item in items)
             {
-                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", item.Name + ".jpg");
+                string imagePath = Path.Combine(Application.StartupPath, "MenuImages", item.ProductID + ".jpg");
+
 
                 Panel panelItem = new Panel
                 {
@@ -54,7 +55,8 @@ namespace KioskProject
                 {
                     using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
                     {
-                        picture.Image = Image.FromStream(fs);
+                        Image tempImage = Image.FromStream(fs);
+                        picture.Image = new Bitmap(tempImage);
                     }
                 }
                 else
