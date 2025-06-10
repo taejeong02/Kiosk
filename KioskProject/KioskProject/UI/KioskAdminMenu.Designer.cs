@@ -57,6 +57,7 @@ namespace KioskProject
             this.Spicy_checkbox = new System.Windows.Forms.CheckBox();
             this.Size_checkbox = new System.Windows.Forms.CheckBox();
             this.totalprice_btn = new System.Windows.Forms.Button();
+            this.approvalbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Menu_gridview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@ namespace KioskProject
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(451, 144);
+            this.label3.Location = new System.Drawing.Point(451, 163);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 20);
@@ -97,7 +98,7 @@ namespace KioskProject
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(455, 206);
+            this.label4.Location = new System.Drawing.Point(455, 225);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
@@ -108,7 +109,7 @@ namespace KioskProject
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(456, 268);
+            this.label5.Location = new System.Drawing.Point(456, 287);
             this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 20);
@@ -119,7 +120,7 @@ namespace KioskProject
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(436, 320);
+            this.label6.Location = new System.Drawing.Point(436, 339);
             this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 20);
@@ -136,7 +137,7 @@ namespace KioskProject
             // 
             // Num_txt
             // 
-            this.Num_txt.Location = new System.Drawing.Point(432, 175);
+            this.Num_txt.Location = new System.Drawing.Point(432, 194);
             this.Num_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Num_txt.Name = "Num_txt";
             this.Num_txt.Size = new System.Drawing.Size(113, 21);
@@ -144,7 +145,7 @@ namespace KioskProject
             // 
             // Name_txt
             // 
-            this.Name_txt.Location = new System.Drawing.Point(431, 227);
+            this.Name_txt.Location = new System.Drawing.Point(431, 246);
             this.Name_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Name_txt.Name = "Name_txt";
             this.Name_txt.Size = new System.Drawing.Size(113, 21);
@@ -152,7 +153,7 @@ namespace KioskProject
             // 
             // Price_txt
             // 
-            this.Price_txt.Location = new System.Drawing.Point(431, 289);
+            this.Price_txt.Location = new System.Drawing.Point(431, 308);
             this.Price_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Price_txt.Name = "Price_txt";
             this.Price_txt.Size = new System.Drawing.Size(113, 21);
@@ -160,7 +161,7 @@ namespace KioskProject
             // 
             // Category_txt
             // 
-            this.Category_txt.Location = new System.Drawing.Point(431, 353);
+            this.Category_txt.Location = new System.Drawing.Point(431, 372);
             this.Category_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Category_txt.Name = "Category_txt";
             this.Category_txt.Size = new System.Drawing.Size(113, 21);
@@ -335,7 +336,7 @@ namespace KioskProject
             this.Size_checkbox.UseVisualStyleBackColor = true;
             // 
             // totalprice_btn
-            //
+            // 
             this.totalprice_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.totalprice_btn.Location = new System.Drawing.Point(428, 728);
             this.totalprice_btn.Name = "totalprice_btn";
@@ -344,12 +345,24 @@ namespace KioskProject
             this.totalprice_btn.Text = "매출 확인";
             this.totalprice_btn.Click += new System.EventHandler(this.totalprice_btn_Click);
             // 
+            // approvalbtn
+            // 
+            this.approvalbtn.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.approvalbtn.Location = new System.Drawing.Point(432, 125);
+            this.approvalbtn.Name = "approvalbtn";
+            this.approvalbtn.Size = new System.Drawing.Size(112, 29);
+            this.approvalbtn.TabIndex = 24;
+            this.approvalbtn.Text = "결제승인";
+            this.approvalbtn.UseVisualStyleBackColor = true;
+            this.approvalbtn.Click += new System.EventHandler(this.approvalbtn_Click);
+            // 
             // KioskAdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 861);
             this.ControlBox = false;
+            this.Controls.Add(this.approvalbtn);
             this.Controls.Add(this.totalprice_btn);
             this.Controls.Add(this.Size_checkbox);
             this.Controls.Add(this.Spicy_checkbox);
@@ -409,5 +422,6 @@ namespace KioskProject
         private DataGridViewTextBoxColumn ColProductPrice;
         private DataGridViewTextBoxColumn ColProductCategory;
         private Button totalprice_btn;
+        private Button approvalbtn;
     }
 }

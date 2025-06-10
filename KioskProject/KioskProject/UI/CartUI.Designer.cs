@@ -164,7 +164,7 @@
             this.Timer.Name = "Timer";
             this.Timer.Size = new System.Drawing.Size(212, 33);
             this.Timer.TabIndex = 4;
-            this.Timer.Text = "label1";
+            this.Timer.Text = "남은 시간: 10초";
             this.Timer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CartUI

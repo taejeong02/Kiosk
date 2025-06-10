@@ -109,7 +109,7 @@ namespace KioskProject
             // 폼이 null이거나 이미 dispose된 경우에만 새로 생성
             if (paymentForm == null || paymentForm.IsDisposed)
             {
-                paymentForm = new PaymentUI(totalPrice, this, previousForm2);
+                paymentForm = new PaymentUI(totalPrice, this);
             }
 
             // 숨겨져 있으면 다시 보여주기
@@ -132,15 +132,14 @@ namespace KioskProject
         private void cashbtn_Click(object sender, EventArgs e)
         {
             inactivityTimer.Stop();
-            // 현금 결제 승인 요청 메시지
+
+            // 현금 결제 메시지
             MessageBox.Show("현금 결제는 카운터에서 진행해주세요!", "현금 결제", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // 관리자 화면에 결제 승인을 요청하는 로직 추가
-            var adminForm = Application.OpenForms.OfType<KioskAdminMenu>().FirstOrDefault();
-            if (adminForm != null)
-            {
-                adminForm.ApproveCashPayment(); // 관리자에게 결제 승인 요청
-            }
+            // Payment 객체 생성
+            Payment payment = new Payment();
+            // CartUI에서 카트 아이템을 가져와 결제 승인 요청
+            payment.ApproveCashPayment(cartLines);
         }
 
         private void CartUI_Load(object sender, EventArgs e)
@@ -157,7 +156,7 @@ namespace KioskProject
                 // 필요하면 여기에 다른 전역 데이터도 같이 초기화
             }
         }
-        private void InactivityTimer_Tick(object sender, EventArgs e)
+        public void InactivityTimer_Tick(object sender, EventArgs e)
         {
             remainingTime--;
             // 타이머 남은 시간 라벨이 있다면 업데이트
@@ -166,7 +165,7 @@ namespace KioskProject
             if (remainingTime == 0)
             {
                 inactivityTimer.Stop();
-                MessageBox.Show("장바구니 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "장바구니 만료",
+                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "타이머 만료",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 inactivityTimer.Stop();
@@ -205,6 +204,38 @@ namespace KioskProject
         {
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초";
+        }
+
+
+        public void HandleInactivityTimer()
+        {
+            remainingTime--;
+
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Timer.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime == 0)
+            {
+                inactivityTimer.Stop();
+                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "타이머 만료",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                StaticCartData.Clear(); // 저장된 카트 정보 초기화
+
+                // 이전 OrderUI 폼 닫기
+                if (previousForm != null && !previousForm.IsDisposed)
+                {
+                    previousForm.Close();
+                }
+
+                // 초기화면 ShopPacking 다시 보여주기
+                if (previousForm2 != null)
+                {
+                    previousForm2.Show(); // ShopPacking 폼을 직접 표시
+                }
+
+                this.Close(); // CartUI 닫기
+            }
         }
     }
 
