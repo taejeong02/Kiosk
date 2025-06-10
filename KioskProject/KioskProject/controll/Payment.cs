@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using static KioskProject.CartUI;
 
 namespace KioskProject
 {
@@ -34,7 +37,7 @@ namespace KioskProject
             return true;
         }
 
-        //  결제 완료 시 주문 저장
+        // 결제 완료 시 주문 저장
         public int SaveOrder(string orderData)
         {
             OrderInfo order = new OrderInfo
@@ -45,6 +48,19 @@ namespace KioskProject
             };
 
             return order.SaveToDatabase();
+        }
+
+        // 현금 결제 승인 처리
+        public void ApproveCashPayment(List<string> cartItems)
+        {
+            // 결제 승인 후, OrderDetails 폼 실행
+            int totalPrice = totalAmount; // 총 금액
+            OrderDetails orderDetails = new OrderDetails(cartItems, totalPrice);
+            orderDetails.Show();  // 결제 내역을 표시할 폼 실행
+
+            // 결제 완료 후 카트 데이터를 비우고, ShopPacking으로 돌아가도록 처리
+            StaticCartData.Clear();
+            Console.WriteLine("현금 결제 승인 완료");
         }
     }
 }

@@ -39,8 +39,9 @@ namespace KioskProject
                 //    }
                 //}
                 KioskAdminMenu adminMenu = new KioskAdminMenu();
-                adminMenu.Show();
                 this.Close();
+                adminMenu.Show();
+                
             } // 반환받은 result가 true
             // admin_Login 함수에 대한 자세한 설명은 adminlogincontrol에 상기
             else { MessageBox.Show("로그인 실패"); }
