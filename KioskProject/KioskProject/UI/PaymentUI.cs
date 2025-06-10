@@ -21,7 +21,10 @@ namespace KioskProject
         private bool[] isPaid; // 인원 수만큼 상태 저장
         private int totalAmount = 0;
         private int numberOfPeople = 1;
+        private ShopPacking previousForm2;
 
+        private System.Windows.Forms.Timer inactivityTimer;
+        private int remainingTime = 10;
         private CartUI previousCartForm;
         OrderInfo OrderInfo = new OrderInfo();
 
@@ -31,6 +34,7 @@ namespace KioskProject
 
             this.totalAmount = totalAmount;
             this.previousCartForm = cartForm;
+            this.previousForm2 = shopPackingForm;
 
             this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click);
             this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click);
@@ -72,6 +76,8 @@ namespace KioskProject
         {
             previousCartForm.Show();     // CartUI 다시 보여줌 (숨겨진 상태에서 복귀)
             this.Hide();
+
+            previousCartForm.CartUI_Activated(sender, e);
         }
 
         private Panel CreatePersonPanel(int index, int amount)

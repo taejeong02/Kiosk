@@ -139,6 +139,16 @@ namespace KioskProject
         {
 
         }
+
+        public static class StaticCartData
+        {
+            public static List<string> CartItems = new List<string>();
+            public static void Clear()
+            {
+                CartItems.Clear();
+                // 필요하면 여기에 다른 전역 데이터도 같이 초기화
+            }
+        }
         private void InactivityTimer_Tick(object sender, EventArgs e)
         {
             remainingTime--;
@@ -179,21 +189,14 @@ namespace KioskProject
             this.MouseMove += ResetInactivityTimer;
             this.MouseClick += ResetInactivityTimer;
         }
-
+        public void CartUI_Activated(object sender, EventArgs e)
+        {
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
         private void ResetInactivityTimer(object sender, EventArgs e)
         {
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초";
-        }
-        public static class StaticCartData
-        {
-            public static List<string> CartItems = new List<string>();
-
-            public static void Clear()
-            {
-                CartItems.Clear();
-                // 필요하면 여기에 다른 전역 데이터도 같이 초기화
-            }
         }
     }
 
