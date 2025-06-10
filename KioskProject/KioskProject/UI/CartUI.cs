@@ -15,6 +15,7 @@ namespace KioskProject
     {
         public static int _total;
         private OrderUI previousForm;
+        private ShopPacking previousForm2;
         private CartControl cartControl;
         private List<string> cartLines;
         private PaymentUI paymentForm;
@@ -22,10 +23,11 @@ namespace KioskProject
         private System.Windows.Forms.Timer inactivityTimer;
         private int remainingTime = 10;
 
-        public CartUI(OrderUI prevForm, List<string> items)
+        public CartUI(OrderUI prevForm, List<string> items, ShopPacking shopPackingForm)
         {
             InitializeComponent();
             this.previousForm = prevForm;
+            this.previousForm2 = shopPackingForm;
             this.cartLines = new List<string>(items);
             cartControl = new CartControl();
 
@@ -101,7 +103,7 @@ namespace KioskProject
             // 폼이 null이거나 이미 dispose된 경우에만 새로 생성
             if (paymentForm == null || paymentForm.IsDisposed)
             {
-                paymentForm = new PaymentUI(totalPrice, this);
+                paymentForm = new PaymentUI(totalPrice, this, previousForm2);
             }
 
             // 숨겨져 있으면 다시 보여주기
@@ -134,12 +136,15 @@ namespace KioskProject
         private void InactivityTimer_Tick(object sender, EventArgs e)
         {
             remainingTime--;
-
             // 타이머 남은 시간 라벨이 있다면 업데이트
             Timer.Text = $"남은 시간: {remainingTime}초";
 
             if (remainingTime == 0)
             {
+                inactivityTimer.Stop();
+                MessageBox.Show("장바구니 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "장바구니 만료",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 inactivityTimer.Stop();
                 StaticCartData.Clear(); // 저장된 카트 정보 초기화
 
@@ -150,13 +155,9 @@ namespace KioskProject
                 }
 
                 // 초기화면 ShopPacking 다시 보여주기
-                if (previousForm != null && previousForm.Owner != null)
+                if (previousForm2 != null)
                 {
-                    var shopForm = previousForm.Owner as ShopPacking;
-                    if (shopForm != null && !shopForm.IsDisposed)
-                    {
-                        shopForm.Show();
-                    }
+                    previousForm2.Show(); // ShopPacking 폼을 직접 표시
                 }
 
                 this.Close(); // CartUI 닫기

@@ -32,14 +32,14 @@ namespace KioskProject
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            OrderUI orderui = new OrderUI(this); // 현재 폼 참조 전달
+            OrderUI orderui = new OrderUI(this, this); // 현재 폼 참조 전달
             this.Hide(); // 현재 폼 숨김
             orderui.Show();
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            OrderUI orderui = new OrderUI(this); // 현재 폼 참조 전달
+            OrderUI orderui = new OrderUI(this, this); // 현재 폼 참조 전달
             this.Hide(); // 현재 폼 숨김
             orderui.Show();
         }

@@ -20,17 +20,19 @@ namespace KioskProject
 
         Form previousForm;
         private List<string> allCategories = new List<string>();
+        private ShopPacking previousForm2;
         private int currentPage = 0;
         private const int itemsPerPage = 7;
         private CartUI cartForm;
 
-        public OrderUI(Form prevForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
+        public OrderUI(Form prevForm, ShopPacking shopPackingForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
             InitializeComponent();
             this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
+            this.previousForm2 = shopPackingForm;
         }
 
- 
+
         //폼 첫 로드 시 호출, 카운트 초기화, 카테고리 버튼 생성
 
         private void OrderUI_Load(object sender, EventArgs e)
@@ -104,21 +106,9 @@ namespace KioskProject
                 cartLines.Add(obj.ToString());
             }
 
-            if (cartForm == null || cartForm.IsDisposed)
-            {
-                cartForm = new CartUI(this, cartLines);
-                //cartForm.FormClosed += (s, args) =>
-                {
-                    this.Show();            // CartUI 닫히면 다시 OrderUI 보여줌
-                    cartForm = null;        // 참조 초기화
-                };
-                cartForm.Show();
-                this.Hide();                // 현재 OrderUI는 숨김
-            }
-            else
-            {
-                cartForm.BringToFront();    // 이미 열려있으면 앞으로
-            }
+            cartForm = new CartUI(this, cartLines, previousForm2);
+            cartForm.Show();
+            this.Hide();
         }
     }
 }

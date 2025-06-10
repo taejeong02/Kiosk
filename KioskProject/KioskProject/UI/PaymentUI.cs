@@ -25,7 +25,7 @@ namespace KioskProject
         private CartUI previousCartForm;
         OrderInfo OrderInfo = new OrderInfo();
 
-        public PaymentUI(int totalAmount, CartUI cartForm)
+        public PaymentUI(int totalAmount, CartUI cartForm, ShopPacking shopPackingForm)
         {
             InitializeComponent();
 
