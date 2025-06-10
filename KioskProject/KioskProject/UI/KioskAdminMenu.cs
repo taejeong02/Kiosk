@@ -258,12 +258,16 @@ namespace KioskProject
                 return;
             }
             //초기화면 로딩
-            ShopPacking main = new ShopPacking();
-            main.FormClosed += (s, args) => Application.Exit();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is ShopPacking)
+                {
+                    form.Show();
+                    break;
+                }
+            }
             //현재 폼 종료
-            this.Hide();
-            //폼 보여주기
-            main.Show();
+            this.Close();
         }
 
         private void Search_btn_Click(object sender, EventArgs e)

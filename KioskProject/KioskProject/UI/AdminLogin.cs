@@ -29,6 +29,15 @@ namespace KioskProject
             if (result == true) 
             { 
                 MessageBox.Show("로그인 성공");
+
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form is ShopPacking)
+                    {
+                        form.Hide();
+                        break;
+                    }
+                }
                 KioskAdminMenu adminMenu = new KioskAdminMenu();
                 adminMenu.Show();
                 this.Close();
