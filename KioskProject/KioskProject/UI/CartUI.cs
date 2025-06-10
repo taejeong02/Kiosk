@@ -132,15 +132,14 @@ namespace KioskProject
         private void cashbtn_Click(object sender, EventArgs e)
         {
             inactivityTimer.Stop();
-            // 현금 결제 승인 요청 메시지
+
+            // 현금 결제 메시지
             MessageBox.Show("현금 결제는 카운터에서 진행해주세요!", "현금 결제", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // 관리자 화면에 결제 승인을 요청하는 로직 추가
-            var adminForm = Application.OpenForms.OfType<KioskAdminMenu>().FirstOrDefault();
-            if (adminForm != null)
-            {
-                adminForm.ApproveCashPayment(); // 관리자에게 결제 승인 요청
-            }
+            // Payment 객체 생성
+            Payment payment = new Payment();
+            // CartUI에서 카트 아이템을 가져와 결제 승인 요청
+            payment.ApproveCashPayment(cartLines);
         }
 
         private void CartUI_Load(object sender, EventArgs e)

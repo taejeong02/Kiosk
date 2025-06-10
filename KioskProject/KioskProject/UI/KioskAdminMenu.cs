@@ -600,29 +600,19 @@ namespace KioskProject
             TotalSalesReport totalSalesReport = new TotalSalesReport();
             totalSalesReport.Show();
         }
-        public void ApproveCashPayment()
+
+        private void approvalbtn_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("현금 결제를 승인하시겠습니까?", "결제 승인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            // CartUI 폼에서 카트 아이템을 가져오기
+            var cartForm = Application.OpenForms.OfType<CartUI>().FirstOrDefault();
+            if (cartForm != null)
             {
-                // 결제 승인 시, CartUI에서 카트 아이템과 총 금액을 기반으로 OrderDetails 폼 실행
-                var cartForm = Application.OpenForms.OfType<CartUI>().FirstOrDefault(); // CartUI 폼 찾기
-                if (cartForm != null)
-                {
-                    int totalPrice = CartUI._total; // CartUI에서 총 금액 가져오기
-                    var orderDetails = new OrderDetails(cartForm.GetCartItems(), totalPrice);
-                    orderDetails.Show();  // OrderDetails 폼 실행
+                // Payment 객체 생성
+                Payment payment = new Payment();
 
-                    // 결제 완료 후 CartUI 폼을 닫음
-                    cartForm.Close();
-                }
-            }
-            else
-            {
-                MessageBox.Show("결제가 취소되었습니다.", "취소", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Payment 클래스에서 결제 승인 처리
+                payment.ApproveCashPayment(cartForm.GetCartItems()); // cartItems를 넘겨서 결제 승인 요청
             }
         }
-
     }
 }
