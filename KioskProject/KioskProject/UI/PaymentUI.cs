@@ -71,6 +71,7 @@ namespace KioskProject
         private void ChangePaymentMethod_btn_Click(object sender, EventArgs e) //결제 수단 변경 
         {
             previousCartForm.Show();     // CartUI 다시 보여줌 (숨겨진 상태에서 복귀)
+            this.Hide();
         }
 
         private Panel CreatePersonPanel(int index, int amount)

@@ -16,7 +16,7 @@ namespace KioskProject
         private int totalAmount;
         private Timer autoTimer;
         private int orderId;
-
+        private ShopPacking shopPacking;
         public OrderDetails(List<string> items, int total)
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace KioskProject
             if (autoTimer == null)
             {
                 autoTimer = new Timer();
-                autoTimer.Interval = 3000; // 3초(3000ms)
+                autoTimer.Interval = 5000; // 3초(3000ms)
                 autoTimer.Tick += AutoTimer_Tick;
                 autoTimer.Start();
             }
@@ -67,7 +67,10 @@ namespace KioskProject
                 autoTimer = null;
             }
             ReceiptControl.ShowReceipt(orderId);
-            this.Close();
+            this.Hide();
+            shopPacking = new ShopPacking();
+            shopPacking.Show();
+            
 
         }
     }

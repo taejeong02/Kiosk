@@ -17,6 +17,7 @@ namespace KioskProject
         private CartControl cartControl;
         private List<string> cartLines;
         private PaymentUI paymentForm;
+        
         public CartUI(OrderUI prevForm, List<string> items)
         {
             InitializeComponent();
