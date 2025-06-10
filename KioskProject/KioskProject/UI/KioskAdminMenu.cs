@@ -14,6 +14,7 @@ namespace KioskProject
 {
     public partial class KioskAdminMenu : MetroFramework.Forms.MetroForm
     {
+        private bool isCashPaymentApproved = false;  // 결제 승인 여부 추적
         public class FoodItem
         {
             public string ProductID { get; set; }
@@ -339,7 +340,7 @@ namespace KioskProject
                 }
             }
         }
-        
+
 
         private void Addmenu_btn_Click(object sender, EventArgs e)
         {
@@ -603,16 +604,14 @@ namespace KioskProject
 
         private void approvalbtn_Click(object sender, EventArgs e)
         {
-            // CartUI 폼에서 카트 아이템을 가져오기
-            var cartForm = Application.OpenForms.OfType<CartUI>().FirstOrDefault();
-            if (cartForm != null)
-            {
-                // Payment 객체 생성
-                Payment payment = new Payment();
-
-                // Payment 클래스에서 결제 승인 처리
-                payment.ApproveCashPayment(cartForm.GetCartItems()); // cartItems를 넘겨서 결제 승인 요청
-            }
+            isCashPaymentApproved = true;
+            MessageBox.Show("현금 결제가 승인되었습니다.", "결제 승인", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public bool IsCashPaymentApproved()
+        {
+            return isCashPaymentApproved;
         }
     }
 }
+
+
