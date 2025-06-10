@@ -40,6 +40,7 @@
             this.cardbtn = new System.Windows.Forms.Button();
             this.Plusbtn = new System.Windows.Forms.Button();
             this.Miusbtn = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,11 +150,23 @@
             this.Miusbtn.UseVisualStyleBackColor = true;
             this.Miusbtn.Click += new System.EventHandler(this.Miusbtn_Click);
             // 
+            // Timer
+            // 
+            this.Timer.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Timer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Timer.Location = new System.Drawing.Point(359, 45);
+            this.Timer.Name = "Timer";
+            this.Timer.Size = new System.Drawing.Size(212, 33);
+            this.Timer.TabIndex = 4;
+            this.Timer.Text = "label1";
+            this.Timer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // CartUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 900);
+            this.ClientSize = new System.Drawing.Size(600, 624);
+            this.Controls.Add(this.Timer);
             this.Controls.Add(this.Miusbtn);
             this.Controls.Add(this.Plusbtn);
             this.Controls.Add(this.cardbtn);
@@ -184,5 +197,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.Button Plusbtn;
         private System.Windows.Forms.Button Miusbtn;
+        private System.Windows.Forms.Label Timer;
     }
 }
