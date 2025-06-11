@@ -108,6 +108,7 @@
             // 
             // backbtn
             // 
+            this.backbtn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.backbtn.Location = new System.Drawing.Point(39, 690);
             this.backbtn.Name = "backbtn";
             this.backbtn.Size = new System.Drawing.Size(158, 187);
@@ -118,6 +119,7 @@
             // 
             // cashbtn
             // 
+            this.cashbtn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cashbtn.Location = new System.Drawing.Point(241, 690);
             this.cashbtn.Name = "cashbtn";
             this.cashbtn.Size = new System.Drawing.Size(158, 187);
@@ -128,6 +130,7 @@
             // 
             // cardbtn
             // 
+            this.cardbtn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cardbtn.Location = new System.Drawing.Point(414, 690);
             this.cardbtn.Name = "cardbtn";
             this.cardbtn.Size = new System.Drawing.Size(158, 187);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Count = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.usePointbutton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.Count = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(379, 121);
             this.panel1.TabIndex = 0;
+            // 
+            // Count
+            // 
+            this.Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Count.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Count.Location = new System.Drawing.Point(243, 9);
+            this.Count.Name = "Count";
+            this.Count.Size = new System.Drawing.Size(121, 27);
+            this.Count.TabIndex = 2;
+            this.Count.Text = "남은 시간: 10초";
+            this.Count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel2
             // 
@@ -89,7 +100,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(18, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
@@ -99,7 +110,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(50, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(262, 44);
@@ -109,6 +120,7 @@
             // 
             // label4
             // 
+            this.label4.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(60, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 19);
@@ -273,6 +285,7 @@
             // Closebutton
             // 
             this.Closebutton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Closebutton.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Closebutton.Location = new System.Drawing.Point(27, 494);
             this.Closebutton.Name = "Closebutton";
             this.Closebutton.Size = new System.Drawing.Size(150, 40);
@@ -284,6 +297,7 @@
             // usePointbutton
             // 
             this.usePointbutton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.usePointbutton.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.usePointbutton.Location = new System.Drawing.Point(196, 494);
             this.usePointbutton.Name = "usePointbutton";
             this.usePointbutton.Size = new System.Drawing.Size(150, 40);
@@ -294,10 +308,11 @@
             // 
             // label6
             // 
+            this.label6.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(60, 207);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 15);
+            this.label6.Size = new System.Drawing.Size(100, 15);
             this.label6.TabIndex = 18;
             this.label6.Text = "최종 결제 금액";
             // 
@@ -309,17 +324,6 @@
             this.label7.Size = new System.Drawing.Size(105, 18);
             this.label7.TabIndex = 19;
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Count
-            // 
-            this.Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Count.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Count.Location = new System.Drawing.Point(243, 9);
-            this.Count.Name = "Count";
-            this.Count.Size = new System.Drawing.Size(121, 27);
-            this.Count.TabIndex = 2;
-            this.Count.Text = "남은 시간: 10초";
-            this.Count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // UsePointUI
             // 
