@@ -121,8 +121,8 @@ namespace KioskProject
             {
                 paymentForm.BringToFront(); // 이미 떠 있으면 앞으로
             }
-
-            this.Hide(); // CartUI는 숨김
+            remainingTime = 10;
+            this.Hide();
         }
         public List<string> GetCartItems()
         {

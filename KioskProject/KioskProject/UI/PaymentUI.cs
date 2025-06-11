@@ -36,7 +36,6 @@ namespace KioskProject
             this.previousCartForm = cartForm;
             this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click);
             this.Minus_btn.Click += new System.EventHandler(this.Minus_btn_Click);
-            StartInactivityTimer();
         }
 
         private void PaymentUI_Load(object sender, EventArgs e)
@@ -44,6 +43,7 @@ namespace KioskProject
             PerPersonAmount.Text = $"{totalAmount}원"; // 총 금액 그대로 표시
             labelCount.Text = $"{numberOfPeople}명";
             UpdatePersonPanels();
+            StartInactivityTimer();
         }
 
         private void Minus_btn_Click(object sender, EventArgs e) // 총인원수 감소 버튼
@@ -68,7 +68,7 @@ namespace KioskProject
             inactivityTimer.Stop();
             MessageBox.Show("결제가 취소되었습니다.");
             previousCartForm.Show(); // CartUI 다시 보여줌
-            this.Hide();
+            this.Close();
             previousCartForm.CartUI_Activated(sender, e);
         }
 
@@ -76,7 +76,7 @@ namespace KioskProject
         {
             inactivityTimer.Stop();
             previousCartForm.Show();     // CartUI 다시 보여줌 (숨겨진 상태에서 복귀)
-            this.Hide();
+            this.Close();
 
             previousCartForm.CartUI_Activated(sender, e);
         }
