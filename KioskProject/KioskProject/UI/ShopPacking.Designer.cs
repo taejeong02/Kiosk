@@ -37,7 +37,7 @@
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(23, 24);
+            this.test.Location = new System.Drawing.Point(23, 25);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(79, 19);
             this.test.TabIndex = 9;
@@ -66,7 +66,7 @@
             // 
             this.welcome_lbl.AutoSize = true;
             this.welcome_lbl.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.welcome_lbl.Location = new System.Drawing.Point(229, 328);
+            this.welcome_lbl.Location = new System.Drawing.Point(232, 333);
             this.welcome_lbl.Name = "welcome_lbl";
             this.welcome_lbl.Size = new System.Drawing.Size(134, 32);
             this.welcome_lbl.TabIndex = 13;
@@ -76,7 +76,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(601, 881);
             this.Controls.Add(this.welcome_lbl);
             this.Controls.Add(this.metroButton2);

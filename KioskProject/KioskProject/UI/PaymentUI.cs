@@ -126,7 +126,7 @@ namespace KioskProject
             btnPay.Click += (sender, e) =>
             {
                 inactivityTimer.Stop();
-                PointAccrualUI form1 = new PointAccrualUI(amount, this);
+                SavePointUI form1 = new SavePointUI(amount, this);
                 var result = form1.ShowDialog();
 
                 if (remainingTime <= 0)
@@ -186,7 +186,7 @@ namespace KioskProject
             }
         }
 
-        public void InactivityTimer_Tick(object sender, EventArgs e)
+        private void InactivityTimer_Tick(object sender, EventArgs e)
         {
             remainingTime--;
             // 타이머 남은 시간 라벨이 있다면 업데이트
@@ -195,7 +195,6 @@ namespace KioskProject
             if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
-                previousCartForm.remainingTime = 0;
                 previousCartForm.InactivityTimer_Tick(sender, e);
                 this.Close();
             }

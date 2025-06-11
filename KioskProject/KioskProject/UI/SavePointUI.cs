@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using KioskProject;
+using KioskProject.controll;
 
 namespace KioskProject
 {
-    public partial class PointAccrualUI : Form
+    public partial class SavePointUI : Form
     {
         public static int PaymentAmount;
         public int point;
@@ -22,7 +23,7 @@ namespace KioskProject
         private int remainingTime = 10;
         private PaymentUI previousCartForm;
 
-        public PointAccrualUI(int payment, PaymentUI payform)
+        public SavePointUI(int payment, PaymentUI payform)
         {
             InitializeComponent();
             this.previousCartForm = payform;
@@ -143,7 +144,7 @@ namespace KioskProject
             {
                 inactivityTimer.Stop();
                 previousCartForm.remainingTime = 0;
-                previousCartForm.InactivityTimer_Tick(sender, e);
+                TimerControl.CloseAllFormsExceptShopPacking();
             }
         }
 

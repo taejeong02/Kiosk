@@ -145,6 +145,7 @@
     <Compile Include="controll\AdminMenuDeletMenu.cs" />
     <Compile Include="controll\AdminMenuUpdate.cs" />
     <Compile Include="controll\SalesInquiry.cs" />
+    <Compile Include="controll\TimerControl.cs" />
     <Compile Include="entity\adminDB.cs" />
     <Compile Include="controll\Payment.cs" />
     <Compile Include="entity\MenuDB.cs" />
@@ -158,11 +159,11 @@
     </Compile>
     <Compile Include="entity\OrderInfo.cs" />
     <Compile Include="controll\ReceiptControl.cs" />
-    <Compile Include="UI\PointAccrualUI.cs">
+    <Compile Include="UI\SavePointUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PointAccrualUI.Designer.cs">
-      <DependentUpon>PointAccrualUI.cs</DependentUpon>
+    <Compile Include="UI\SavePointUI.Designer.cs">
+      <DependentUpon>SavePointUI.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UsePointUI.cs">
       <SubType>Form</SubType>
@@ -241,8 +242,8 @@
     <EmbeddedResource Include="UI\OrderDetails.resx">
       <DependentUpon>OrderDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PointAccrualUI.resx">
-      <DependentUpon>PointAccrualUI.cs</DependentUpon>
+    <EmbeddedResource Include="UI\SavePointUI.resx">
+      <DependentUpon>SavePointUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UsePointUI.resx">
       <DependentUpon>UsePointUI.cs</DependentUpon>

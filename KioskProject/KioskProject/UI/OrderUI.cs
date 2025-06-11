@@ -1,19 +1,18 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using KioskProject;
-using KioskProject.controll;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.BC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static KioskProject.CartUI;
+using System.IO;
+using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.BC;
+using KioskProject;
+
 namespace KioskProject
 {
     public partial class OrderUI : Form
@@ -24,11 +23,9 @@ namespace KioskProject
         private int currentPage = 0;
         private const int itemsPerPage = 7;
         private CartUI cartForm;
-        private System.Windows.Forms.Timer inactivityTimer;
-        public int remainingTime = 10;
+
         public OrderUI(Form prevForm, ShopPacking shopPackingForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
-            
             InitializeComponent();
             this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
             this.previousForm2 = shopPackingForm;
@@ -42,7 +39,6 @@ namespace KioskProject
             count.Text = "0";
             allCategories = KioskProject.entity.MenuDataItem.GetAllCategories();
             ShowCategoryPage();
-            StartInactivityTimer();
         }
 
 
@@ -127,45 +123,6 @@ namespace KioskProject
             else
             {
                 cartForm.BringToFront();    // 이미 열려있으면 앞으로
-            }
-        }
-
-        private void OrderUI_Activated(object sender, EventArgs e)
-        {
-
-        }
-        private void StartInactivityTimer()
-        {
-            inactivityTimer = new System.Windows.Forms.Timer();
-            inactivityTimer.Interval = 1000; // 1초마다
-            inactivityTimer.Tick += InactivityTimer_Tick;
-            inactivityTimer.Start();
-
-            this.MouseMove += ResetInactivityTimer;
-            this.MouseClick += ResetInactivityTimer;
-        }
-        private void ResetInactivityTimer(object sender, EventArgs e)
-        {
-            remainingTime = 10;
-            inactivityTimer.Start();
-            Timer.Text = $"남은 시간: {remainingTime}초";
-        }
-        public void InactivityTimer_Tick(object sender, EventArgs e)
-        {
-            remainingTime--;
-            // 타이머 남은 시간 라벨이 있다면 업데이트
-            Timer.Text = $"남은 시간: {remainingTime}초";
-
-            if (remainingTime <= 0)
-            {
-                inactivityTimer.Stop();
-                listBox1.Items.Clear(); // 저장된 카트 정보 초기화
-
-
-                previousForm2.Show(); // ShopPacking 폼을 직접 표시
-                
-
-                this.Close(); // OrderUI닫기
             }
         }
     }
