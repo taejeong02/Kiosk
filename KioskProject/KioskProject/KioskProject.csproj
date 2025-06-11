@@ -150,6 +150,7 @@
     <Compile Include="controll\Payment.cs" />
     <Compile Include="entity\MenuDB.cs" />
     <Compile Include="entity\UserDB.cs" />
+    <Compile Include="controll\PaymentAprroval.cs" />
     <Compile Include="UI\OrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
