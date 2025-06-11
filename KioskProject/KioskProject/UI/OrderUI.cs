@@ -26,14 +26,14 @@ namespace KioskProject
         private const int itemsPerPage = 7;
         private CartUI cartForm;
 
-        //private System.Windows.Forms.Timer inactivityTimer;
-        //public int remainingTime = 10;
+        private System.Windows.Forms.Timer inactivityTimer;
+        public int remainingTime = 10;
         public OrderUI(Form prevForm, ShopPacking shopPackingForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
             InitializeComponent();
             this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
             this.previousForm2 = shopPackingForm;
-            //StartInactivityTimer();
+            StartInactivityTimer();
         }
 
 
@@ -75,7 +75,7 @@ namespace KioskProject
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //inactivityTimer.Stop();
+            inactivityTimer.Stop();
             previousForm.Show();
             this.Hide();
 
@@ -105,7 +105,7 @@ namespace KioskProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //inactivityTimer.Stop();
+            inactivityTimer.Stop();
             List<string> cartLines = new List<string>();
             foreach (var obj in listBox1.Items)
             {
@@ -132,61 +132,60 @@ namespace KioskProject
                 cartForm.BringToFront();    // 이미 열려있으면 앞으로
             }
         }
+    
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Timer.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime == 0)
+            {
+                inactivityTimer.Stop();
+
+                listBox1.Items.Clear(); // 저장된 카트 정보 초기화
+
+                previousForm2.Show(); // ShopPacking 폼을 직접 표시
+
+                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
+                    "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close(); // OrderUI 닫기
+            }
+        }
+        public void StartInactivityTimer()
+        {
+            inactivityTimer = new System.Windows.Forms.Timer();
+            inactivityTimer.Interval = 1000; // 1초마다
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            inactivityTimer.Start();
+
+
+            this.MouseMove += ResetInactivityTimer;
+            this.MouseClick += ResetInactivityTimer;
+        }
+        public void OrderUI_Activated(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Timer.Text = $"남은 시간: {remainingTime}초";
+            MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
+                   "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            this.Close(); // OrderUI닫기
+        }
+
+              
+
+        private void OrderUI_Activated(object sender, EventArgs e)
+        {
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
+
     }
+
 }
-        //private void InactivityTimer_Tick(object sender, EventArgs e)
-        //{
-        //    remainingTime--;
-        //    // 타이머 남은 시간 라벨이 있다면 업데이트
-        //    Timer.Text = $"남은 시간: {remainingTime}초";
-
-        //    if (remainingTime == 0)
-        //    {
-        //        inactivityTimer.Stop();
-
-        //        listBox1.Items.Clear(); // 저장된 카트 정보 초기화
-
-        //        previousForm2.Show(); // ShopPacking 폼을 직접 표시
-
-        //        MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
-        //            "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        this.Close(); // OrderUI 닫기
-        //    }
-        //}
-        //public void StartInactivityTimer()
-        //{
-        //    inactivityTimer = new System.Windows.Forms.Timer();
-        //    inactivityTimer.Interval = 1000; // 1초마다
-        //    inactivityTimer.Tick += InactivityTimer_Tick;
-        //    inactivityTimer.Start();
-
-
-        //    this.MouseMove += ResetInactivityTimer;
-        //    this.MouseClick += ResetInactivityTimer;
-        //}
-        //public void OrderUI_Activated(object sender, EventArgs e)
-        //{
-        //    remainingTime = 10;
-        //    StartInactivityTimer(); // 타이머 다시 시작
-        //}
-        //private void ResetInactivityTimer(object sender, EventArgs e)
-        //{
-        //    remainingTime = 10;
-        //    Timer.Text = $"남은 시간: {remainingTime}초";
-        //}
-
-               // MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
-               //     "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//                this.Close(); // OrderUI닫기
-//            }
-//        }
-
-//        private void OrderUI_Activated(object sender, EventArgs e)
-//        {
-//            StartInactivityTimer(); // 타이머 다시 시작
-//        }
-
-//    }
-
-//}
 
