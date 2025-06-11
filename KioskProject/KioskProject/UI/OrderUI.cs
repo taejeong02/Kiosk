@@ -17,7 +17,6 @@ namespace KioskProject
 {
     public partial class OrderUI : Form
     {
-
         Form previousForm;
         private List<string> allCategories = new List<string>();
         private ShopPacking previousForm2;

@@ -21,7 +21,7 @@ namespace KioskProject
         private PaymentUI paymentForm;
 
         private System.Windows.Forms.Timer inactivityTimer;
-        private int remainingTime = 10;
+        public int remainingTime = 10;
 
         public CartUI(OrderUI prevForm, List<string> items, ShopPacking shopPackingForm)
         {
@@ -215,6 +215,7 @@ namespace KioskProject
         private void ResetInactivityTimer(object sender, EventArgs e)
         {
             remainingTime = 10;
+            inactivityTimer.Start();
             Timer.Text = $"남은 시간: {remainingTime}초";
         }
     }
