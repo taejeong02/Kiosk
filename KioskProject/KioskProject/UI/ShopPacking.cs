@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class ShopPacking : MetroFramework.Forms.MetroForm
+    public partial class ShopPacking : Form
     {
         public ShopPacking()
         {

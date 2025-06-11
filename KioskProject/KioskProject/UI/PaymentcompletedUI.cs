@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KioskProject;
+using KioskProject.controll;
 
 namespace KioskProject
 {
@@ -17,12 +19,18 @@ namespace KioskProject
         private int _paymentAmount;
         private int _usePoint;
 
-        public PaymentcompletedUI(int savePoint, int paymentAmount, int usePoint)
+        private System.Windows.Forms.Timer inactivityTimer;
+        private int remainingTime = 10;
+        private PaymentUI previousCartForm;
+
+        public PaymentcompletedUI(int savePoint, int paymentAmount, int usePoint, PaymentUI payform)
         {
             InitializeComponent();
             _savePoint = savePoint;
             _paymentAmount = paymentAmount - usePoint;
             _usePoint = usePoint;
+            this.previousCartForm = payform;
+            StartInactivityTimer();
         }
         private void paymentButton_Click(object sender, EventArgs e)
         {
@@ -56,6 +64,40 @@ namespace KioskProject
         private void PaymentcompletedUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Count.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime <= 0)
+            {
+                inactivityTimer.Stop();
+                previousCartForm.remainingTime = 0;
+                TimerControl.CloseAllFormsExceptShopPacking();
+            }
+        }
+
+        private void StartInactivityTimer()
+        {
+            inactivityTimer = new System.Windows.Forms.Timer();
+            inactivityTimer.Interval = 1000; // 1초마다
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            inactivityTimer.Start();
+
+            this.MouseMove += ResetInactivityTimer;
+            this.MouseClick += ResetInactivityTimer;
+        }
+        public void CartUI_Activated(object sender, EventArgs e)
+        {
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Count.Text = $"남은 시간: {remainingTime}초";
         }
     }
 }

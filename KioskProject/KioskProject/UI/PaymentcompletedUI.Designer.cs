@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.paymentButton = new System.Windows.Forms.Button();
+            this.Count = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // paymentButton
@@ -42,12 +43,24 @@
             this.paymentButton.UseVisualStyleBackColor = true;
             this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
             // 
+            // Count
+            // 
+            this.Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Count.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Count.Location = new System.Drawing.Point(252, 14);
+            this.Count.Name = "Count";
+            this.Count.Size = new System.Drawing.Size(98, 26);
+            this.Count.TabIndex = 1;
+            this.Count.Text = "남은 시간: 10초";
+            this.Count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // PaymentcompletedUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 568);
             this.ControlBox = false;
+            this.Controls.Add(this.Count);
             this.Controls.Add(this.paymentButton);
             this.Name = "PaymentcompletedUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -59,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Button paymentButton;
+        private System.Windows.Forms.Label Count;
     }
 }

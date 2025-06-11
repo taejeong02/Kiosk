@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using KioskProject.controll;
 
 namespace KioskProject
 {
@@ -179,10 +179,6 @@ namespace KioskProject
 
             if (remainingTime <= 0)
             {
-                inactivityTimer.Stop();
-                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.", "타이머 만료",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 inactivityTimer.Stop();
                 StaticCartData.Clear(); // 저장된 카트 정보 초기화
 

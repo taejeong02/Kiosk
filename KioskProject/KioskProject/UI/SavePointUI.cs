@@ -21,14 +21,12 @@ namespace KioskProject
 
         private System.Windows.Forms.Timer inactivityTimer;
         private int remainingTime = 10;
-        private CartUI previousCartForm;
-        private PaymentUI previousCartForm2;
+        private PaymentUI previousCartForm;
 
-        public SavePointUI(int payment, PaymentUI payform, CartUI cartform)
+        public SavePointUI(int payment, PaymentUI payform)
         {
             InitializeComponent();
-            this.previousCartForm = cartform;
-            this.previousCartForm2 = payform;
+            this.previousCartForm = payform;
             PaymentAmount = payment;
             textBox1.Text = "010 - ";
             label3.Text = ((int)(PaymentAmount * 0.05)).ToString("N0") + "P";
@@ -102,7 +100,7 @@ namespace KioskProject
         private void EraseButton_Click(object sender, EventArgs e) { RemoveLastText(); }
         private void NotsaveButton_Click(object sender, EventArgs e) {
             inactivityTimer.Stop();
-            PaymentcompletedUI form3 = new PaymentcompletedUI(0, PaymentAmount, 0);
+            PaymentcompletedUI form3 = new PaymentcompletedUI(0, PaymentAmount, 0, previousCartForm);
             var result = form3.ShowDialog();
             form3.FormClosed += (s, args) => Application.Exit();
             this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
@@ -124,7 +122,7 @@ namespace KioskProject
             int point = UsingPoint.FindPoint(phone);
             UsingPoint.SetPayment(PaymentAmount);
 
-            UsePointUI form2 = new UsePointUI(point, PaymentAmount, phone);
+            UsePointUI form2 = new UsePointUI(point, PaymentAmount, phone, previousCartForm);
             var result = form2.ShowDialog();
             form2.FormClosed += (s, args) => Application.Exit();
             this.DialogResult = DialogResult.OK;
@@ -145,7 +143,7 @@ namespace KioskProject
             if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
-                previousCartForm2.remainingTime = 0;
+                previousCartForm.remainingTime = 0;
                 TimerControl.CloseAllFormsExceptShopPacking();
             }
         }

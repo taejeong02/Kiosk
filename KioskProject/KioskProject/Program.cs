@@ -1,4 +1,5 @@
 ﻿using KioskProject;
+using KioskProject.controll;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace KioskProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShopPacking());
+            var shopPackingForm = new ShopPacking();
+            TimerControl.ShopPackingInstance = shopPackingForm;  // ShopPacking 인스턴스 저장
+            Application.Run(shopPackingForm);
         }
     }
 }

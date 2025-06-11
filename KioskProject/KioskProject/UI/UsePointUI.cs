@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using KioskProject;
+using KioskProject.controll;
 
 namespace KioskProject
 {
@@ -19,10 +21,15 @@ namespace KioskProject
         private static int _UsePoint;
         private static string phonenumber;
 
+
+        private System.Windows.Forms.Timer inactivityTimer;
+        private int remainingTime = 10;
+        private PaymentUI previousCartForm;
         public static UsePointUI Instance;
-        public UsePointUI(int Point, int paymentAmount, string number)
+        public UsePointUI(int Point, int paymentAmount, string number, PaymentUI payform)
         {
             InitializeComponent();
+            this.previousCartForm = payform;
             Instance = this;
 
             _paymentAmount = paymentAmount;
@@ -33,6 +40,7 @@ namespace KioskProject
 
             label3.Text = $"{_paymentAmount:N0}원";
             label5.Text = $"{_Point:N0}P";
+            StartInactivityTimer();
         }
 
         private void AddDigit(string digit)
@@ -91,8 +99,9 @@ namespace KioskProject
 
         private void Closebutton_Click(object sender, EventArgs e)
         {
+            inactivityTimer.Stop();
             _UsePoint = 0;
-            PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint);
+            PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint, previousCartForm);
             var result = form3.ShowDialog();
             form3.FormClosed += (s, args) => Application.Exit();
             this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
@@ -100,7 +109,7 @@ namespace KioskProject
         }
         private void usePointbutton_Click(object sender, EventArgs e)
         {
-
+            inactivityTimer.Stop();
             if (int.TryParse(textBox1.Text.Replace(",", "").Trim(), out int used))
             {
                 int remainingPayment = _paymentAmount - used;
@@ -113,7 +122,7 @@ namespace KioskProject
                 );
                 _UsePoint = used;
                 UsingPoint.SetUsePoint(used);
-                PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint);
+                PaymentcompletedUI form3 = new PaymentcompletedUI(_savePoint, _paymentAmount, _UsePoint, previousCartForm);
                 var result = form3.ShowDialog();
                 form3.FormClosed += (s, args) => Application.Exit();
                 this.DialogResult = DialogResult.OK; // PaymentUI로 OK 반환
@@ -137,6 +146,40 @@ namespace KioskProject
         private void UsePointUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Count.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime <= 0)
+            {
+                inactivityTimer.Stop();
+                previousCartForm.remainingTime = 0;
+                TimerControl.CloseAllFormsExceptShopPacking();
+            }
+        }
+
+        private void StartInactivityTimer()
+        {
+            inactivityTimer = new System.Windows.Forms.Timer();
+            inactivityTimer.Interval = 1000; // 1초마다
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            inactivityTimer.Start();
+
+            this.MouseMove += ResetInactivityTimer;
+            this.MouseClick += ResetInactivityTimer;
+        }
+        public void CartUI_Activated(object sender, EventArgs e)
+        {
+            StartInactivityTimer(); // 타이머 다시 시작
+        }
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Count.Text = $"남은 시간: {remainingTime}초";
         }
     }
 }

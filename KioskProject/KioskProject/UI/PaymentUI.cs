@@ -123,7 +123,7 @@ namespace KioskProject
             btnPay.Click += (sender, e) =>
             {
                 inactivityTimer.Stop();
-                SavePointUI form1 = new SavePointUI(amount, this, previousCartForm);
+                SavePointUI form1 = new SavePointUI(amount, this);
                 var result = form1.ShowDialog();
 
                 if (remainingTime <= 0)
