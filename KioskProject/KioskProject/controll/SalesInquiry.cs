@@ -38,5 +38,22 @@ namespace KioskProject
 
             return (total, year, month, day);
         }
+
+        public static bool TryCalculateSales(out (int total, int year, int month, int day) sales)
+        {
+            sales = (0, 0, 0, 0);
+
+            try
+            {
+                List<OrderInfo> orders = OrderInfo.GetAllOrders();
+                sales = CalculateSales(orders);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Error] 매출 조회 실패: {ex.Message}");
+                return false;
+            }
+        }
     }
 }
