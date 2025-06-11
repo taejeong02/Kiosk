@@ -186,7 +186,7 @@ namespace KioskProject
             }
         }
 
-        private void InactivityTimer_Tick(object sender, EventArgs e)
+        public void InactivityTimer_Tick(object sender, EventArgs e)
         {
             remainingTime--;
             // 타이머 남은 시간 라벨이 있다면 업데이트
