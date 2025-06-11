@@ -21,7 +21,7 @@ namespace KioskProject
         private PaymentUI paymentForm;
 
         private System.Windows.Forms.Timer inactivityTimer;
-        private int remainingTime = 10;
+        public int remainingTime = 10;
 
         public CartUI(OrderUI prevForm, List<string> items, ShopPacking shopPackingForm)
         {
@@ -149,6 +149,7 @@ namespace KioskProject
 
                 // 결제 완료 후 카트 데이터를 비우고, ShopPacking으로 돌아가도록 처리
                 StaticCartData.Clear();
+                this.Hide();
             }
             else
             {
@@ -159,7 +160,7 @@ namespace KioskProject
 
         private void CartUI_Load(object sender, EventArgs e)
         {
-
+            remainingTime = 10;
         }
 
         public static class StaticCartData
@@ -214,6 +215,7 @@ namespace KioskProject
         private void ResetInactivityTimer(object sender, EventArgs e)
         {
             remainingTime = 10;
+            inactivityTimer.Start();
             Timer.Text = $"남은 시간: {remainingTime}초";
         }
     }
