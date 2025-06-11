@@ -67,9 +67,9 @@ namespace KioskProject
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
         }
 
-       
         private void btnBack_Click(object sender, EventArgs e)
         {
             previousForm.Show();
