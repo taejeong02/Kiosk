@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KioskProject;
 using KioskProject.controll;
+using MySqlX.XDevAPI.Common;
 
 namespace KioskProject
 {
@@ -22,6 +23,7 @@ namespace KioskProject
         private System.Windows.Forms.Timer inactivityTimer;
         private int remainingTime = 10;
         private PaymentUI previousCartForm;
+        private DialogResult result;
 
         public PaymentcompletedUI(int savePoint, int paymentAmount, int usePoint, PaymentUI payform)
         {
@@ -35,6 +37,7 @@ namespace KioskProject
         private void paymentButton_Click(object sender, EventArgs e)
         {
             inactivityTimer.Stop();
+
             if (_savePoint != 0)
             {
                 _updatedPoint = UsingPoint.UsePoint();
@@ -62,10 +65,7 @@ namespace KioskProject
             this.Close();
         }
 
-        private void PaymentcompletedUI_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void InactivityTimer_Tick(object sender, EventArgs e)
         {
@@ -79,7 +79,9 @@ namespace KioskProject
                 previousCartForm.remainingTime = 0;
                 TimerControl.CloseAllFormsExceptShopPacking();
             }
+
         }
+          
 
         private void StartInactivityTimer()
         {

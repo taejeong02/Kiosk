@@ -138,7 +138,7 @@ namespace KioskProject
             if (adminForm != null && adminForm.IsCashPaymentApproved())
             {
                 // 결제 승인 처리
-                MessageBox.Show("결제가완료되었습니다.", "결제 승인", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("결제가 완료되었습니다.", "결제 승인", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // 총 결제 금액 계산
                 int totalPrice = _total;
