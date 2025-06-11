@@ -134,7 +134,7 @@
             this.Name = "OrderUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderUI";
-            this.Activated += new System.EventHandler(this.OrderUI_Activated);
+            //this.Activated += new System.EventHandler(this.OrderUI_Activated);
             this.Load += new System.EventHandler(this.OrderUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -93,6 +93,7 @@ namespace KioskProject
 
         private void backbtn_Click(object sender, EventArgs e)
         {
+            //previousForm.OrderUI_Activated(sender, e);
             inactivityTimer.Stop();
             cartLines = cartControl.GetCartItems(dataGridView1); // 최신 내용으로 갱신
             previousForm.RestoreCartFromData(cartLines);         // 복원 전달
@@ -104,7 +105,6 @@ namespace KioskProject
         {
             inactivityTimer.Stop();
             int totalPrice = _total;
-            remainingTime = 0;
             // 폼이 null이거나 이미 dispose된 경우에만 새로 생성
             if (paymentForm == null || paymentForm.IsDisposed)
             {
@@ -180,6 +180,7 @@ namespace KioskProject
             if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
+                remainingTime--;
                 StaticCartData.Clear(); // 저장된 카트 정보 초기화
 
                 // 이전 OrderUI 폼 닫기

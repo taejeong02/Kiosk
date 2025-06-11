@@ -31,7 +31,7 @@ namespace KioskProject
         public PaymentUI(int totalAmount, CartUI cartForm, ShopPacking shopPackingForm)
         {
             InitializeComponent();
-
+            StartInactivityTimer();
             this.totalAmount = totalAmount;
             this.previousCartForm = cartForm;
             this.Plus_btn.Click += new System.EventHandler(this.Plus_btn_Click);
@@ -43,7 +43,6 @@ namespace KioskProject
             PerPersonAmount.Text = $"{totalAmount}원"; // 총 금액 그대로 표시
             labelCount.Text = $"{numberOfPeople}명";
             UpdatePersonPanels();
-            StartInactivityTimer();
         }
 
         private void Minus_btn_Click(object sender, EventArgs e) // 총인원수 감소 버튼
@@ -128,6 +127,7 @@ namespace KioskProject
                 inactivityTimer.Stop();
                 SavePointUI form1 = new SavePointUI(amount, this);
                 var result = form1.ShowDialog();
+                PaymentUI_Activated(sender, e);
 
                 if (remainingTime <= 0)
                 {
@@ -158,8 +158,9 @@ namespace KioskProject
                         OrderInfo.SaveToDatabase();
                         OrderDetails orderDetails = new OrderDetails(previousCartForm.GetCartItems(), totalAmount);
                         orderDetails.Show();
-                        this.Hide();
+                        this.Close();
                     }
+                    inactivityTimer.Stop();
                 }
             };
 
