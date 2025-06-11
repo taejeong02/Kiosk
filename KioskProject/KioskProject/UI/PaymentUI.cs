@@ -195,6 +195,7 @@ namespace KioskProject
             if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
+                previousCartForm.remainingTime = 0;
                 previousCartForm.InactivityTimer_Tick(sender, e);
                 this.Close();
             }

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KioskProject;
-using KioskProject.controll;
 
 namespace KioskProject
 {
