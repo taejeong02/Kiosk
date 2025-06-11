@@ -35,6 +35,7 @@
             this.count = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Timer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -49,7 +50,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(379, 603);
+            this.btnBack.Location = new System.Drawing.Point(400, 616);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(141, 48);
             this.btnBack.TabIndex = 7;
@@ -71,7 +72,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(357, 567);
+            this.label1.Location = new System.Drawing.Point(383, 580);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 24);
             this.label1.TabIndex = 11;
@@ -81,7 +82,7 @@
             // 
             this.count.AutoSize = true;
             this.count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.count.Location = new System.Drawing.Point(463, 567);
+            this.count.Location = new System.Drawing.Point(489, 580);
             this.count.Name = "count";
             this.count.Size = new System.Drawing.Size(62, 24);
             this.count.TabIndex = 12;
@@ -89,7 +90,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(380, 683);
+            this.button1.Location = new System.Drawing.Point(400, 683);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 139);
             this.button1.TabIndex = 13;
@@ -106,11 +107,21 @@
             this.flowLayoutPanel2.TabIndex = 14;
             this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCategory);
             // 
+            // Timer
+            // 
+            this.Timer.AutoSize = true;
+            this.Timer.Location = new System.Drawing.Point(414, 544);
+            this.Timer.Name = "Timer";
+            this.Timer.Size = new System.Drawing.Size(89, 12);
+            this.Timer.TabIndex = 15;
+            this.Timer.Text = "남은 시간: 10초";
+            // 
             // OrderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 861);
+            this.Controls.Add(this.Timer);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.count);
@@ -121,6 +132,7 @@
             this.Name = "OrderUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderUI";
+            this.Activated += new System.EventHandler(this.OrderUI_Activated);
             this.Load += new System.EventHandler(this.OrderUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,6 +148,7 @@
         private System.Windows.Forms.Label count;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label Timer;
     }
 }
 
