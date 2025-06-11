@@ -33,6 +33,7 @@ namespace KioskProject
             InitializeComponent();
             this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
             this.previousForm2 = shopPackingForm;
+            this.FormClosed += OrderUI_FormClosed;
         }
         //StartInactivityTimer(); 삭제함 아직 폼이 완전 로딩되지 않은 상태에서 로드 되기 때문에 타이머 컨트롤 작동 X
 
@@ -163,6 +164,12 @@ namespace KioskProject
         // 이 함수는 오로지 타이머 초기 시간만 설정하게 하고 이벤트 등록은 load이벤트에서 따로 관리하도록 했음
         public void StartInactivityTimer()
         {
+            //타이머 시작 시 중복 방지 코드
+            if (inactivityTimer != null)
+            {
+                inactivityTimer.Stop();
+                inactivityTimer.Dispose();
+            }
             inactivityTimer = new System.Windows.Forms.Timer();
             inactivityTimer.Interval = 1000; // 1초마다
             inactivityTimer.Tick += InactivityTimer_Tick;
@@ -172,14 +179,32 @@ namespace KioskProject
         }
         public void OrderUI_Activated(object sender, EventArgs e)
         {
-            remainingTime = 10;
-            Timer.Text = $"남은 시간: {remainingTime}초"; //다른창에서 왔을때 그냥 값만 다시 초기화 시켜서 실행하게 설정함
-            //StartInactivityTimer(); 이게 있었는데 아까 위에서도 불러오고 여기서도 불러와서 시간이 빠르게 내려간 것 같음
+            // 타이머 중복 방지 코드
+            if (inactivityTimer != null)
+            {
+                inactivityTimer.Stop();
+                inactivityTimer.Dispose();
+                inactivityTimer = null;
+            }
+
+            // 타이머 재시작
+            StartInactivityTimer();
         }
+
         public void ResetInactivityTimer(object sender, EventArgs e)
         {
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초"; //사용자가 반응하면 다시 시작
+        }
+        //폼 종료 후 타이머 자꾸 돌아가서 정리하는 함수
+        private void OrderUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (inactivityTimer != null)
+            {
+                inactivityTimer.Stop();
+                inactivityTimer.Dispose();
+                inactivityTimer = null;
+            }
         }
 
     }
