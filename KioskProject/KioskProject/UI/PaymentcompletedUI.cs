@@ -77,7 +77,7 @@ namespace KioskProject
             {
                 inactivityTimer.Stop();
                 previousCartForm.remainingTime = 0;
-                TimerControl.CloseAllFormsExceptShopPacking();
+                previousCartForm.InactivityTimer_Tick(sender, e);
             }
         }
 
