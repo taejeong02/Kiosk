@@ -132,6 +132,8 @@ namespace KioskProject
                 cartForm.BringToFront();    // 이미 열려있으면 앞으로
             }
         }
+    }
+}
         //private void InactivityTimer_Tick(object sender, EventArgs e)
         //{
         //    remainingTime--;
@@ -158,7 +160,7 @@ namespace KioskProject
         //    inactivityTimer.Tick += InactivityTimer_Tick;
         //    inactivityTimer.Start();
 
-<<<<<<< HEAD
+
         //    this.MouseMove += ResetInactivityTimer;
         //    this.MouseClick += ResetInactivityTimer;
         //}
@@ -172,19 +174,19 @@ namespace KioskProject
         //    remainingTime = 10;
         //    Timer.Text = $"남은 시간: {remainingTime}초";
         //}
-=======
+
                // MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
                //     "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close(); // OrderUI닫기
-            }
-        }
+//                this.Close(); // OrderUI닫기
+//            }
+//        }
 
-        private void OrderUI_Activated(object sender, EventArgs e)
-        {
-            StartInactivityTimer(); // 타이머 다시 시작
-        }
->>>>>>> dcd0ac960ed3ca83ca34998515093744d95ecd78
-    }
+//        private void OrderUI_Activated(object sender, EventArgs e)
+//        {
+//            StartInactivityTimer(); // 타이머 다시 시작
+//        }
 
-}
+//    }
+
+//}
 
