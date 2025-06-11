@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using KioskProject;
+using KioskProject.controll;
+
 namespace KioskProject
 {
     public partial class UsePointUI : Form
@@ -156,7 +158,7 @@ namespace KioskProject
             {
                 inactivityTimer.Stop();
                 previousCartForm.remainingTime = 0;
-                previousCartForm.InactivityTimer_Tick(sender, e);
+                TimerControl.CloseAllFormsExceptShopPacking();
             }
         }
 

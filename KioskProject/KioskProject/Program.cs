@@ -19,6 +19,7 @@ namespace KioskProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var shopPackingForm = new ShopPacking();
+            TimerControl.ShopPackingInstance = shopPackingForm;  // ShopPacking 인스턴스 저장
             Application.Run(shopPackingForm);
         }
     }
