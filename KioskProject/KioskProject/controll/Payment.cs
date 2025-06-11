@@ -16,17 +16,12 @@ namespace KioskProject
             numberOfPeople = 0;
         }
 
-        public void CancelPayment(int orderId)
+        public void CancelPayment(int orderId) //결제 취소 로직
         {
             Console.WriteLine($"주문 번호 {orderId}의 결제가 취소되었습니다.");
         }
 
-        public void RefundPayment(int orderId)
-        {
-            Console.WriteLine($"주문 번호 {orderId}에 대해 환불이 처리되었습니다.");
-        }
-
-        public bool Pay(int amount)
+        public bool Pay(int amount) //결제 로직
         {
             totalAmount += amount;
             numberOfPeople++;
@@ -34,7 +29,7 @@ namespace KioskProject
             return true;
         }
 
-        // 결제 완료 시 주문 저장
+        // 결제 완료 시 orderInfo 로 데이터 저장 로직
         public int SaveOrderInfo(string orderData)
         {
             OrderInfo order = new OrderInfo
