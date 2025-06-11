@@ -38,6 +38,11 @@ namespace KioskProject.controll
             // 타이머 만료 메시지 표시
             MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
                             "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            if (ShopPackingInstance != null && !ShopPackingInstance.IsDisposed)
+            {
+                ShopPackingInstance.Show();
+            }
         }
     }
 }
