@@ -24,7 +24,7 @@ namespace KioskProject
         }
 
         // 해당 카테고리 메뉴를 패널에 뿌려주기
-        public static void LoadMenuByCategory(string categoryName, FlowLayoutPanel panel, Action<Entity.MenuDataItem, MenuOptionData> onAddToOrder)
+        public static void LoadMenuByCategory(string categoryName, FlowLayoutPanel panel, Action<Entity.MenuDataItem, MenuOptionData> onAddToOrder, OrderUI orderUI)
         {
             panel.Controls.Clear();
 
@@ -84,6 +84,7 @@ namespace KioskProject
 
                 EventHandler clickHandler = (s, e) =>
                 {
+                    orderUI.ResetInactivityTimer(s, e); //타이머 초기화 호출
                     MenuOption optionForm = new MenuOption(item); // MenuItem 객체 그대로 넘김
                     if (optionForm.ShowDialog() == DialogResult.OK)
                     {

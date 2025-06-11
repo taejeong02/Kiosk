@@ -26,15 +26,15 @@ namespace KioskProject
         private const int itemsPerPage = 7;
         private CartUI cartForm;
 
-        //private System.Windows.Forms.Timer inactivityTimer;
-        //public int remainingTime = 10;
+        private System.Windows.Forms.Timer inactivityTimer;
+        public int remainingTime = 10;
         public OrderUI(Form prevForm, ShopPacking shopPackingForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
             InitializeComponent();
             this.previousForm = prevForm; // Select_LanguageUI의 정보를 previousForm에 저장
             this.previousForm2 = shopPackingForm;
-            //StartInactivityTimer();
         }
+        //StartInactivityTimer(); 삭제함 아직 폼이 완전 로딩되지 않은 상태에서 로드 되기 때문에 타이머 컨트롤 작동 X
 
 
         //폼 첫 로드 시 호출, 카운트 초기화, 카테고리 버튼 생성
@@ -43,10 +43,13 @@ namespace KioskProject
         {
             allCategories = KioskProject.entity.MenuDataItem.GetAllCategories();
             ShowCategoryPage();
+
+            //타이머 시작, 사용자 이벤트 감지(새로 추가함)
+            StartInactivityTimer(); // 폼 완전 로드시 시작되도록 위치 수정
+            this.MouseMove += ResetInactivityTimer;  //이벤트 등록은 여기에 있어야 한 번만 수행됨(아래에 있으면 시간 초기화 될때마다 이벤트 등록됨)
+            this.MouseClick += ResetInactivityTimer;
+
         }
-
-
-        //자동 증가 카테고리 버튼
 
         //현재 페이지 카테고리 버튼 생성
         private void ShowCategoryPage()
@@ -59,7 +62,9 @@ namespace KioskProject
                 selectedCategory => Category.LoadMenuByCategory(selectedCategory, flowLayoutPanel1, (item, option) =>
                 {
                     Category.AddToOrder(item, option, listBox1, count);
-                }),
+                },
+                this), //orderui 자신을 전달함
+                
                 () => { currentPage--; ShowCategoryPage(); },
                 () => { currentPage++; ShowCategoryPage(); }
             );
@@ -75,7 +80,7 @@ namespace KioskProject
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //inactivityTimer.Stop();
+            inactivityTimer.Stop();
             previousForm.Show();
             this.Hide();
 
@@ -105,7 +110,7 @@ namespace KioskProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //inactivityTimer.Stop();
+            inactivityTimer.Stop();
             List<string> cartLines = new List<string>();
             foreach (var obj in listBox1.Items)
             {
@@ -132,61 +137,52 @@ namespace KioskProject
                 cartForm.BringToFront();    // 이미 열려있으면 앞으로
             }
         }
+    
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            // 타이머 남은 시간 라벨이 있다면 업데이트
+            Timer.Text = $"남은 시간: {remainingTime}초";
+
+            if (remainingTime == 0)
+            {
+                inactivityTimer.Stop();
+
+                listBox1.Items.Clear(); // 저장된 카트 정보 초기화
+
+                previousForm2.Show(); // ShopPacking 폼을 직접 표시
+
+                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
+                    "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close(); // OrderUI 닫기
+
+                //이 위치에서는 Timer 이벤트가 중복 등록되고 1초에 여러 번 호출되면서 시간이 더 빠르게 줄어드는 문제가 생김 그래서 1번만 실행되도록 위치를 옮겼음
+            }
+        }
+        // 이 함수는 오로지 타이머 초기 시간만 설정하게 하고 이벤트 등록은 load이벤트에서 따로 관리하도록 했음
+        public void StartInactivityTimer()
+        {
+            inactivityTimer = new System.Windows.Forms.Timer();
+            inactivityTimer.Interval = 1000; // 1초마다
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            remainingTime = 10;
+            Timer.Text = $"남은 시간: {remainingTime}초"; //타이머 시작 후 초기값
+            inactivityTimer.Start();
+        }
+        public void OrderUI_Activated(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Timer.Text = $"남은 시간: {remainingTime}초"; //다른창에서 왔을때 그냥 값만 다시 초기화 시켜서 실행하게 설정함
+            //StartInactivityTimer(); 이게 있었는데 아까 위에서도 불러오고 여기서도 불러와서 시간이 빠르게 내려간 것 같음
+        }
+        public void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            remainingTime = 10;
+            Timer.Text = $"남은 시간: {remainingTime}초"; //사용자가 반응하면 다시 시작
+        }
+
     }
+
 }
-        //private void InactivityTimer_Tick(object sender, EventArgs e)
-        //{
-        //    remainingTime--;
-        //    // 타이머 남은 시간 라벨이 있다면 업데이트
-        //    Timer.Text = $"남은 시간: {remainingTime}초";
-
-        //    if (remainingTime == 0)
-        //    {
-        //        inactivityTimer.Stop();
-
-        //        listBox1.Items.Clear(); // 저장된 카트 정보 초기화
-
-        //        previousForm2.Show(); // ShopPacking 폼을 직접 표시
-
-        //        MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
-        //            "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        this.Close(); // OrderUI 닫기
-        //    }
-        //}
-        //public void StartInactivityTimer()
-        //{
-        //    inactivityTimer = new System.Windows.Forms.Timer();
-        //    inactivityTimer.Interval = 1000; // 1초마다
-        //    inactivityTimer.Tick += InactivityTimer_Tick;
-        //    inactivityTimer.Start();
-
-
-        //    this.MouseMove += ResetInactivityTimer;
-        //    this.MouseClick += ResetInactivityTimer;
-        //}
-        //public void OrderUI_Activated(object sender, EventArgs e)
-        //{
-        //    remainingTime = 10;
-        //    StartInactivityTimer(); // 타이머 다시 시작
-        //}
-        //private void ResetInactivityTimer(object sender, EventArgs e)
-        //{
-        //    remainingTime = 10;
-        //    Timer.Text = $"남은 시간: {remainingTime}초";
-        //}
-
-               // MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
-               //     "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//                this.Close(); // OrderUI닫기
-//            }
-//        }
-
-//        private void OrderUI_Activated(object sender, EventArgs e)
-//        {
-//            StartInactivityTimer(); // 타이머 다시 시작
-//        }
-
-//    }
-
-//}
 
