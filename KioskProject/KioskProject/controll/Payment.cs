@@ -16,8 +16,8 @@ namespace KioskProject
             numberOfPeople = 0;
         }
 
-        public int GetTotalAmount() => totalAmount;
-        public int GetNumberOfPeople() => numberOfPeople;
+        //public int GetTotalAmount() => totalAmount;
+        //public int GetNumberOfPeople() => numberOfPeople;
 
         public void CancelPayment(int orderId)
         {
@@ -38,7 +38,7 @@ namespace KioskProject
         }
 
         // 결제 완료 시 주문 저장
-        public int SaveOrder(string orderData)
+        public int SaveOrderInfo(string orderData)
         {
             OrderInfo order = new OrderInfo
             {
