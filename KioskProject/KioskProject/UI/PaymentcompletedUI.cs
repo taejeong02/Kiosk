@@ -99,5 +99,10 @@ namespace KioskProject
             remainingTime = 10;
             Count.Text = $"남은 시간: {remainingTime}초";
         }
+
+        private void PaymentcompletedUI_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

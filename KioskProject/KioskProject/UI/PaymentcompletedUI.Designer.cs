@@ -35,9 +35,10 @@
             // paymentButton
             // 
             this.paymentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.paymentButton.Location = new System.Drawing.Point(83, 178);
+            this.paymentButton.Location = new System.Drawing.Point(119, 267);
+            this.paymentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.paymentButton.Name = "paymentButton";
-            this.paymentButton.Size = new System.Drawing.Size(210, 155);
+            this.paymentButton.Size = new System.Drawing.Size(300, 232);
             this.paymentButton.TabIndex = 0;
             this.paymentButton.Text = "카드삽입";
             this.paymentButton.UseVisualStyleBackColor = true;
@@ -47,24 +48,27 @@
             // 
             this.Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.Count.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Count.Location = new System.Drawing.Point(252, 14);
+            this.Count.Location = new System.Drawing.Point(360, 21);
+            this.Count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Count.Name = "Count";
-            this.Count.Size = new System.Drawing.Size(98, 26);
+            this.Count.Size = new System.Drawing.Size(140, 39);
             this.Count.TabIndex = 1;
             this.Count.Text = "남은 시간: 10초";
             this.Count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PaymentcompletedUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 568);
+            this.ClientSize = new System.Drawing.Size(531, 852);
             this.ControlBox = false;
             this.Controls.Add(this.Count);
             this.Controls.Add(this.paymentButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PaymentcompletedUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "payment";
+            this.Load += new System.EventHandler(this.PaymentcompletedUI_Load_1);
             this.ResumeLayout(false);
 
         }
