@@ -68,10 +68,8 @@ namespace KioskProject
             inactivityTimer.Stop();
             MessageBox.Show("결제가 취소되었습니다.");
             previousCartForm.Show(); // CartUI 다시 보여줌
-<<<<<<< HEAD
             this.Close();
-=======
->>>>>>> eccbda828a3a706e7c27741a6977d1276f5d86f6
+
             previousCartForm.CartUI_Activated(sender, e);
             previousCartForm.remainingTime = 10;
             this.Hide();
