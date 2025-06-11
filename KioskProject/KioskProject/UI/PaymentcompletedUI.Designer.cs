@@ -34,10 +34,9 @@
             // paymentButton
             // 
             this.paymentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.paymentButton.Location = new System.Drawing.Point(119, 267);
-            this.paymentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.paymentButton.Location = new System.Drawing.Point(83, 178);
             this.paymentButton.Name = "paymentButton";
-            this.paymentButton.Size = new System.Drawing.Size(300, 232);
+            this.paymentButton.Size = new System.Drawing.Size(210, 155);
             this.paymentButton.TabIndex = 0;
             this.paymentButton.Text = "카드삽입";
             this.paymentButton.UseVisualStyleBackColor = true;
@@ -45,16 +44,14 @@
             // 
             // PaymentcompletedUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 852);
+            this.ClientSize = new System.Drawing.Size(372, 568);
             this.ControlBox = false;
             this.Controls.Add(this.paymentButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PaymentcompletedUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "payment";
-            this.Load += new System.EventHandler(this.PaymentcompletedUI_Load);
             this.ResumeLayout(false);
 
         }

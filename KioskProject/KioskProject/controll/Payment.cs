@@ -16,9 +16,6 @@ namespace KioskProject
             numberOfPeople = 0;
         }
 
-        //public int GetTotalAmount() => totalAmount;
-        //public int GetNumberOfPeople() => numberOfPeople;
-
         public void CancelPayment(int orderId)
         {
             Console.WriteLine($"주문 번호 {orderId}의 결제가 취소되었습니다.");
