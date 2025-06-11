@@ -62,17 +62,14 @@ namespace KioskProject
         {
             if (autoTimer != null)
             {
-                autoTimer.Stop();
-                autoTimer.Tick -= AutoTimer_Tick;
-                autoTimer.Dispose();
-                autoTimer = null;
+                autoTimer.Stop();  // 타이머 멈추기
+                autoTimer.Tick -= AutoTimer_Tick;  // 이벤트 핸들러 제거
+                autoTimer = null;  // 타이머 객체를 null로 설정
             }
             ReceiptControl.ShowReceipt(orderId, shopPacking);
             this.Hide();
             shopPacking = new ShopPacking();
             shopPacking.Show();
-            
-
         }
     }
 }
