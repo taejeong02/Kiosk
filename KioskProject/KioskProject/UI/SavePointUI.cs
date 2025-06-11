@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using KioskProject;
+using KioskProject.controll;
 
 namespace KioskProject
 {
@@ -17,14 +18,17 @@ namespace KioskProject
         public static int PaymentAmount;
         public int point;
         public string phone;
-        private ShopPacking shopPacking;
-        private CartUI previousCartForm;
 
         private System.Windows.Forms.Timer inactivityTimer;
         private int remainingTime = 10;
-        public SavePointUI(int payment)
+        private CartUI previousCartForm;
+        private PaymentUI previousCartForm2;
+
+        public SavePointUI(int payment, PaymentUI payform, CartUI cartform)
         {
             InitializeComponent();
+            this.previousCartForm = cartform;
+            this.previousCartForm2 = payform;
             PaymentAmount = payment;
             textBox1.Text = "010 - ";
             label3.Text = ((int)(PaymentAmount * 0.05)).ToString("N0") + "P";
@@ -97,6 +101,7 @@ namespace KioskProject
         private void button0_Click(object sender, EventArgs e) { AddDigit("0"); }
         private void EraseButton_Click(object sender, EventArgs e) { RemoveLastText(); }
         private void NotsaveButton_Click(object sender, EventArgs e) {
+            inactivityTimer.Stop();
             PaymentcompletedUI form3 = new PaymentcompletedUI(0, PaymentAmount, 0);
             var result = form3.ShowDialog();
             form3.FormClosed += (s, args) => Application.Exit();
@@ -106,6 +111,7 @@ namespace KioskProject
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            inactivityTimer.Stop();
             phone = textBox1.Text.Trim();
             if (!IsValidPhoneNumber(phone))
             {
@@ -134,13 +140,13 @@ namespace KioskProject
         {
             remainingTime--;
             // 타이머 남은 시간 라벨이 있다면 업데이트
-            Timer.Text = $"남은 시간: {remainingTime}초";
+            Count.Text = $"남은 시간: {remainingTime}초";
 
-            if (remainingTime == 0)
+            if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
-                previousCartForm.InactivityTimer_Tick(sender, e);
-                this.Close();
+                previousCartForm2.remainingTime = 0;
+                TimerControl.CloseAllFormsExceptShopPacking();
             }
         }
 
@@ -161,7 +167,7 @@ namespace KioskProject
         private void ResetInactivityTimer(object sender, EventArgs e)
         {
             remainingTime = 10;
-            Timer.Text = $"남은 시간: {remainingTime}초";
+            Count.Text = $"남은 시간: {remainingTime}초";
         }
     }
 }

@@ -22,10 +22,9 @@ namespace KioskProject
         private bool[] isPaid; // 인원 수만큼 상태 저장
         private int totalAmount = 0;
         private int numberOfPeople = 1;
-        private ShopPacking previousForm2;
 
         private System.Windows.Forms.Timer inactivityTimer;
-        private int remainingTime = 10;
+        public int remainingTime = 10;
         private CartUI previousCartForm;
         OrderInfo OrderInfo = new OrderInfo();
 
@@ -124,30 +123,40 @@ namespace KioskProject
             btnPay.Click += (sender, e) =>
             {
                 inactivityTimer.Stop();
-                SavePointUI form1 = new SavePointUI(amount);
+                SavePointUI form1 = new SavePointUI(amount, this, previousCartForm);
                 var result = form1.ShowDialog();
 
-                if (isPaid[index - 1]) // 이미 결제함
+                if (remainingTime <= 0)
                 {
-                    MessageBox.Show($"{index}번 손님은 이미 결제하셨습니다.", "중복 결제", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    inactivityTimer.Stop();
+                    previousCartForm.InactivityTimer_Tick(sender, e);
+                    this.Close();
                 }
 
-                isPaid[index - 1] = true;
-                btnPay.Enabled = false;
-                btnPay.BackColor = Color.Gray;
-                btnPay.Text = "완료";
-
-                MessageBox.Show($"{index}번 손님 결제 완료!", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // 모두 결제 완료됐는지 확인
-                if (isPaid.All(x => x))
+                else
                 {
-                    MessageBox.Show("모든 결제가 완료되었습니다!", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    OrderInfo.SaveToDatabase();
-                    OrderDetails orderDetails = new OrderDetails(previousCartForm.GetCartItems(), totalAmount);
-                    orderDetails.Show();
-                    this.Close();
+                    if (isPaid[index - 1]) // 이미 결제함
+                    {
+                        MessageBox.Show($"{index}번 손님은 이미 결제하셨습니다.", "중복 결제", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    isPaid[index - 1] = true;
+                    btnPay.Enabled = false;
+                    btnPay.BackColor = Color.Gray;
+                    btnPay.Text = "완료";
+
+                    MessageBox.Show($"{index}번 손님 결제 완료!", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 모두 결제 완료됐는지 확인
+                    if (isPaid.All(x => x))
+                    {
+                        MessageBox.Show("모든 결제가 완료되었습니다!", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OrderInfo.SaveToDatabase();
+                        OrderDetails orderDetails = new OrderDetails(previousCartForm.GetCartItems(), totalAmount);
+                        orderDetails.Show();
+                        this.Hide();
+                    }
                 }
             };
 
@@ -180,7 +189,7 @@ namespace KioskProject
             // 타이머 남은 시간 라벨이 있다면 업데이트
             Timer.Text = $"남은 시간: {remainingTime}초";
 
-            if (remainingTime == 0)
+            if (remainingTime <= 0)
             {
                 inactivityTimer.Stop();
                 previousCartForm.InactivityTimer_Tick(sender, e);
@@ -205,6 +214,12 @@ namespace KioskProject
         {
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초";
+        }
+
+        public void SetRemainingTimeToZero()
+        {
+            remainingTime = 0;
+            Timer.Text = $"남은 시간: {remainingTime}초";  // 타이머 라벨 업데이트
         }
 
         private void Timer_Click(object sender, EventArgs e)

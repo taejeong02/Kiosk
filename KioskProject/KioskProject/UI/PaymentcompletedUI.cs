@@ -44,7 +44,7 @@ namespace KioskProject
             {
                 MessageBox.Show(
                     $"결제금액 {_paymentAmount:N0}원이 결제 되었습니다.\n",
-                    "결제 및 포인트 적립 완료",
+                    "결제 완료",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );

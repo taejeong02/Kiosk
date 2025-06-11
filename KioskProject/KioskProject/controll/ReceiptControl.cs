@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 public class ReceiptControl
 {
-    private ShopPacking previousForm2;
     public static void ShowReceipt(int orderId, ShopPacking shopPackingForm)
     {
         // DB에서 주문 정보 읽기
