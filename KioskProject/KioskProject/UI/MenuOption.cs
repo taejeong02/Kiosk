@@ -11,7 +11,7 @@ using KioskProject.entity;
 
 namespace KioskProject
 {
-    public partial class MenuOption : MetroFramework.Forms.MetroForm
+    public partial class MenuOption : Form
     {
         private MenuDataItem selectedItem;
         public MenuOptionData SelectedOption => controller.OptionData;

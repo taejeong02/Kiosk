@@ -15,7 +15,7 @@ using KioskProject;
 
 namespace KioskProject
 {
-    public partial class OrderUI : MetroFramework.Forms.MetroForm
+    public partial class OrderUI : Form
     {
 
         Form previousForm;

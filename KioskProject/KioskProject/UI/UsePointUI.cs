@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace KioskProject
 {
-    public partial class UsePointUI : MetroFramework.Forms.MetroForm
+    public partial class UsePointUI : Form
     {
         private int _paymentAmount;
         private int _Point;

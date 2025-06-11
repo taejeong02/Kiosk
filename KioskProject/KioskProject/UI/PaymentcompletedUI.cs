@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KioskProject
 {
-    public partial class PaymentcompletedUI : MetroFramework.Forms.MetroForm
+    public partial class PaymentcompletedUI : Form
     {
         private int _savePoint;
         private int _updatedPoint;
