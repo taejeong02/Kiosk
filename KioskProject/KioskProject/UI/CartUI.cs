@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KioskProject.controll;
 
 namespace KioskProject
 {
@@ -194,7 +193,8 @@ namespace KioskProject
                 {
                     previousForm2.Show(); // ShopPacking 폼을 직접 표시
                 }
-
+                MessageBox.Show("타이머 시간이 만료되었습니다. 메인 화면으로 돌아갑니다.",
+                            "타이머 만료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close(); // CartUI 닫기
             }
         }

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KioskProject;
-using KioskProject.controll;
 
 namespace KioskProject
 {
@@ -77,7 +76,7 @@ namespace KioskProject
             {
                 inactivityTimer.Stop();
                 previousCartForm.remainingTime = 0;
-                TimerControl.CloseAllFormsExceptShopPacking();
+                previousCartForm.InactivityTimer_Tick(sender, e);
             }
         }
 
