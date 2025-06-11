@@ -10,11 +10,12 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using KioskProject;
 using KioskProject.controll;
-
+using MetroFramework;
 namespace KioskProject
 {
-    public partial class SavePointUI : Form
+    public partial class SavePointUI : MetroFramework.Forms.MetroForm
     {
+
         public static int PaymentAmount;
         public int point;
         public string phone;
