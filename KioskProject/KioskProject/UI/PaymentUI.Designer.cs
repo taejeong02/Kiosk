@@ -45,7 +45,7 @@ namespace KioskProject
             // ChangePaymentMethod_btn
             // 
             this.ChangePaymentMethod_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangePaymentMethod_btn.Font = new System.Drawing.Font("맑은 고딕", 14F);
+            this.ChangePaymentMethod_btn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ChangePaymentMethod_btn.Location = new System.Drawing.Point(12, 804);
             this.ChangePaymentMethod_btn.Name = "ChangePaymentMethod_btn";
             this.ChangePaymentMethod_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -79,7 +79,7 @@ namespace KioskProject
             // CancelPaying_btn
             // 
             this.CancelPaying_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelPaying_btn.Font = new System.Drawing.Font("맑은 고딕", 14F);
+            this.CancelPaying_btn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.CancelPaying_btn.Location = new System.Drawing.Point(427, 804);
             this.CancelPaying_btn.Name = "CancelPaying_btn";
             this.CancelPaying_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -93,10 +93,10 @@ namespace KioskProject
             // 
             this.label3.AutoSize = true;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 14F);
+            this.label3.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(326, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 25);
+            this.label3.Size = new System.Drawing.Size(148, 23);
             this.label3.TabIndex = 34;
             this.label3.Text = "1인당 결제금액 :";
             // 
@@ -136,10 +136,10 @@ namespace KioskProject
             // 
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 14F);
-            this.label1.Location = new System.Drawing.Point(23, 24);
+            this.label1.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(9, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.Size = new System.Drawing.Size(136, 30);
             this.label1.TabIndex = 30;
             this.label1.Text = "총 인원 수 :";
             // 

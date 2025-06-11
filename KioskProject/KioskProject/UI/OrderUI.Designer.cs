@@ -49,6 +49,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnBack.Location = new System.Drawing.Point(379, 603);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(141, 48);
@@ -89,6 +90,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.Location = new System.Drawing.Point(380, 683);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 139);
