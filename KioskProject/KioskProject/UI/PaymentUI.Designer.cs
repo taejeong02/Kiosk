@@ -172,8 +172,8 @@ namespace KioskProject
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PaymentUI";
-            this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Text = "PaymentUI";
+            this.Load += new System.EventHandler(this.PaymentUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

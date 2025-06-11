@@ -39,7 +39,7 @@ namespace KioskProject
             StartInactivityTimer();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void PaymentUI_Load(object sender, EventArgs e)
         {
             PerPersonAmount.Text = $"{totalAmount}원"; // 총 금액 그대로 표시
             labelCount.Text = $"{numberOfPeople}명";
@@ -222,9 +222,5 @@ namespace KioskProject
             Timer.Text = $"남은 시간: {remainingTime}초";  // 타이머 라벨 업데이트
         }
 
-        private void Timer_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
