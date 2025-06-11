@@ -86,6 +86,7 @@
             this.MinimizeBox = false;
             this.Name = "ShopPacking";
             this.Padding = new System.Windows.Forms.Padding(20, 60, 20, 20);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.ShopPacking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
