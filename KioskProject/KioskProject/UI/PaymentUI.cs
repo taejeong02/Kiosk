@@ -215,7 +215,6 @@ namespace KioskProject
             remainingTime = 10;
             Timer.Text = $"남은 시간: {remainingTime}초";
         }
-
         public void SetRemainingTimeToZero()
         {
             remainingTime = 0;

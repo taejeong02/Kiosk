@@ -34,6 +34,7 @@ namespace KioskProject
         }
         private void paymentButton_Click(object sender, EventArgs e)
         {
+            inactivityTimer.Stop();
             if (_savePoint != 0)
             {
                 _updatedPoint = UsingPoint.UsePoint();
