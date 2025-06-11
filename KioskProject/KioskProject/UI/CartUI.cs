@@ -121,7 +121,7 @@ namespace KioskProject
                 paymentForm.BringToFront(); // 이미 떠 있으면 앞으로
             }
             remainingTime = 10;
-            this.Hide();
+            this.Close();
         }
         public List<string> GetCartItems()
         {
