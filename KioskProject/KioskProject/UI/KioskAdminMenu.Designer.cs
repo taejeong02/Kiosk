@@ -76,7 +76,7 @@ namespace KioskProject
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(436, 21);
+            this.label2.Location = new System.Drawing.Point(444, 24);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 20);
@@ -87,7 +87,7 @@ namespace KioskProject
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(451, 163);
+            this.label3.Location = new System.Drawing.Point(450, 168);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 20);
@@ -98,7 +98,7 @@ namespace KioskProject
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(455, 225);
+            this.label4.Location = new System.Drawing.Point(465, 224);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
@@ -129,7 +129,7 @@ namespace KioskProject
             // 
             // Search_txt
             // 
-            this.Search_txt.Location = new System.Drawing.Point(432, 47);
+            this.Search_txt.Location = new System.Drawing.Point(432, 51);
             this.Search_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Search_txt.Name = "Search_txt";
             this.Search_txt.Size = new System.Drawing.Size(114, 21);
@@ -145,7 +145,7 @@ namespace KioskProject
             // 
             // Name_txt
             // 
-            this.Name_txt.Location = new System.Drawing.Point(431, 246);
+            this.Name_txt.Location = new System.Drawing.Point(433, 246);
             this.Name_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Name_txt.Name = "Name_txt";
             this.Name_txt.Size = new System.Drawing.Size(113, 21);
@@ -161,7 +161,7 @@ namespace KioskProject
             // 
             // Category_txt
             // 
-            this.Category_txt.Location = new System.Drawing.Point(431, 372);
+            this.Category_txt.Location = new System.Drawing.Point(431, 369);
             this.Category_txt.Margin = new System.Windows.Forms.Padding(1);
             this.Category_txt.Name = "Category_txt";
             this.Category_txt.Size = new System.Drawing.Size(113, 21);
@@ -182,7 +182,7 @@ namespace KioskProject
             // Delmenu_btn
             // 
             this.Delmenu_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Delmenu_btn.Location = new System.Drawing.Point(428, 577);
+            this.Delmenu_btn.Location = new System.Drawing.Point(434, 577);
             this.Delmenu_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Delmenu_btn.Name = "Delmenu_btn";
             this.Delmenu_btn.Size = new System.Drawing.Size(112, 33);
@@ -194,7 +194,7 @@ namespace KioskProject
             // Modify_btn
             // 
             this.Modify_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Modify_btn.Location = new System.Drawing.Point(428, 675);
+            this.Modify_btn.Location = new System.Drawing.Point(435, 678);
             this.Modify_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Modify_btn.Name = "Modify_btn";
             this.Modify_btn.Size = new System.Drawing.Size(112, 33);
@@ -206,7 +206,7 @@ namespace KioskProject
             // Addmenu_btn
             // 
             this.Addmenu_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Addmenu_btn.Location = new System.Drawing.Point(428, 531);
+            this.Addmenu_btn.Location = new System.Drawing.Point(433, 532);
             this.Addmenu_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Addmenu_btn.Name = "Addmenu_btn";
             this.Addmenu_btn.Size = new System.Drawing.Size(112, 33);
@@ -218,7 +218,7 @@ namespace KioskProject
             // F5_btn
             // 
             this.F5_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.F5_btn.Location = new System.Drawing.Point(427, 624);
+            this.F5_btn.Location = new System.Drawing.Point(434, 627);
             this.F5_btn.Margin = new System.Windows.Forms.Padding(1);
             this.F5_btn.Name = "F5_btn";
             this.F5_btn.Size = new System.Drawing.Size(112, 33);
@@ -230,7 +230,7 @@ namespace KioskProject
             // Back_btn
             // 
             this.Back_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Back_btn.Location = new System.Drawing.Point(428, 777);
+            this.Back_btn.Location = new System.Drawing.Point(434, 777);
             this.Back_btn.Margin = new System.Windows.Forms.Padding(1);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(112, 33);
@@ -302,7 +302,7 @@ namespace KioskProject
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(428, 486);
+            this.button1.Location = new System.Drawing.Point(434, 486);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 33);
@@ -315,7 +315,7 @@ namespace KioskProject
             // 
             this.Spicy_checkbox.AutoSize = true;
             this.Spicy_checkbox.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Spicy_checkbox.Location = new System.Drawing.Point(440, 402);
+            this.Spicy_checkbox.Location = new System.Drawing.Point(438, 414);
             this.Spicy_checkbox.Margin = new System.Windows.Forms.Padding(2);
             this.Spicy_checkbox.Name = "Spicy_checkbox";
             this.Spicy_checkbox.Size = new System.Drawing.Size(93, 24);
@@ -327,7 +327,7 @@ namespace KioskProject
             // 
             this.Size_checkbox.AutoSize = true;
             this.Size_checkbox.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Size_checkbox.Location = new System.Drawing.Point(431, 444);
+            this.Size_checkbox.Location = new System.Drawing.Point(438, 444);
             this.Size_checkbox.Margin = new System.Windows.Forms.Padding(2);
             this.Size_checkbox.Name = "Size_checkbox";
             this.Size_checkbox.Size = new System.Drawing.Size(108, 24);
@@ -338,7 +338,7 @@ namespace KioskProject
             // totalprice_btn
             // 
             this.totalprice_btn.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.totalprice_btn.Location = new System.Drawing.Point(428, 728);
+            this.totalprice_btn.Location = new System.Drawing.Point(435, 728);
             this.totalprice_btn.Name = "totalprice_btn";
             this.totalprice_btn.Size = new System.Drawing.Size(111, 33);
             this.totalprice_btn.TabIndex = 23;
