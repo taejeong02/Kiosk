@@ -84,6 +84,7 @@ namespace KioskProject
 
                 EventHandler clickHandler = (s, e) =>
                 {
+
                     orderUI.ResetInactivityTimer(s, e); //타이머 초기화 호출
                     MenuOption optionForm = new MenuOption(item); // MenuItem 객체 그대로 넘김
                     if (optionForm.ShowDialog() == DialogResult.OK)

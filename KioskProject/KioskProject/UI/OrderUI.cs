@@ -27,7 +27,7 @@ namespace KioskProject
         private CartUI cartForm;
 
         private System.Windows.Forms.Timer inactivityTimer;
-        public int remainingTime = 10;
+        public int remainingTime = 30;
         public OrderUI(Form prevForm, ShopPacking shopPackingForm) // Select_LanguageUI의 정보를 넘겨받기 위해 인자를 설정해야함 => 이전 폼을 저장할 변수    
         {
             InitializeComponent();
@@ -174,7 +174,7 @@ namespace KioskProject
             inactivityTimer = new System.Windows.Forms.Timer();
             inactivityTimer.Interval = 1000; // 1초마다
             inactivityTimer.Tick += InactivityTimer_Tick;
-            remainingTime = 10;
+            remainingTime = 30;
             Timer.Text = $"남은 시간: {remainingTime}초"; //타이머 시작 후 초기값
             inactivityTimer.Start();
         }
@@ -194,7 +194,7 @@ namespace KioskProject
 
         public void ResetInactivityTimer(object sender, EventArgs e)
         {
-            remainingTime = 10;
+            remainingTime = 30;
             Timer.Text = $"남은 시간: {remainingTime}초"; //사용자가 반응하면 다시 시작
         }
         //폼 종료 후 타이머 자꾸 돌아가서 정리하는 함수

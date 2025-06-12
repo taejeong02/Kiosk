@@ -115,6 +115,7 @@ namespace KioskProject
             // Plus_btn
             // 
             this.Plus_btn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Plus_btn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Plus_btn.Location = new System.Drawing.Point(254, 15);
             this.Plus_btn.Name = "Plus_btn";
             this.Plus_btn.Size = new System.Drawing.Size(44, 34);
@@ -125,6 +126,7 @@ namespace KioskProject
             // Minus_btn
             // 
             this.Minus_btn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Minus_btn.Font = new System.Drawing.Font("나눔스퀘어_ac Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Minus_btn.Location = new System.Drawing.Point(151, 16);
             this.Minus_btn.Name = "Minus_btn";
             this.Minus_btn.Size = new System.Drawing.Size(44, 34);

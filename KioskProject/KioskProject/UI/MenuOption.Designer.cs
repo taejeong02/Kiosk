@@ -62,7 +62,7 @@
             // btnmius
             // 
             this.btnmius.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnmius.Location = new System.Drawing.Point(401, 95);
+            this.btnmius.Location = new System.Drawing.Point(285, 95);
             this.btnmius.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnmius.Name = "btnmius";
             this.btnmius.Size = new System.Drawing.Size(46, 39);
@@ -74,7 +74,7 @@
             // btnplus
             // 
             this.btnplus.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold);
-            this.btnplus.Location = new System.Drawing.Point(285, 95);
+            this.btnplus.Location = new System.Drawing.Point(402, 95);
             this.btnplus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnplus.Name = "btnplus";
             this.btnplus.Size = new System.Drawing.Size(46, 39);
