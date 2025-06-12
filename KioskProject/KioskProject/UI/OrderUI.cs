@@ -42,6 +42,7 @@ namespace KioskProject
 
         private void OrderUI_Load(object sender, EventArgs e)
         {
+            count.Text = "0";
             allCategories = KioskProject.entity.MenuDataItem.GetAllCategories();
             ShowCategoryPage();
 
