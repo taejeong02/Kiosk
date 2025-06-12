@@ -47,7 +47,7 @@ namespace KioskProject
         private void AdminLogin_Load(object sender, EventArgs e)
         {
             loginControl = new AdminLoginControl(this, logintimer_lbl);
-            loginControl.StartCountdown(60);
+            loginControl.StartCountdown(120);
         }
     }
 }
