@@ -25,10 +25,10 @@ namespace KioskProject
             public int IsSizeOptionEnabled { get; set; }
 
         }
-        private List<FoodItem> foodItems = new List<FoodItem>();
+        private List<FoodItem> foodItems = new List<FoodItem>(); 
         public KioskAdminMenu()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void KioskAdminMenu_Load(object sender, EventArgs e)
@@ -149,10 +149,10 @@ namespace KioskProject
             return true;
         }
 
-        private bool IsDuplicate(string name)
-        {
-            return foodItems.Exists(item => item.ProductName == name);
-        }
+        //private bool IsDuplicate(string name)
+        //{
+        //    return foodItems.Exists(item => item.ProductName == name);
+        //}
 
         private void ShowMessage(string msg)
         {
@@ -364,8 +364,11 @@ namespace KioskProject
             if (!ValidateInput(id, name, price, category))
                 return;
 
+            // AdminMenuAdd 인스턴스 생성
+            var menuAdder = new KioskProject.controll.AdminMenuAdd();
+
             //중복 검사
-            if (IsDuplicate(name))
+            if (menuAdder.IsDuplicate(foodItems, name))
             {
                 ShowMessage("이미 등록된 메뉴입니다.");
                 return;
@@ -383,8 +386,7 @@ namespace KioskProject
             };
             foodItems.Add(newItem);
             //DB 저장 로직 
-            KioskProject.entity.MenuDB db = new KioskProject.entity.MenuDB();
-            db.Insert(newItem);
+            menuAdder.AddMenu(newItem);
 
             //메뉴 추가 성공 메시지 출력
             ShowMessage("메뉴가 등록되었습니다.");
