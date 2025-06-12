@@ -43,10 +43,5 @@ namespace KioskProject
             this.Hide(); // 현재 폼 숨김
             orderui.Show();
         }
-
-        private void ShopPacking_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

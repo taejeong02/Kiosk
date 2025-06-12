@@ -82,7 +82,7 @@ namespace KioskProject.entity
             }
         }
     }
-    //OrderUI.cs랑 통신하는 부분임
+    //OrderUI.cs랑 통신하는 부분
     public class MenuDataItem
     {
         public string ProductID { get; set; }
